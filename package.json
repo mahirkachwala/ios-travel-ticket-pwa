@@ -1,0 +1,7 @@
+{
+  "name": "ios-travel-ticket-pwa",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": { "start": "node server.mjs", "check": "node --check dist/app.js && node --check dist/components.js && node --check dist/journey.js && node --check dist/screens.js && node --check dist/config.js && node --check dist/timer.js && node --check dist/sw.js" }
+}

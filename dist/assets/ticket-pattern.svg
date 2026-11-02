@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="44" height="80" viewBox="0 0 44 80">
+  <defs>
+    <pattern id="diamonds" width="44" height="80" patternUnits="userSpaceOnUse" patternTransform="translate(-5 30)">
+      <rect width="44" height="80" fill="#030503"/>
+      <path d="M22 0 44 40 22 80 0 40Z" fill="#0b0e0c"/>
+    </pattern>
+  </defs>
+  <rect width="44" height="80" fill="url(#diamonds)"/>
+</svg>

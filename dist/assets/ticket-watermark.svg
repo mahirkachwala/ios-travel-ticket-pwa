@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 160" role="img" aria-labelledby="title">
+  <title id="title">Replaceable neutral bus watermark</title>
+  <g fill="none" stroke="#adc9d4" opacity=".45">
+    <circle cx="80" cy="80" r="72" stroke-width="2"/>
+    <circle cx="80" cy="80" r="62" stroke-width="1"/>
+    <rect x="48" y="43" width="64" height="69" rx="12" stroke-width="4"/>
+    <path d="M55 64h50v28H55zM64 52h32M58 112v10m44-10v10M42 67v18m76-18v18" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+    <circle cx="60" cy="101" r="3" fill="#adc9d4"/>
+    <circle cx="100" cy="101" r="3" fill="#adc9d4"/>
+  </g>
+</svg>
