@@ -3,6 +3,7 @@
 export const BRAND = {
   name: 'YOUR TRAVELS',
   ticketName: 'INDIAN RAILWAYS',
+  ticketNameLocal: 'भारतीय रेल',
   nameLocal: 'आपकी यात्रा',
   shortName: 'TR',
   primary: '#005cf5',
