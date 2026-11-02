@@ -1,5 +1,5 @@
 /* Increment this version when deploying changed application assets. */
-const CACHE_NAME = 'travel-ticket-v13';
+const CACHE_NAME = 'travel-ticket-v14';
 const CACHE_PREFIX = 'travel-ticket-';
 const PRECACHE = [
   './',
@@ -31,9 +31,10 @@ const PRECACHE = [
   './assets/ticket-watermark.svg',
   './assets/ticket-pattern.svg',
   './assets/qr-ticket.svg',
-  './assets/app-icon-192.png',
-  './assets/app-icon-512.png',
-  './assets/apple-touch-icon.png',
+  './assets/app-icon-blue-train-192.png',
+  './assets/app-icon-blue-train-512.png',
+  './assets/apple-touch-icon-blue-train.png',
+  './assets/favicon-blue-train.png',
 ];
 const APP_SHELL = new URL('./index.html', self.location.href).href;
 const STATIC_URLS = new Set(PRECACHE.map(path => new URL(path, self.location.href).href));
