@@ -54,7 +54,8 @@ export function bookings(tickets,tab) {
 }
 
 export function tabBar(tab) {
-  return `<nav class="bottom-nav" aria-label="Booking status">${['upcoming','completed','cancelled','all'].map(t=>`<button class="${t===tab?'selected':''} ${t}" data-action="tab" data-tab="${t}" ${t===tab?'aria-current="page"':''}>${icon('ticket',20)}<span>${t[0].toUpperCase()+t.slice(1)}</span></button>`).join('')}</nav>`;
+  const ticketIcon = `<svg class="booking-tab-icon" width="24" height="20" viewBox="0 0 28 24" fill="none" aria-hidden="true"><path class="booking-tab-back" d="m5 8 15-5 2 5"/><path class="booking-tab-front" d="M3 9h22v4a3 3 0 0 0 0 6v3H3Z"/><path class="booking-tab-detail" d="M8 13h5m-5 5h8"/></svg>`;
+  return `<nav class="bottom-nav" aria-label="Booking status">${['upcoming','completed','cancelled','all'].map(t=>`<button class="${t===tab?'selected':''} ${t}" data-action="tab" data-tab="${t}" ${t===tab?'aria-current="page"':''}>${ticketIcon}<span>${t[0].toUpperCase()+t.slice(1)}</span></button>`).join('')}</nav>`;
 }
 
 export function expiredTicket(ticket) {

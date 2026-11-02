@@ -75,8 +75,15 @@
 .history-actions button{font-size:calc(16*var(--u));line-height:calc(22*var(--u));font-weight:600;color:#4265a0}.history-actions>span{height:calc(17*var(--u))}
 .history-actions:before,.history-actions:after{width:calc(25*var(--u));height:calc(25*var(--u));top:calc(-14*var(--u));background:var(--screen);border-color:#c3ad8c}
 .history-actions:before{left:calc(-14*var(--u))}.history-actions:after{right:calc(-14*var(--u))}
-.bottom-nav{height:calc(65*var(--u));padding:calc(6*var(--u)) calc(7*var(--u)) 0;border-radius:calc(16*var(--u)) calc(16*var(--u)) 0 0;background:#e6eee5}
-.bottom-nav button{font-size:calc(11*var(--u));gap:calc(3*var(--u));padding:calc(7*var(--u)) calc(1*var(--u));border-radius:calc(10*var(--u))}.bottom-nav button svg{width:calc(20*var(--u));height:calc(20*var(--u))}.bottom-nav .upcoming.selected{background:#efeaca}
+.bottom-nav{height:calc(79*var(--u));display:grid;grid-template-columns:repeat(4,minmax(0,1fr));align-items:start;padding:calc(13*var(--u)) 0 calc(2*var(--u));border:calc(1.5*var(--u)) solid #cfd9db;border-bottom:0;border-radius:calc(19*var(--u)) calc(19*var(--u)) 0 0;background:#e3f4fe}
+.bottom-nav button{width:calc(76*var(--u));max-width:100%;height:calc(62*var(--u));justify-self:center;justify-content:center;font-size:calc(13*var(--u));font-weight:400;line-height:calc(18*var(--u));gap:calc(2*var(--u));padding:0;border:1px solid transparent;border-radius:calc(11*var(--u));color:#81818b}
+.screen-bookings .bottom-nav button.selected{color:#111;background:#f6faf9;border-color:#fff}
+.bottom-nav button svg{width:calc(24*var(--u));height:calc(20*var(--u));fill:none;fill-opacity:1;stroke:#81818b;stroke-width:2;stroke-linecap:square;stroke-linejoin:miter}
+.bottom-nav button.selected svg{fill:none;fill-opacity:1}
+.booking-tab-back{fill:#dce1e5;stroke:#a6a7ae}.booking-tab-front{fill:#e3f4fe}.booking-tab-detail{stroke-width:1.7}
+.bottom-nav button.selected .booking-tab-front{fill:#0068ff;stroke:#101010}.bottom-nav button.selected .booking-tab-detail{stroke:#94dc9b}
+.bottom-nav button:focus-visible{outline:calc(2*var(--u)) solid #0068ff;outline-offset:calc(-2*var(--u))}
+.screen-bookings .app-homebar{background:#e3f4fe;border-inline:calc(1.5*var(--u)) solid #cfd9db}
 .expired-row{font-size:calc(12*var(--u));font-weight:400}.expired-info p{font-size:calc(13*var(--u));font-weight:400;line-height:calc(20*var(--u))}
 .journey-form h2{font-size:calc(20*var(--u));font-weight:500}.journey-form label{font-size:calc(11*var(--u));font-weight:400}.journey-form input,.journey-form select{font-size:calc(13*var(--u));font-weight:400}
 @media(max-width:780px){.app-header{padding-top:calc(6*var(--u) + env(safe-area-inset-top));height:calc(70*var(--u) + env(safe-area-inset-top));min-height:calc(70*var(--u) + env(safe-area-inset-top))}}
