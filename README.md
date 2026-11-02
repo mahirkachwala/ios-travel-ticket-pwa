@@ -1,6 +1,6 @@
 # iOS Travel Ticket PWA
 
-A modular mobile web prototype recreated from the supplied videos and photos. A fresh visit opens the **Unreserved E-Ticket** route page. The three-screen booking flow selects a route, searches stations and sets journey options before generating the live ticket preview. The in-product company name remains **YOUR TRAVELS** and can be replaced independently of this project name.
+A modular mobile web prototype recreated from the supplied videos and photos. A fresh visit opens the main **Home** page, and the installed PWA also starts on Home. Choose Unreserved in Journey Planner to enter the booking flow. The three-screen booking flow selects a route, searches stations and sets journey options before generating the live ticket preview. The in-product company name remains **YOUR TRAVELS** and can be replaced independently of this project name.
 
 This is a browser-local prototype: no travel operator, payment gateway, account server or ticket-validation service is connected. Running it locally does not publish it.
 

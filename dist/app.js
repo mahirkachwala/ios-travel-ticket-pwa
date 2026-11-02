@@ -8,9 +8,9 @@ const app=document.querySelector('#app');
 const studio=document.querySelector('#studio');
 const readStored=(key,fallback)=>{try{return JSON.parse(localStorage.getItem(key))??fallback;}catch{return fallback;}};
 const store=(key,value)=>{try{localStorage.setItem(key,JSON.stringify(value));}catch{/* The app also works with browser storage disabled. */}};
-const state={screen:'journey',tab:'completed',ticket:{...INITIAL_TICKET,...readStored('travel-ticket',{})},selected:HISTORY[0],brand:{...BRAND,...readStored('travel-brand',{})},previewEnd:0,previewVisible:true,rating:0,description:'',submitted:false,reverse:false,journeyMode:'new',installPrompt:null};
+const state={screen:'home',tab:'completed',ticket:{...INITIAL_TICKET,...readStored('travel-ticket',{})},selected:HISTORY[0],brand:{...BRAND,...readStored('travel-brand',{})},previewEnd:0,previewVisible:true,rating:0,description:'',submitted:false,reverse:false,journeyMode:'new',installPrompt:null};
 state.profile={name:'Atharv Kanase',mobile:COPY.mobile,balance:0,completion:50,biometric:true,hiddenServices:[],...readStored('travel-profile',{})};
-let previousScreen='journey';
+let previousScreen='home';
 let toastTimeout;
 const SCREENS=['home','profile','journey','station','journey-options','active','bookings','expired'];
 function beginJourney(seed=state.ticket,mode='new'){state.formTicket={...seed};state.journeyMode=mode;navigate('journey');}
@@ -177,7 +177,7 @@ app.addEventListener('keydown',event=>{const modal=app.querySelector('.modal-bac
 studio.addEventListener('click',event=>{const screen=event.target.closest('[data-screen]')?.dataset.screen;if(screen){state.formTicket=null;state.journeyMode='new';navigate(screen);return;}const action=event.target.closest('[data-studio-action]')?.dataset.studioAction;if(action==='install')installApp();if(action==='feedback'){navigate('active');document.querySelector('#feedback').scrollIntoView({behavior:'smooth'});}if(action==='reset'){state.ticket={...INITIAL_TICKET};state.brand={...BRAND};state.formTicket=null;state.journeyMode='new';state.rating=0;state.description='';state.submitted=false;state.tab='completed';store('travel-ticket',state.ticket);store('travel-brand',{});restartTimer();navigate('journey');toast('Preview reset');}});
 studio.addEventListener('change',event=>{if(event.target.id==='brand-name'){state.brand.name=event.target.value.trim()||BRAND.name;store('travel-brand',state.brand);render();}else if(event.target.id==='brand-color'){state.brand.primary=event.target.value;store('travel-brand',state.brand);applyBrand();}else if(event.target.id==='brand-logo'){const file=event.target.files?.[0];if(!file)return;if(file.size>2*1024*1024){toast('Choose a logo smaller than 2 MB.');return;}const reader=new FileReader();reader.onload=()=>{state.brand.logo=reader.result;store('travel-brand',state.brand);renderStudio();};reader.readAsDataURL(file);}});
 
-window.addEventListener('popstate',event=>{const screen=event.state?.screen||'journey';if(event.state?.tab)state.tab=event.state.tab;if(SCREENS.includes(screen))navigate(screen,{push:false});});
+window.addEventListener('popstate',event=>{const screen=event.state?.screen||'home';if(event.state?.tab)state.tab=event.state.tab;if(SCREENS.includes(screen))navigate(screen,{push:false});});
 window.addEventListener('beforeinstallprompt',event=>{event.preventDefault();state.installPrompt=event;});
 window.addEventListener('appinstalled',()=>toast('Your Travels is installed.'));
 let resume=null;try{resume=JSON.parse(sessionStorage.getItem('travel-update-state'));sessionStorage.removeItem('travel-update-state');}catch{}

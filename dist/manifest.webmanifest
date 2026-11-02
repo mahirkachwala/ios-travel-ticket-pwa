@@ -3,7 +3,7 @@
   "name": "iOS Travel Ticket PWA",
   "short_name": "iOS Travel",
   "description": "A browser-local travel ticket UI prototype with journey entry, live ticket preview, bookings, home and profile screens.",
-  "start_url": "./",
+  "start_url": "./#home",
   "scope": "./",
   "display": "standalone",
   "background_color": "#f8f6f0",
