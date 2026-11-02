@@ -111,3 +111,15 @@
 .journey-schedule input:focus-visible,.station-search-input:focus-within{outline:calc(2*var(--u)) solid #89baff;outline-offset:calc(2*var(--u))}
 .screen-journey .app-homebar,.screen-station .app-homebar,.screen-journey-options .app-homebar{background:white}
 @media(max-width:780px){.journey-header{padding-top:calc(10*var(--u) + env(safe-area-inset-top));height:calc(63*var(--u) + env(safe-area-inset-top));min-height:calc(63*var(--u) + env(safe-area-inset-top))}.journey-search-header{height:calc(76*var(--u) + env(safe-area-inset-top))}.journey-options-header{height:calc(69*var(--u) + env(safe-area-inset-top));padding-top:calc(15*var(--u) + env(safe-area-inset-top))}}
+
+/* Network controls use the same compact type scale as the reference. */
+.network-route{margin:0 0 calc(16*var(--u));padding:calc(10*var(--u));background:#f0f8fa;border-radius:calc(8*var(--u));display:grid;gap:calc(6*var(--u))}
+.network-route label{font-size:calc(11*var(--u));color:#153265;font-weight:600}
+.network-route select{width:100%;min-width:0;font:inherit;font-size:calc(11*var(--u));padding:calc(8*var(--u));border:1px solid #cbdfe9;border-radius:calc(5*var(--u));background:white;color:#26385b}
+.network-route button{justify-self:start;border:0;background:transparent;color:var(--journey-blue);font-size:calc(10*var(--u));padding:calc(2*var(--u)) 0}
+.network-note{font-size:calc(10*var(--u));line-height:1.6;color:#6a7181;margin:calc(7*var(--u)) 0 0}
+.journey-pill:disabled{opacity:.45;cursor:not-allowed}
+.journey-fare small{font-size:calc(9*var(--u));color:#646d7b}
+.journey-schedule-fields output{font-size:calc(11*var(--u));overflow-wrap:anywhere;color:#26385b;padding:calc(6*var(--u)) 0}
+.network-sources{padding-left:1.2em;font-size:calc(11*var(--u));line-height:1.6}.network-sources li{margin:calc(7*var(--u)) 0}.network-sources a{color:var(--primary)}
+.network-stops{font-size:calc(11*var(--u));line-height:1.7!important}.modal-sheet .receipt-list{font-size:calc(12*var(--u))}.modal-sheet{overflow-wrap:anywhere}

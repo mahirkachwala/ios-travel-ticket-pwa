@@ -1,23 +1,7 @@
 import {escapeHTML as e, icon, header} from './components.js';
 
-// Presentation only: the caller owns the draft, pricing and navigation.
-// Custom stations are supported; this small list reproduces the reference searches.
-export const STATIONS = [
-  {name:'GHANSOLI',code:'GNSL',region:'MAHARASHTRA'},
-  {name:'VASHI',code:'VSH',region:'MAHARASHTRA'},
-  {name:'BELAPUR C.B.D',code:'BEPR',region:'MAHARASHTRA'},
-  {name:'DADAR',code:'DDR',region:'MUMBAI, MAHARASHTRA'},
-  {name:'KHARGHAR',code:'KHAG',region:'MAHARASHTRA'},
-  {name:'MANKHURD',code:'MNKD',region:'MAHARASHTRA'},
-  {name:'SEAWOODS D K',code:'SWDK',region:'MAHARASHTRA'},
-  {name:'MANSAROVAR',code:'MANR',region:'MAHARASHTRA'},
-  {name:'CHEMBUR',code:'CMBR',region:'MAHARASHTRA'},
-  {name:'LOKMANYA TILAK TERMI',code:'LTT',region:'MUMBAI, MAHARASHTRA'},
-  {name:'TILAK NAGAR',code:'TKNG',region:'MUMBAI, MAHARASHTRA'},
-  {name:'THANE',code:'TNA',region:'MAHARASHTRA'},
-  {name:'PANVEL',code:'PNVL',region:'MAHARASHTRA'},
-  {name:'VASAI ROAD',code:'BSR',region:'MAHARASHTRA'},
-];
+import {STATIONS, findStation} from './mumbai-network.js';
+export {STATIONS};
 
 const RECENT_ROUTES = [
   {source:'VASHI',sourceCode:'VSH',destination:'GHANSOLI',destinationCode:'GNSL'},
@@ -41,7 +25,7 @@ function journeyIcon(name) {
 }
 
 export function stationCode(name, explicit='') {
-  return explicit || STATIONS.find(station=>station.name===name)?.code || '';
+  return findStation(explicit || name)?.code || '';
 }
 
 export function journeyHeader(mode='entry') {
@@ -69,18 +53,15 @@ export function journeyEntry(draft={}) {
 
 export function stationResults(field='source',query='') {
   const safeField=field==='destination'?'destination':'source';
-  const term=String(query).trim();
-  const normalized=term.toUpperCase();
-  const found=STATIONS.filter(station=>`${station.name} ${station.code} ${station.region}`.includes(normalized));
-  const stations=term?found:STATIONS.slice(0,10);
-  const exact=STATIONS.some(station=>station.name===normalized||station.code===normalized);
-  const row=(station,custom=false)=>`<button type="button" class="station-result${custom?' station-custom':''}" data-action="journey-select-station" data-field="${safeField}" data-name="${e(station.name)}" data-code="${e(station.code||'')}"><span><strong>${e(station.name)}${station.code?` - ${e(station.code)}`:''}</strong><small>${e(custom?'Use this station':station.region)}</small></span>${journeyIcon('northEast')}</button>`;
-  return `${stations.map(station=>row(station)).join('')}${term&&!exact?row({name:normalized,code:''},true):''}`;
+  const term=String(query).trim().toUpperCase().replace(/[.\s_-]+/g,' ');
+  const found=STATIONS.filter(station=>`${station.name} ${station.code} ${(station.aliases||[]).join(' ')}`.toUpperCase().replace(/[.\s_-]+/g,' ').includes(term));
+  const stations=term?found:STATIONS;
+  return stations.length?stations.map(station=>`<button type="button" class="station-result" data-action="journey-select-station" data-field="${safeField}" data-name="${e(station.name)}" data-code="${e(station.code)}"><span><strong>${e(station.name)} - ${e(station.code)}</strong><small>${e(station.region||'MUMBAI SUBURBAN')}</small></span>${journeyIcon('northEast')}</button>`).join(''):'<p class="network-note">No Mumbai local station found. Search by station name or code.</p>';
 }
 
 export function stationSearch(draft={},field='source',query='') {
   const safeField=field==='destination'?'destination':'source';
-  return `<div class="station-search"><h2>${safeField==='source'?'Source':'Destination'}</h2><div class="station-search-input">${journeyIcon('search')}<input id="station-query" name="station-query" type="search" inputmode="search" autocomplete="off" autocapitalize="characters" maxlength="45" placeholder="Select Station" aria-label="Search ${safeField} station" value="${e(query)}"><button type="button" data-action="journey-voice" aria-label="Voice station search">${journeyIcon('mic')}</button></div><h3>${journeyIcon('clock')}<span id="station-results-label">${String(query).trim()?'Search Results':'Recent Station Searches'}</span></h3><div class="station-results" id="station-results" aria-live="polite">${stationResults(safeField,query)}</div></div>`;
+  return `<div class="station-search"><h2>${safeField==='source'?'Source':'Destination'}</h2><div class="station-search-input">${journeyIcon('search')}<input id="station-query" name="station-query" type="search" inputmode="search" autocomplete="off" autocapitalize="characters" maxlength="45" placeholder="Select Station" aria-label="Search ${safeField} station" value="${e(query)}"><button type="button" data-action="journey-voice" aria-label="Voice station search">${journeyIcon('mic')}</button></div><h3>${journeyIcon('clock')}<span id="station-results-label">${String(query).trim()?'Search Results':'Mumbai Local Stations'}</span></h3><div class="station-results" id="station-results" aria-live="polite">${stationResults(safeField,query)}</div></div>`;
 }
 
 function countStepper(field,label,count,min,max) {
@@ -93,8 +74,9 @@ export function journeyOptions(draft={}) {
   const isAC=service==='AC EMU TRAIN';
   const ticketType=draft.type||'JOURNEY';
   const ticketClass=isAC?'FIRST':draft.class||'SECOND';
-  const fare=Number.isFinite(Number(draft.fare))?Number(draft.fare):0;
-  const fareLabel=Number.isInteger(fare)?String(fare):fare.toFixed(2);
+  const fareLabel=draft.fare===null||draft.fare===undefined?'Check fare':`₹ ${Number(draft.fare).toFixed(0)}*`;
+  const route=draft.route;
+  const routePicker=route?`<div class="network-route"><label for="journey-route">Via route · ${e(route.distanceLabel)}</label><select id="journey-route" data-journey-route>${draft.availableRoutes.map(item=>`<option value="${e(item.id)}" ${item.id===draft.routeId?'selected':''}>${e(item.via)} · ${e(item.distanceLabel)}</option>`).join('')}</select><button type="button" data-action="journey-route-info">Route &amp; data sources</button></div>`:'';
   const dateSummary=draft.date?new Date(draft.date+'T12:00:00').toLocaleDateString('en-GB',{day:'numeric',month:'short',year:'numeric'}):'Select date';
-  return `<div class="journey-options"><div class="journey-route-summary"><div><strong>${e(draft.source||'Source')}</strong><span>${e(stationCode(draft.source,draft.sourceCode))}</span></div><span class="journey-route-arrow" aria-hidden="true">→</span><div><strong>${e(draft.destination||'Destination')}</strong><span>${e(stationCode(draft.destination,draft.destinationCode))}</span></div></div><section class="journey-options-body" aria-label="Journey options"><fieldset class="journey-option-group"><legend>Train Type</legend><div class="journey-choice-row train-choices">${optionButton('service','ORDINARY','ORDINARY',!isAC)}${optionButton('service','AC EMU TRAIN','AC EMU TRAIN',isAC)}</div></fieldset><fieldset class="journey-option-group ticket-type-group"><legend>Ticket Type</legend><div class="journey-choice-row ticket-choices">${optionButton('type','JOURNEY','JOURNEY',ticketType==='JOURNEY')}${optionButton('type','RETURN','RETURN',ticketType==='RETURN')}</div></fieldset><div class="journey-passengers">${countStepper('adults','Adult',draft.adults??1,1,6)}${countStepper('children','Child',draft.children??0,0,6)}<p>Aged between 5 and 12 years on the day of Travel</p></div><fieldset class="journey-option-group class-group"><legend>Class</legend><div class="journey-choice-row class-choices">${isAC?'':optionButton('class','SECOND','SECOND',ticketClass==='SECOND')}${optionButton('class','FIRST','FIRST',ticketClass==='FIRST')}</div></fieldset><label class="journey-concession"><input type="checkbox" data-action="journey-concession" name="concession" ${draft.concession?'checked':''}><span>Avail Concession</span></label><details class="journey-schedule" ${draft.scheduleOpen?'open':''}><summary>${journeyIcon('calendar')}<span>Travel details<small>${e(dateSummary)}${draft.time?` · ${e(draft.time)}`:''}</small></span>${icon('chevron',16)}</summary><div class="journey-schedule-fields"><label>Journey date<input type="date" name="date" data-journey-field="date" value="${e(draft.date||'')}" required></label><label>Time<input type="time" name="time" data-journey-field="time" value="${e(draft.time||'')}" required></label><label>Distance<input type="text" name="distance" data-journey-field="distance" maxlength="16" value="${e(draft.distance||'')}" placeholder="8 km"></label><label>Via<input type="text" name="via" data-journey-field="via" maxlength="45" value="${e(draft.via||'')}" placeholder="SNCR"></label><label class="journey-fare-override">Fare (₹)<input type="number" name="fare" data-journey-field="fare" min="0" max="100000" step="0.01" inputmode="decimal" value="${e(fare)}"><small>Editable preview fare</small></label></div></details><p class="journey-error" id="journey-error" role="alert">${e(draft.error||'')}</p></section><div class="journey-fare"><span class="journey-fare-icon">${journeyIcon('ticket')}</span><strong>Fare</strong><div><b id="journey-fare-value">₹ ${e(fareLabel)}</b><button type="button" data-action="journey-fare">Fare Breakup</button></div></div><div class="journey-booking-footer"><p>By proceeding further you agree to our <button type="button" data-action="journey-terms">Terms &amp; Conditions</button></p><button type="button" class="journey-main-button" data-action="journey-book">Book Now</button></div></div>`;
+  return `<div class="journey-options"><div class="journey-route-summary"><div><strong>${e(draft.source||'Source')}</strong><span>${e(stationCode(draft.source,draft.sourceCode))}</span></div><span class="journey-route-arrow" aria-hidden="true">→</span><div><strong>${e(draft.destination||'Destination')}</strong><span>${e(stationCode(draft.destination,draft.destinationCode))}</span></div></div><section class="journey-options-body" aria-label="Journey options">${routePicker}<fieldset class="journey-option-group"><legend>Train Type</legend><div class="journey-choice-row train-choices">${optionButton('service','ORDINARY','ORDINARY',!isAC)}${optionButton('service','AC EMU TRAIN','AC EMU TRAIN',isAC,draft.acAvailable?'':'disabled aria-describedby="ac-availability"')}</div><p class="network-note" id="ac-availability">${draft.acAvailable?'Published AC stopping pattern found. Check the current timetable and operating days.':'No direct AC pattern verified for this route in the available timetable snapshot.'}</p></fieldset><fieldset class="journey-option-group ticket-type-group"><legend>Ticket Type</legend><div class="journey-choice-row ticket-choices">${optionButton('type','JOURNEY','JOURNEY',ticketType==='JOURNEY')}${optionButton('type','RETURN','RETURN',ticketType==='RETURN')}</div></fieldset><div class="journey-passengers">${countStepper('adults','Adult',draft.adults??1,1,6)}${countStepper('children','Child',draft.children??0,0,6)}<p>Aged between 5 and 12 years on the day of Travel</p></div><fieldset class="journey-option-group class-group"><legend>Class</legend><div class="journey-choice-row class-choices">${isAC?'':optionButton('class','SECOND','SECOND',ticketClass==='SECOND')}${optionButton('class','FIRST','FIRST',ticketClass==='FIRST')}</div></fieldset><label class="journey-concession"><input type="checkbox" data-action="journey-concession" name="concession" ${draft.concession?'checked':''}><span>Avail Concession</span></label><details class="journey-schedule" ${draft.scheduleOpen?'open':''}><summary>${journeyIcon('calendar')}<span>Travel details<small>${e(dateSummary)}${draft.time?` · ${e(draft.time)}`:''}</small></span>${icon('chevron',16)}</summary><div class="journey-schedule-fields"><label>Journey date<input type="date" name="date" data-journey-field="date" value="${e(draft.date||'')}" required></label><label>Time<input type="time" name="time" data-journey-field="time" value="${e(draft.time||'')}" required></label><label>Route distance<output>${e(draft.distance||'Not verified')}</output></label><label>Via<output>${e(draft.via||'—')}</output></label></div></details><p class="journey-error" id="journey-error" role="alert">${e(draft.error||'')}</p></section><div class="journey-fare"><span class="journey-fare-icon">${journeyIcon('ticket')}</span><strong>Fare</strong><div><b id="journey-fare-value">${e(fareLabel)}</b><button type="button" data-action="journey-fare">Fare Breakup</button><small>${draft.fare===null?'Final fare not verified':'*Estimated fare'}</small></div></div><div class="journey-booking-footer"><p>By proceeding further you agree to our <button type="button" data-action="journey-terms">Terms &amp; Conditions</button></p><button type="button" class="journey-main-button" data-action="journey-book">Book Now</button></div></div>`;
 }

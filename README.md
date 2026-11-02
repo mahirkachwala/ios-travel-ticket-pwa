@@ -63,7 +63,7 @@ Vercel serves the contents of `dist/` directly after the check passes; there is 
 | `dist/typography.css` | Montserrat font face, measured type scale, spacing and responsive ticket layout |
 | `dist/styles.css` | Base styles, mobile shell and desktop preview panel |
 | `dist/components.js` | Shared header, ticket banner, QR/feedback, booking cards and expired details |
-| `dist/journey.js` / `dist/journey.css` | Route entry, station search and journey options, including editable travel details |
+| `dist/journey.js` / `dist/journey.css` | Route entry, station search and journey options, including editable date/time and calculated route details |
 | `dist/screens.js` / `dist/screens.css` | Home, profile, main navigation, side menu and supplementary screen content |
 | `dist/app.js` | Navigation, local state, forms, dialogs and interaction handlers |
 | `dist/timer.js` | Seconds-roll animation and countdown rendering |
@@ -90,3 +90,25 @@ For local troubleshooting, the browser's application/storage tools can clear thi
 The QR is a dense version-30 demo code with an explicit `valid_for_travel: false` payload. It is static and does not change with journey form inputs. Replace the QR asset or integrate a ticket-issuing API to produce real operator tickets. The prototype does not reserve seats, issue valid travel credentials, validate passengers or process payments.
 
 Railway-related labels and facts are retained from the supplied references and can be changed for the bus company. The completed-history dates are reference fixtures, despite the reference's “last 45 days” subtitle. Small ambiguous IDs and unobserved historical details are documented as demo defaults in `config.js`. Home artwork is reference-derived and replaceable through the asset settings.
+
+## Mumbai local network data (researched 2 November 2026)
+
+The booking flow now searches 123 station entries across a bundled Mumbai suburban EMU network instead of the old 14-station demo list. Coverage includes Western Churchgate–Dahanu Road; Central CSMT–Kalyan with Kasara, Karjat and Khopoli branches; Harbour CSMT–Panvel and the Goregaon branch; Trans-Harbour Thane–Vashi/Nerul/Panvel; and the Port/Uran branches. Metro, intercity, proposed Panvel–Karjat suburban services and unverified MEMU corridors are excluded.
+
+Station entries retain codes, aliases, source references and route-specific engineering chainages. Dadar Central and Western remain separate entries with an explicit walking interchange. Alternate paths are calculated from the network; these are not certified UTS ticketing routes. Some Port connector distances remain unknown and are displayed as “Not verified”, never as zero. Routes can require train changes; a path does not assert a single through service.
+
+**Published data is not live operating information.** Western AC records are a May 2026 timetable snapshot. The 70 Main Line AC patterns are historical May 2022 records; three Harbour patterns are from May 2026. They do not establish the current full AC timetable. Both endpoints must appear in the same documented AC stopping pattern, in the correct direction; known weekday restrictions apply. Missing service data means “not verified”, not proof no service exists. Unknown operating days, later revisions, nominated holidays and cancellations require checking the current official timetable. Selected travel time does not match a specific departure. Return selection does not verify a reverse AC departure.
+
+**Fares are estimates, not certified payable quotes.** The official basic fare table, documented MUTP charges, GST and rounding rules replace fixed demo prices. Operational chainage is not a verified tariff-distance matrix. Final amounts are withheld where CIDCO charges, child minima, concession rules, walking-interchange eligibility, unknown distance or coverage above 150 km cannot be established. Fare Breakup may show an indicative amount excluding unknown CIDCO charges. The system never silently adds a guessed surcharge. Season fares are not supported. The reference fixture ticket/history remain demo content; newly generated previews use calculated data.
+
+Data and implementation:
+
+- `sources/mumbai/western.json`, `central.json`, `fares.json`: reviewed extracted facts, provenance, source dates and unresolved gaps. Notes in the same folder record research decisions. Original publicly hosted railway documents are linked; some CR documents are available only through public mirrors after the railway website migration.
+- `scripts/build-mumbai-data.mjs`: combines the reviewed extracts, excludes out-of-scope corridors, normalizes station aliases and operating days, and validates AC stop references.
+- `dist/data/mumbai-network.js`, `dist/data/mumbai-fares.js`: generated offline datasets; do not edit them manually.
+- `dist/mumbai-network.js`: corridor-aware route graph, distance calculation and direct AC stopping-pattern matching.
+- `dist/mumbai-fares.js`: conservative fare estimates with explicit unknown amounts.
+- `dist/mumbai-journey.js`: recomputes route, distance, via, permitted service type and fare together.
+- `tests/`: route, AC availability, tariff and recalculation regression checks.
+
+Run `npm run data:build` after updating reviewed extracts, then `npm run check` and `npm test`. Increase the service-worker cache version before deploying updated data. The application and datasets work offline after a successful first load. Source timestamps are research dates, not a promise of an automatic live scrape or a railway booking integration.

@@ -2,6 +2,9 @@ import {BRAND,COPY,INITIAL_TICKET,HISTORY,PREVIEW_SECONDS} from './config.js';
 import {escapeHTML as e,icon,header,activeTicket,bookings,tabBar,expiredTicket,money} from './components.js';
 import {updateTimer} from './timer.js';
 import {homeHeader,homeScreen,profileScreen,mainNav,menuDrawer,HOME_SERVICES} from './screens.js';
+import {updateJourney} from './mumbai-journey.js';
+import {findStation, sourceRecords, NETWORK_DATA} from './mumbai-network.js';
+import {FARE_DATA} from './mumbai-fares.js';
 import {journeyEntry,stationSearch,stationResults,journeyOptions,journeyHeader,STATIONS} from './journey.js';
 
 const app=document.querySelector('#app');
@@ -13,22 +16,19 @@ state.profile={name:'Atharv Kanase',mobile:COPY.mobile,balance:0,completion:50,b
 let previousScreen='home';
 let toastTimeout;
 const SCREENS=['home','profile','journey','station','journey-options','active','bookings','expired'];
-function beginJourney(seed=state.ticket,mode='new'){state.formTicket={...seed};state.journeyMode=mode;navigate('journey');}
+function beginJourney(seed=state.ticket,mode='new'){state.formTicket=updateJourney({...seed});state.journeyMode=mode;navigate('journey');}
 function returnToJourney(){navigate('journey',{push:false});history.replaceState({screen:'journey',tab:state.tab},'','#journey');}
 function draft(){
   if(!state.formTicket)state.formTicket={...state.ticket,passMode:'normal',stationMode:'outside',concession:false};
-  for(const field of ['source','destination'])state.formTicket[field+'Code']=STATIONS.find(s=>s.name===state.formTicket[field])?.code||state.formTicket[field+'Code']||'';
+  if(!state.formTicket.availableRoutes)updateJourney(state.formTicket);
   return state.formTicket;
 }
-function reprice(){
-  const d=draft();const names=[d.source,d.destination].sort().join('|');
-  const base=names==='GHANSOLI|VASHI'?5:15;
-  const unit=d.service==='AC EMU TRAIN'?70:d.class==='FIRST'?50:base;
-  d.fare=unit*(Number(d.adults)+Number(d.children)*.5)*(d.type==='RETURN'?2:1);
-}
+function reprice(){updateJourney(draft());}
 function refreshJourney(){const scroll=app.querySelector('#app-scroll')?.scrollTop||0;render();app.querySelector('#app-scroll').scrollTop=scroll;}
 function completeJourney(){
-  const values={...draft()};
+  reprice();
+  const {availableRoutes,acServices,route,...values}=draft();
+  if(!route){toast('Choose a connected Mumbai local route.');navigate('journey');return;}
   if(!values.source?.trim()||!values.destination?.trim()||values.source===values.destination){toast('Choose different source and destination stations.');navigate('journey');return;}
   const invalid=[...app.querySelectorAll('[data-journey-field]')].find(input=>!input.checkValidity());if(invalid){invalid.closest('details')?.setAttribute('open','');invalid.reportValidity();return;}
   if(!/^\d{4}-\d{2}-\d{2}$/.test(values.date)||!/^\d{2}:\d{2}$/.test(values.time)){toast('Choose a valid travel date and time.');return;}
@@ -40,18 +40,31 @@ function journeyAction(action,button){
   else if(action==='journey-back')returnToJourney();
   else if(action==='journey-station'){state.stationField=button.dataset.field;state.stationQuery='';navigate('station');}
   else if(action==='journey-select-station'){const field=button.dataset.field;d[field]=button.dataset.name;d[field+'Code']=button.dataset.code||'';reprice();returnToJourney();}
-  else if(action==='journey-swap'){[d.source,d.destination]=[d.destination,d.source];[d.sourceCode,d.destinationCode]=[d.destinationCode,d.sourceCode];refreshJourney();}
-  else if(action==='journey-mode'){d[button.dataset.field]=button.dataset.value;refreshJourney();}
+  else if(action==='journey-swap'){[d.source,d.destination]=[d.destination,d.source];[d.sourceCode,d.destinationCode]=[d.destinationCode,d.sourceCode];reprice();refreshJourney();}
+  else if(action==='journey-mode'){if(button.dataset.value==='season'){toast('Season fares are not included in this local journey dataset.');return;}d[button.dataset.field]=button.dataset.value;refreshJourney();}
   else if(action==='journey-recent'){for(const field of ['source','destination']){d[field]=button.dataset[field];d[field+'Code']=button.dataset[field+'Code']||'';}reprice();refreshJourney();}
-  else if(action==='journey-proceed'){if(!d.source?.trim()||!d.destination?.trim()||d.source===d.destination){toast('Choose different source and destination stations.');return;}reprice();navigate('journey-options');}
-  else if(action==='journey-choice'){d[button.dataset.field]=button.dataset.value;if(d.service==='AC EMU TRAIN')d.class='FIRST';reprice();refreshJourney();}
+  else if(action==='journey-proceed'){if(!d.source?.trim()||!d.destination?.trim()||d.source===d.destination){toast('Choose different source and destination stations.');return;}reprice();if(!d.route){toast('No connected local route found. Choose stations from the list.');return;}navigate('journey-options');}
+  else if(action==='journey-choice'){if(button.dataset.value==='AC EMU TRAIN'&&!d.acAvailable)return;d[button.dataset.field]=button.dataset.value;if(d.service==='AC EMU TRAIN')d.class='FIRST';reprice();refreshJourney();}
   else if(action==='journey-step'){const field=button.dataset.field;d[field]=Math.min(6,Math.max(field==='adults'?1:0,Number(d[field])+Number(button.dataset.delta)));reprice();refreshJourney();}
-  else if(action==='journey-concession'){d.concession=!d.concession;refreshJourney();}
+  else if(action==='journey-concession'){d.concession=!d.concession;reprice();refreshJourney();}
   else if(action==='journey-book')completeJourney();
   else if(action==='journey-voice'){app.querySelector('#station-query')?.focus();toast('Use your keyboard microphone to dictate a station.');}
-  else if(action==='journey-fare')showModal('Fare Breakup',`<dl class="receipt-list"><dt>Passenger(s)</dt><dd>${d.adults} Adult, ${d.children} Child</dd><dt>Class</dt><dd>${e(d.class)}</dd><dt>Ticket Type</dt><dd>${e(d.type)}</dd><dt>Fare</dt><dd>${money(d.fare)}</dd></dl><p>Preview fare. Your operator’s fare service can replace this calculation.</p>`);
+  else if(action==='journey-fare')showFare(d);
+  else if(action==='journey-route-info')showRoute(d);
   else if(action==='journey-terms')showModal('Terms & Conditions','<p>This is a booking preview. No payment or reservation is made. Your operator’s booking terms can be added here.</p>');
-  else if(action==='journey-upcoming')showModal('Upcoming Trains',`<p>${e(d.source||'Source')} → ${e(d.destination||'Destination')}</p><p>Live timetables will appear here after your operator’s schedule service is connected.</p>`);
+  else if(action==='journey-upcoming'){reprice();showRoute(d,true);}
+}
+
+function sourcesList(sources){return `<ul class="network-sources">${sources.map(source=>`<li><a href="${e(source.mirrorUrl||source.url)}" target="_blank" rel="noopener noreferrer">${e(source.title)}</a></li>`).join('')}</ul>`;}
+function showFare(d){
+  const quote=d.fareQuote;
+  showModal('Fare Breakup',`<dl class="receipt-list"><dt>Passenger(s)</dt><dd>${d.adults} Adult, ${d.children} Child</dd><dt>Class</dt><dd>${e(d.service==='AC EMU TRAIN'?'AC EMU':d.class)}</dd><dt>Ticket Type</dt><dd>${e(d.type)}</dd><dt>Route distance</dt><dd>${e(d.distance)}</dd>${(quote.breakdown||[]).map(row=>`<dt>${e(row.label)}</dt><dd>${money(row.amount)}</dd>`).join('')}<dt>${quote.amount===null?'Final fare':'Estimated total'}</dt><dd>${money(quote.amount)}</dd></dl>${quote.indicativeBase!=null?`<p>Indicative amount before unverified charges: ${money(quote.indicativeBase)}</p>`:''}${quote.notes.map(note=>`<p>${e(note)}</p>`).join('')}<h3>Fare sources</h3>${sourcesList(FARE_DATA.sources.filter(source=>quote.sourceIds.includes(source.id)))}`);
+}
+function showRoute(d,services=false){
+  const route=d.route;
+  if(!route){showModal('Mumbai Local Network','<p>Select source and destination from the Mumbai local station list.</p>');return;}
+  const acSources=sourceRecords((d.acServices||[]).map(service=>service.sourceId));
+  showModal(services?'Local Services':'Route & Data Sources',`<p><strong>${e(d.source)} → ${e(d.destination)}</strong></p><p>${e(route.distanceLabel)} · Via ${e(route.viaLabel)}</p>${route.hasWalkingTransfer?'<p>Includes an interchange between Central and Western platforms at Dadar. This is not a single through train.</p>':''}<p class="network-stops">${route.nodes.map(code=>e(findStation(code)?.name||code)).join(' → ')}</p><p>Distance is calculated from published station chainages. Railway chargeable distance can differ. Via labels describe this route; they are not certified UTS fare-route codes.</p><h3>AC local availability</h3><p>${d.acAvailable?`${d.acServices.length} documented service pattern(s) stop at both stations; known weekday restrictions have been applied. Services include ${d.acServices.slice(0,12).map(service=>e(service.id)).join(', ')}.`:'No direct AC local service verified for this route in the available timetable snapshot.'}</p><p>Timetable data is a dated snapshot. Selected travel time, holidays, cancellations and later timetable changes require confirmation with the railway.</p><p>Network researched ${e(NETWORK_DATA.researchedAsOf)}. Main, Western, Harbour, Trans-Harbour and Port local corridors only.</p>${sourcesList([...sourceRecords(route.sourceIds),...acSources])}`);
 }
 
 function applyBrand(){document.documentElement.style.setProperty('--primary',state.brand.primary);document.documentElement.style.setProperty('--ticket-watermark',`url("${BRAND.watermark}")`);document.querySelector('meta[name="theme-color"]').content=state.brand.primary;}
@@ -156,7 +169,8 @@ app.addEventListener('click',async event=>{
   else if(action==='install')await installApp();
 });
 
-app.addEventListener('input',event=>{if(event.target.id==='station-query'){state.stationQuery=event.target.value;document.querySelector('#station-results-label').textContent=state.stationQuery.trim()?'Search Results':'Recent Station Searches';document.querySelector('#station-results').innerHTML=stationResults(state.stationField||'source',state.stationQuery);return;}const field=event.target.dataset.journeyField;if(field){draft()[field]=field==='fare'?Number(event.target.value):event.target.value;const label=app.querySelector('#journey-fare-value');if(label&&field==='fare')label.textContent=`₹ ${Number(event.target.value)}`;return;}if(event.target.name==='description'){state.description=event.target.value;state.submitted=false;document.querySelector('#character-count').textContent=`${state.description.length}/200`;document.querySelector('.feedback-success').hidden=true;document.querySelector('.submit-feedback').disabled=!state.rating;}});
+app.addEventListener('input',event=>{if(event.target.id==='station-query'){state.stationQuery=event.target.value;document.querySelector('#station-results-label').textContent=state.stationQuery.trim()?'Search Results':'Mumbai Local Stations';document.querySelector('#station-results').innerHTML=stationResults(state.stationField||'source',state.stationQuery);return;}const field=event.target.dataset.journeyField;if(field){if(['date','time'].includes(field))draft()[field]=event.target.value;return;}if(event.target.name==='description'){state.description=event.target.value;state.submitted=false;document.querySelector('#character-count').textContent=`${state.description.length}/200`;document.querySelector('.feedback-success').hidden=true;document.querySelector('.submit-feedback').disabled=!state.rating;}});
+app.addEventListener('change',event=>{if(event.target.hasAttribute('data-journey-route')){draft().routeId=event.target.value;reprice();refreshJourney();}else if(event.target.dataset.journeyField==='date'){reprice();refreshJourney();}});
 app.addEventListener('submit',event=>{
   event.preventDefault();const form=event.target;
   if(form.id==='journey-form'){

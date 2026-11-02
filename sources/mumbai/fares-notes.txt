@@ -1,0 +1,64 @@
+MUMBAI SUBURBAN FARE RESEARCH
+Checked on 2 November 2026. This is a candidate data pack, not a certified ticket-pricing engine.
+
+What is verified
+----------------
+fares.json contains all 80 suburban distance rows, 1-500 km, from the official July 2025 Passenger Fare Table. I downloaded the original PDF and visually checked PDF pages 4-6 (minimum distances and full suburban table). First/AC are BASIC fares; the Second column labelled Minimum Chargeable fare is still not an all-in Mumbai fare. Do not calculate Mumbai prices from that rounded Second column.
+
+Official table:
+https://static.pib.gov.in/WriteReadData/specificdocs/documents/2025/jun/doc2025630579301.pdf
+
+The July 2025 circular expressly left suburban single journeys unchanged. The December 2025 revision also excluded suburban services and left ancillary charges, GST applicability and rounding unchanged:
+https://www.pib.gov.in/PressReleasePage.aspx?PRID=2208532&lang=1&reg=3
+
+A February 2026 Ministry reply confirms the two 2025-26 fare revisions and no increase for suburban/season-ticket passengers:
+https://www.pib.gov.in/PressReleasePage.aspx?PRID=2226596&lang=1&reg=3
+
+I also fetched the current Railway Board 2026 commercial-circular index, which has entries through 21 October 2026. No later suburban basic-fare revision was found there. This establishes the latest located evidence, not a guarantee that every local tariff circular has been published/indexed:
+https://rb.indianrailways.gov.in/show-directorate/preview/419
+
+The original AC/First revision is CC11/2022 dated 29 April 2022, effective 5 May 2022. It applies First-class MUTP/CIDCO supplementary charges to AC, plus GST and existing rounding. An online third-party repost changes the year to 2025 incorrectly; it must not be used for chronology.
+https://rb.indianrailways.gov.in/uploads/directorate/traffic_comm/Comm_Cir_2022/CC%2011%20of%202022.pdf
+
+Conditional Mumbai payable table
+--------------------------------
+The separate 30-row payable table through 150 km is a DERIVATION, not an official published final-fare matrix. It assumes the historically documented MUTP single-ticket amounts remain applicable, no CIDCO applies, input is tariff chargeable kilometres, and the selected service/class is available.
+
+MRVC's official-hosted study, Table12, printed p128 / PDF p129, documents MUTP from 1 January 2013: no surcharge through 10 km; Second Rs3 and First Rs6 for 11-150 km. The 2022 circular applies the First rate to AC. Amounts beyond150km were not established.
+https://mrvc.indianrailways.gov.in/works/uploads/File/Final%20Report.pdf
+
+First/AC GST is 5%; Second is exempt. For the conditional table, add MUTP to basic, apply GST to First/AC, then round the total up to a multiple of5. Second rounds up to5 except integer amounts ending1or6 round down. The 2013 rounding rules were retained by2025 revisions.
+https://www.pib.gov.in/newsite/PrintRelease.aspx?lang=2&reg=3&relid=167051
+https://www.pib.gov.in/newsite/PrintRelease.aspx?lang=2&reg=48&relid=91712
+
+CIDCO and the reference journey
+------------------------------
+The presence of a CIDCO surcharge is corroborated by CR records and the 2022 AC circular. Its exact current rate by route/class is NOT verified here. The old WR chargeable/season fare PDFs fail with404 / under-construction responses. A Scribd final table and hobby-site2/4rupee surcharge claim were discovery clues only, not accepted as verified data.
+
+For an assumed21-25tariff-km Belapur CBD-Tilak Nagar journey, basic Second8+MUTP3 rounds to10; adding an unverified CIDCO2 would make15. AC56+MUTP6+5% rounds to70; even adding an assumed CIDCO4 before GST still rounds70. This is an illustration of why the user's reference is plausible, not proof of the surcharge or the route's tariff distance. Never hard-code these inferred CIDCO values as official.
+
+Route distance and via
+----------------------
+Commercial Manual paras204(v),251and259 establish route-specific tickets, different fares for alternative routes, and using distance/fare tables. No current official Mumbai station-pair chargeable-distance matrix was found. There is no verified basis here to inflate the Mankhurd-Vashi bridge kilometres. Equally, operational chainage cannot be labelled tariff distance without verification.
+https://rb.indianrailways.gov.in/uploads/codesmanual/CommManual-I/ComercialManualCh2_data.htm
+
+Children, returns and concessions
+--------------------------------
+The Ministry confirms free travel without berth below5 and half adult fare for unreserved children aged5to under12, subject to minimum chargeable distance. Current First/AC child minimum payable fare and fractional surcharge/GST/rounding order remain unresolved; do not simply halve an already rounded adult quote.
+https://www.pib.gov.in/newsite/PrintRelease.aspx?lang=2&reg=48&relid=138458
+
+CR training material documents next-day-midnight return validity with Sunday/public-holiday extension and treats non-concessional return as two single journeys for refund. Same-State suburban combined First/AC returns remain allowed under the GST instructions. No full current return tariff was located. Do not calculate return by looking up double the one-way distance.
+
+March2026 PIB confirms continuing additional concessions for4PwD,11patient and8student categories. Category-specific schedules and restrictions were not reconstructed. No generic senior/student/female discount is justified by this pack.
+https://www.pib.gov.in/PressReleasePage.aspx?PRID=2238430&lang=2&reg=3
+
+RailOne wallet bonus
+--------------------
+Board CC10/2026 dated13March2026 extends the3% R-Wallet bonus on RailOne unreserved booking through24August2028. This is wallet credit, not a universal deduction from the fare printed on the ticket.
+https://rb.indianrailways.gov.in/uploads/directorate/traffic_comm/Comm_Cir_2026/CC%20No_%2010%20of%202026.pdf
+
+Integration recommendation
+--------------------------
+Keep raw tariff, additional charges and verification status separate. Exact quotes require a verified source/destination/via/class/date record or authoritative tariff distance plus every applicable charge. For unverified routes display an estimate/verification-needed state, never an exact-booking claim. Keep an actual booking API and payment outside this local prototype.
+
+Saved originals and rendered evidence are in this directory. build_fares.py reproduces fares.json and checks all80distance rows are contiguous1-500km. No app/repository files were changed for this research task.

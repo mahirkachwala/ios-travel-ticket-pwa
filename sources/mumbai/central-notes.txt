@@ -1,0 +1,14 @@
+Central Railway network and AC service candidate data
+Checked: 2 November 2026
+
+The JSON contains 15 chainage chains and 73 actual AC service columns: 70 from an official May 2022 Main Line timetable and three from a primary Harbour circular effective 1 May 2026. Every AC record is directional. Main Line services are explicitly historical; no record establishes live service availability on 2 November 2026. The three Harbour records prove Panvel to CSMT, CSMT to Vashi, and Vashi to CSMT; a full reverse CSMT to Panvel AC stopping column was not verified or inferred.
+
+The Main Line source is the official PDF at https://cr.indianrailways.gov.in/cris/uploads/files/1652958806441-SUB%20AC%20TRAIN%20SERVICE.pdf . Its indexed text was fetched on 2 November 2026 and saved in cr-main-ac-2022-indexed.txt. The upload filename timestamp gives 19 May 2022; an operational effective date was not printed, so effectiveFrom is null. All 56 Monday-Saturday and 14 Sunday/holiday columns were parsed, including recorded stop times. The live URL returns 404 following the CR website redesign. The dataset preserves source-row references and the distinction between original primary documents and public mirrors.
+
+Distances are engineering railway chainages, not UTS fare-chargeable distances. Subtract only compatible chainages within each listed chain. The Thane-Turbhe-Vashi and Turbhe-Juinagar-Nerul connector values were resolved against original CR July 2024 diagram text positions. Ghansoli to Vashi is 7.88 engineering km. Rabale code RABE is verified by the Indian Railways station register as of 1 December 2022.
+
+Port/Uran chainages use the July 2025 CR construction document. Its origin was not independently verified, so Nerul/Seawoods/Targhar and Belapur/Targhar connecting distances remain null. Several newer Port station codes are labelled secondary-confirmed rather than primary-verified. Optional Diva-Vasai, Diva-Panvel, and Panvel-Roha MEMU chains retain current-service caveats; the parent implementation is excluding these unverified optional service areas.
+
+No proposed Panvel-Karjat local corridor, cabins, or proposed halts were assumed to be operating passenger stations. Harbour does not traverse Dadar; DR and Western DDR require a distinct pedestrian transfer rather than a merged railway node.
+
+Validation: valid JSON; 73 unique AC service IDs; all service stop codes exist in the candidate chain set; stop-time counts match stop counts. These structural checks do not eliminate the documented source/date gaps.

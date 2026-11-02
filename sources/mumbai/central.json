@@ -1,0 +1,8505 @@
+{
+  "schemaVersion": 1,
+  "checkedAt": "2026-11-02",
+  "status": "source-backed-candidate-with-explicit-gaps",
+  "distanceMeaning": "Engineering railway chainages. Adjacent differences valid only within same chain and compatible origin; NOT verified charged-fare distance or UTS kilometre table.",
+  "sources": [
+    {
+      "id": "cr-map-2019",
+      "title": "Central Railway Mumbai Division System Map, effective1Apr2019",
+      "url": "https://cr.indianrailways.gov.in/cris/uploads/files/1561376559029-all_div_merged.pdf",
+      "mirrorUrl": "https://www.scribd.com/document/993955997/1561376559029-all-div-merged",
+      "date": "2019-04-01",
+      "publisher": "Central Railway",
+      "retrieval": "Official URL search-index text plus public primary-document mirror; live CR URL404 after redesign"
+    },
+    {
+      "id": "cr-map-2024-mirror",
+      "title": "Central Railway Mumbai Division System Chart19Jul2024",
+      "url": "https://www.scribd.com/document/892348536/1721372075491-Systemchart190724-copy",
+      "date": "2024-07-19",
+      "publisher": "Central Railway (public mirror)",
+      "retrieval": "Public document text inspected. Original CR path not verified. Public preview saved cr-map-2024-preview.jpg; small type missing from preview."
+    },
+    {
+      "id": "cr-pcdo-2025-07",
+      "title": "Central Railway Survey and Construction PCDO July2025, Belapur-Seawood-Uran layout p69",
+      "url": "https://st2.indiarailinfo.com/kjfdsuiemjvcya3/0/0/9/0/6871090/4/1755859326954pcdojuly202515674170.pdf",
+      "mirrorUrl": "https://www.scribd.com/document/946992205/1755859326954-PCDO-JULY-2025",
+      "date": "2025-07",
+      "publisher": "Central Railway (public document mirrors)",
+      "retrieval": "PDF search-index contains station chainages; mirrored text validates document identity and commissioned project; PDF download403"
+    },
+    {
+      "id": "cr-hb-ac-circular-2026-05",
+      "title": "CR BB/T/232/C/TT/Proposal29Apr2026 and working-timetable correction, effective1May2026",
+      "url": "https://www.scribd.com/document/1036969473/Introduction-of-AC-services-on-HB-Line-wef-1st-May-2026",
+      "officialTimetableUrl": "https://cr.indianrailways.gov.in/cris//uploads/files/1777550442158-HB%20AC%20PTT%20WEF%2001.05.2026%20%281%29.pdf",
+      "date": "2026-04-29",
+      "publisher": "Central Railway Operations Branch (public document mirror)",
+      "retrieval": "Full circular and correction-slip timetable inspected; official May2026 AC timetable live URL404"
+    },
+    {
+      "id": "cr-th-2024-link",
+      "title": "CR Trans-Harbour public timetable effective13Jan2024",
+      "url": "https://cr.indianrailways.gov.in/cris//uploads/files/1781174782507-THB%20PTT%20wef%20%20%2013.01.2024.pdf",
+      "date": "2024-01-13",
+      "publisher": "Central Railway",
+      "retrieval": "Current link identified by navimumbai.com guide but officialfile404; sequence corroborated by guide, engineering map"
+    },
+    {
+      "id": "cr-port-2025-12-link",
+      "title": "CR Port Line public timetable effective15Dec2025",
+      "url": "https://cr.indianrailways.gov.in/cris//uploads/files/1781160975368-PORT%20LINE%20PTT%20WEF%2015.12.2025.pdf",
+      "date": "2025-12-15",
+      "publisher": "Central Railway",
+      "retrieval": "Current official link verified via https://navimumbai.com/panvel-railway-station-guide/; file404. Station sequence therefore secondary transcribed pending officialcontent retrieval."
+    },
+    {
+      "id": "ir-station-register-2022",
+      "title": "Indian Railways station zone/category register asof1Dec2022",
+      "url": "https://indianrailways.gov.in/Railway_station_zone-category_wise_list.pdf",
+      "date": "2022-12-01",
+      "publisher": "Indian Railways Railway Board",
+      "retrieval": "Official indexed PDF row220 verifiesRabaleRABE"
+    },
+    {
+      "id": "cr-main-ac-2022-primary",
+      "title": "CR AC suburban services on Main Line: Monday-Saturday and Sunday/holidays tables, May2022 snapshot",
+      "url": "https://cr.indianrailways.gov.in/cris/uploads/files/1652958806441-SUB%20AC%20TRAIN%20SERVICE.pdf",
+      "publisher": "Central Railway",
+      "snapshotDate": "2022-05-19",
+      "dateEvidence": "Upload timestamp1652958806441 inofficialfilename; serviceeffective date notprinted inretrieved table",
+      "retrieval": "Web indexed official PDF text retrieved2Nov2026, all693lines preserved incr-main-ac-2022-indexed.txt; liveCRdownload404afterredesign. Fullstopcolumns parsed; no inferencefromcorridorlabels.",
+      "currentCoverageVerified": false
+    },
+    {
+      "id": "cr-ac-expansion-2026-reference",
+      "title": "CR release27June2026, twelveadditionalMainACservices effective29June2026",
+      "url": "https://cr.indianrailways.gov.in/view_detail.jsp?dcd=10760&id=0%2C4%2C268&lang=0",
+      "retrieval": "OfficialURLidentified viaWikipediareference18butreturns404; exactCRstatement andendpointtable published byIndianExpress. Notused toinventcurrentstoplists.",
+      "secondaryUrl": "https://indianexpress.com/article/cities/mumbai/mumbai-central-railway-12-new-ac-local-trains-june-29-routes-timings-check-details-10759989/",
+      "date": "2026-06-27"
+    }
+  ],
+  "chains": [
+    {
+      "id": "central-main",
+      "name": "Central Main: CSMT–Kalyan",
+      "sourceId": "cr-map-2019",
+      "distanceKind": "railway-chainage-not-chargeable-fare-distance",
+      "stations": [
+        {
+          "code": "CSMT",
+          "name": "Mumbai CSMT",
+          "km": 0.0
+        },
+        {
+          "code": "MSD",
+          "name": "Masjid",
+          "km": 1.22
+        },
+        {
+          "code": "SNRD",
+          "name": "Sandhurst Road",
+          "km": 2.08
+        },
+        {
+          "code": "BY",
+          "name": "Byculla",
+          "km": 4.04
+        },
+        {
+          "code": "CHG",
+          "name": "Chinchpokli",
+          "km": 5.53
+        },
+        {
+          "code": "CRD",
+          "name": "Currey Road",
+          "km": 6.07
+        },
+        {
+          "code": "PR",
+          "name": "Parel",
+          "km": 7.65
+        },
+        {
+          "code": "DR",
+          "name": "Dadar Central",
+          "km": 8.85
+        },
+        {
+          "code": "MTN",
+          "name": "Matunga",
+          "km": 10.12
+        },
+        {
+          "code": "SIN",
+          "name": "Sion",
+          "km": 12.71
+        },
+        {
+          "code": "CLA",
+          "name": "Kurla",
+          "km": 15.39
+        },
+        {
+          "code": "VVH",
+          "name": "Vidyavihar",
+          "km": 17.8
+        },
+        {
+          "code": "GC",
+          "name": "Ghatkopar",
+          "km": 19.3
+        },
+        {
+          "code": "VK",
+          "name": "Vikhroli",
+          "km": 22.85
+        },
+        {
+          "code": "KJMG",
+          "name": "Kanjurmarg",
+          "km": 24.69,
+          "aliases": [
+            "KJRD",
+            "Kanjur Marg"
+          ]
+        },
+        {
+          "code": "BND",
+          "name": "Bhandup",
+          "km": 26.56
+        },
+        {
+          "code": "NHU",
+          "name": "Nahur",
+          "km": 28.154,
+          "sourceId": "cr-map-2024-mirror"
+        },
+        {
+          "code": "MLND",
+          "name": "Mulund",
+          "km": 30.56
+        },
+        {
+          "code": "TNA",
+          "name": "Thane",
+          "km": 33.02
+        },
+        {
+          "code": "KLVA",
+          "name": "Kalva",
+          "km": 35.4
+        },
+        {
+          "code": "MBQ",
+          "name": "Mumbra",
+          "km": 39.08
+        },
+        {
+          "code": "DW",
+          "name": "Diva",
+          "km": 42.46
+        },
+        {
+          "code": "KOPR",
+          "name": "Kopar",
+          "km": 46.86
+        },
+        {
+          "code": "DI",
+          "name": "Dombivli",
+          "km": 48.06
+        },
+        {
+          "code": "THK",
+          "name": "Thakurli",
+          "km": 49.51
+        },
+        {
+          "code": "KYN",
+          "name": "Kalyan",
+          "km": 53.21
+        }
+      ],
+      "notes": [
+        "Low-level Sandhurst Road chainage. Nahur updated from 2019 map 28.66 to 2024 map 28.154; older map has a conflict. Kanjurmarg code KJMG in 2019, KJRD in 2024 operational diagram; retain alias."
+      ]
+    },
+    {
+      "id": "central-kasara",
+      "name": "Central Main: Kalyan–Kasara",
+      "sourceId": "cr-map-2019",
+      "distanceKind": "railway-chainage-not-chargeable-fare-distance",
+      "stations": [
+        {
+          "code": "KYN",
+          "name": "Kalyan",
+          "km": 53.21
+        },
+        {
+          "code": "SHD",
+          "name": "Shahad",
+          "km": 56.25
+        },
+        {
+          "code": "ABY",
+          "name": "Ambivli",
+          "km": 57.98
+        },
+        {
+          "code": "TLA",
+          "name": "Titwala",
+          "km": 64.05
+        },
+        {
+          "code": "KDV",
+          "name": "Khadavli",
+          "km": 71.4
+        },
+        {
+          "code": "VSD",
+          "name": "Vasind",
+          "km": 79.4
+        },
+        {
+          "code": "ASO",
+          "name": "Asangaon",
+          "km": 85.43
+        },
+        {
+          "code": "ATG",
+          "name": "Atgaon",
+          "km": 94.87
+        },
+        {
+          "code": "KE",
+          "name": "Khardi",
+          "km": 107.03
+        },
+        {
+          "code": "OMB",
+          "name": "Umbermali",
+          "km": 113.16
+        },
+        {
+          "code": "KSRA",
+          "name": "Kasara",
+          "km": 120.56
+        }
+      ],
+      "notes": [
+        "Thansit is a non-passenger cabin and excluded. Umbermali marked cabin in engineering maps; passenger halt listed in later public timetables, current official timetable still to retrieve."
+      ]
+    },
+    {
+      "id": "central-karjat",
+      "name": "Central Main: Kalyan–Karjat",
+      "sourceId": "cr-map-2019",
+      "distanceKind": "railway-chainage-not-chargeable-fare-distance",
+      "stations": [
+        {
+          "code": "KYN",
+          "name": "Kalyan",
+          "km": 53.21
+        },
+        {
+          "code": "VLDI",
+          "name": "Vithalwadi",
+          "km": 55.59
+        },
+        {
+          "code": "ULNR",
+          "name": "Ulhasnagar",
+          "km": 57.22
+        },
+        {
+          "code": "ABH",
+          "name": "Ambernath",
+          "km": 59.83
+        },
+        {
+          "code": "BUD",
+          "name": "Badlapur",
+          "km": 67.26
+        },
+        {
+          "code": "VGI",
+          "name": "Vangani",
+          "km": 77.99
+        },
+        {
+          "code": "SHLU",
+          "name": "Shelu",
+          "km": 82.02
+        },
+        {
+          "code": "NRL",
+          "name": "Neral",
+          "km": 86.12
+        },
+        {
+          "code": "BVS",
+          "name": "Bhivpuri Road",
+          "km": 92.85
+        },
+        {
+          "code": "KJT",
+          "name": "Karjat",
+          "km": 99.72
+        }
+      ]
+    },
+    {
+      "id": "central-khopoli",
+      "name": "Central Main: Karjat–Khopoli",
+      "sourceId": "cr-map-2024-mirror",
+      "distanceKind": "railway-chainage-not-chargeable-fare-distance",
+      "stations": [
+        {
+          "code": "KJT",
+          "name": "Karjat",
+          "km": 99.72
+        },
+        {
+          "code": "PDI",
+          "name": "Palasdhari",
+          "km": 102.69
+        },
+        {
+          "code": "KLY",
+          "name": "Kelavli",
+          "km": 107.86
+        },
+        {
+          "code": "DLV",
+          "name": "Dolavli",
+          "km": 108.43
+        },
+        {
+          "code": "LWJ",
+          "name": "Lowjee",
+          "km": 111.58
+        },
+        {
+          "code": "KHPI",
+          "name": "Khopoli",
+          "km": 114.24
+        }
+      ],
+      "notes": [
+        "2019 map prints DLY at Dolavli; 2024 map prints DLV."
+      ]
+    },
+    {
+      "id": "harbour-panvel",
+      "name": "Harbour: CSMT–Panvel",
+      "sourceId": "cr-map-2019",
+      "distanceKind": "railway-chainage-not-chargeable-fare-distance",
+      "stations": [
+        {
+          "code": "CSMT",
+          "name": "Mumbai CSMT",
+          "km": 0.0
+        },
+        {
+          "code": "MSD",
+          "name": "Masjid",
+          "km": 1.22
+        },
+        {
+          "code": "SNRD",
+          "name": "Sandhurst Road",
+          "km": 1.8
+        },
+        {
+          "code": "DKRD",
+          "name": "Dockyard Road",
+          "km": 2.99
+        },
+        {
+          "code": "RRD",
+          "name": "Reay Road",
+          "km": 4.08
+        },
+        {
+          "code": "CTGN",
+          "name": "Cotton Green",
+          "km": 5.18
+        },
+        {
+          "code": "SVE",
+          "name": "Sewri",
+          "km": 7.1
+        },
+        {
+          "code": "VDLR",
+          "name": "Wadala Road",
+          "km": 9.11
+        },
+        {
+          "code": "GTBN",
+          "name": "Guru Teg Bahadur Nagar",
+          "km": 11.48
+        },
+        {
+          "code": "CHF",
+          "name": "Chunabhatti",
+          "km": 13.48
+        },
+        {
+          "code": "CLA",
+          "name": "Kurla",
+          "km": 15.39
+        },
+        {
+          "code": "TKNG",
+          "name": "Tilak Nagar",
+          "km": 16.41
+        },
+        {
+          "code": "CMBR",
+          "name": "Chembur",
+          "km": 17.33
+        },
+        {
+          "code": "GV",
+          "name": "Govandi",
+          "km": 18.99
+        },
+        {
+          "code": "MNKD",
+          "name": "Mankhurd",
+          "km": 21.38
+        },
+        {
+          "code": "VSH",
+          "name": "Vashi",
+          "km": 28.89
+        },
+        {
+          "code": "SNCR",
+          "name": "Sanpada",
+          "km": 30.03,
+          "aliases": [
+            "SNPD"
+          ]
+        },
+        {
+          "code": "JNJ",
+          "name": "Juinagar",
+          "km": 31.94
+        },
+        {
+          "code": "NEU",
+          "name": "Nerul",
+          "km": 34.47
+        },
+        {
+          "code": "SWDV",
+          "name": "Seawoods Darave",
+          "km": 35.84,
+          "aliases": [
+            "SWDK",
+            "Seawoods Darave Karave"
+          ]
+        },
+        {
+          "code": "BEPR",
+          "name": "Belapur CBD",
+          "km": 38.22
+        },
+        {
+          "code": "KHAG",
+          "name": "Kharghar",
+          "km": 40.56
+        },
+        {
+          "code": "MANR",
+          "name": "Mansarovar",
+          "km": 43.477,
+          "sourceId": "cr-map-2024-mirror"
+        },
+        {
+          "code": "KNDS",
+          "name": "Khandeshwar",
+          "km": 45.76
+        },
+        {
+          "code": "PNVL",
+          "name": "Panvel",
+          "km": 48.94
+        }
+      ],
+      "notes": [
+        "High-level Sandhurst Road chainage 1.80, different from Main 2.08. Ravli Junction RVJ is a cabin and excluded from passenger stations. Mansarovar 43.477 in 2024 (43.48 in 2019). Sanpada operational timetable alias SNPD; 2019 station map SNCR."
+      ]
+    },
+    {
+      "id": "harbour-west-branch",
+      "name": "Harbour: Wadala Road–Bandra",
+      "sourceId": "cr-map-2024-mirror",
+      "distanceKind": "railway-chainage-not-chargeable-fare-distance",
+      "stations": [
+        {
+          "code": "VDLR",
+          "name": "Wadala Road",
+          "km": 9.11
+        },
+        {
+          "code": "KCE",
+          "name": "King Circle",
+          "km": 10.83
+        },
+        {
+          "code": "MM",
+          "name": "Mahim Junction",
+          "km": 12.47
+        },
+        {
+          "code": "BA",
+          "name": "Bandra",
+          "km": 14.08
+        }
+      ],
+      "notes": [
+        "2024 CSMT-via-Harbour chainage Mahim12.47; 2019 map12.523. Continue BA→KHAR→STC→VLP→ADH→JOS→RMAR→GMN using Western graph edges, not CSMT-base subtraction. Harbour does not run through Dadar."
+      ]
+    },
+    {
+      "id": "trans-harbour-trunk",
+      "name": "Trans-Harbour: Thane–Turbhe",
+      "sourceId": "cr-map-2024-mirror",
+      "distanceKind": "railway-chainage-not-chargeable-fare-distance",
+      "stations": [
+        {
+          "code": "TNA",
+          "name": "Thane",
+          "km": 33.02
+        },
+        {
+          "code": "DGHA",
+          "name": "Digha Gaon",
+          "km": 36.217,
+          "aliases": [
+            "DIGH",
+            "Digha",
+            "Dighe"
+          ]
+        },
+        {
+          "code": "AIRL",
+          "name": "Airoli",
+          "km": 38.854
+        },
+        {
+          "code": "RABE",
+          "name": "Rabale",
+          "km": 41.326,
+          "codeSourceId": "ir-station-register-2022"
+        },
+        {
+          "code": "GNSL",
+          "name": "Ghansoli",
+          "km": 43.64
+        },
+        {
+          "code": "KPHN",
+          "name": "Kopar Khairane",
+          "km": 45.156
+        },
+        {
+          "code": "TUH",
+          "name": "Turbhe",
+          "km": 48.329
+        }
+      ],
+      "notes": [
+        "DGHA printed in2024 engineeringmap; current operational timetable usesDIGH alias. RabaleRABE verified nationalstationregister row220."
+      ]
+    },
+    {
+      "id": "trans-harbour-vashi",
+      "name": "Trans-Harbour: Turbhe–Sanpada–Vashi",
+      "sourceId": "cr-map-2024-mirror",
+      "distanceKind": "railway-chainage-not-chargeable-fare-distance",
+      "stations": [
+        {
+          "code": "TUH",
+          "name": "Turbhe",
+          "km": 48.329
+        },
+        {
+          "code": "SNCR",
+          "name": "Sanpada",
+          "km": 50.381
+        },
+        {
+          "code": "VSH",
+          "name": "Vashi",
+          "km": 51.52
+        }
+      ],
+      "notes": [
+        "Resolved viaThane labels using preserved horizontal positions in primarydocument mirror: Vashi28.89 atx230 with viaTNA51.52 atx244; Sanpada labelx263 with viaTNA50.381 atx278. Values are route-specific engineeringchainages. Original public HTML savedcr-map-2024-public.html."
+      ]
+    },
+    {
+      "id": "trans-harbour-nerul",
+      "name": "Trans-Harbour: Turbhe–Juinagar–Nerul",
+      "sourceId": "cr-map-2024-mirror",
+      "distanceKind": "railway-chainage-not-chargeable-fare-distance",
+      "stations": [
+        {
+          "code": "TUH",
+          "name": "Turbhe",
+          "km": 48.329
+        },
+        {
+          "code": "JNJ",
+          "name": "Juinagar",
+          "km": 50.533
+        },
+        {
+          "code": "NEU",
+          "name": "Nerul",
+          "km": 52.994
+        }
+      ],
+      "notes": [
+        "Map explicitly prints Juinagar31.94 with viaTUH50.533 and Nerul34.47 with52.994viaTUH. Preserved horizontal positions in mirrorchecked, sourcechainagebasis viaThane/Turbhe. FollowNerul→PanvelHarbouredges; noVashi/Sanpadadetour."
+      ]
+    },
+    {
+      "id": "port-uran",
+      "name": "Port: Targhar–Uran",
+      "sourceId": "cr-pcdo-2025-07",
+      "distanceKind": "railway-chainage-not-chargeable-fare-distance",
+      "stations": [
+        {
+          "code": "TRGR",
+          "name": "Targhar",
+          "km": 40.071
+        },
+        {
+          "code": "BMDR",
+          "name": "Bamandongri",
+          "km": 42.019
+        },
+        {
+          "code": "KARP",
+          "name": "Kharkopar",
+          "km": 44.018
+        },
+        {
+          "code": "GAVN",
+          "name": "Gavhan",
+          "km": 48.535,
+          "codeStatus": "secondary-confirmed-not-primary-verified"
+        },
+        {
+          "code": "SEMK",
+          "name": "Shematikhar",
+          "km": 50.351,
+          "codeStatus": "secondary-confirmed-not-primary-verified"
+        },
+        {
+          "code": "NESA",
+          "name": "Nhave Sheva",
+          "km": 53.469,
+          "codeStatus": "secondary-confirmed-not-primary-verified"
+        },
+        {
+          "code": "DRGI",
+          "name": "Dronagiri",
+          "km": 56.648,
+          "codeStatus": "secondary-confirmed-not-primary-verified"
+        },
+        {
+          "code": "URAN",
+          "name": "Uran",
+          "km": 58.031,
+          "codeStatus": "secondary-confirmed-not-primary-verified"
+        }
+      ],
+      "notes": [
+        "PCDO July2025 engineering drawing chainages from indexed PDF p69; origin not independently verified. Use differences only within this chain; do not subtract Harbour km. Drawing uses old names Targhaon/Rajanpada/Nhava-Sheva. Codes GAVN/SEMK/NESA/DRGI/URAN supported by secondary station listings only, flagged below. Existing2019/2024 system maps show older project chainages and must not override this set."
+      ]
+    },
+    {
+      "id": "port-nerul-connector",
+      "name": "Port: Nerul–Seawoods–Targhar",
+      "sourceId": "cr-port-2025-12-link",
+      "distanceKind": "railway-chainage-not-chargeable-fare-distance",
+      "stations": [
+        {
+          "code": "NEU",
+          "name": "Nerul",
+          "km": null
+        },
+        {
+          "code": "SWDV",
+          "name": "Seawoods Darave",
+          "km": null
+        },
+        {
+          "code": "TRGR",
+          "name": "Targhar",
+          "km": null
+        }
+      ],
+      "notes": [
+        "Station sequence in operating timetable; exact Port-route connector distances not verified. Do not use proposed Kile/Sagar Sangam as passenger halt."
+      ]
+    },
+    {
+      "id": "port-belapur-connector",
+      "name": "Port: Belapur–Targhar",
+      "sourceId": "cr-port-2025-12-link",
+      "distanceKind": "railway-chainage-not-chargeable-fare-distance",
+      "stations": [
+        {
+          "code": "BEPR",
+          "name": "Belapur CBD",
+          "km": null
+        },
+        {
+          "code": "TRGR",
+          "name": "Targhar",
+          "km": null
+        }
+      ],
+      "notes": [
+        "Direct branch joins Port route without stopping at Seawoods. Exact branch distance unknown."
+      ]
+    },
+    {
+      "id": "memu-diva-vasai",
+      "name": "Limited MEMU corridor: Diva–Vasai Road",
+      "sourceId": "cr-map-2024-mirror",
+      "distanceKind": "railway-chainage-not-chargeable-fare-distance",
+      "stations": [
+        {
+          "code": "DW",
+          "name": "Diva",
+          "km": 42.46
+        },
+        {
+          "code": "KOPAR",
+          "name": "Kopar High Level",
+          "km": 48.83
+        },
+        {
+          "code": "BIRD",
+          "name": "Bhiwandi Road",
+          "km": 56.631
+        },
+        {
+          "code": "KHBV",
+          "name": "Kharbao",
+          "km": 64.772
+        },
+        {
+          "code": "KARD",
+          "name": "Kaman Road",
+          "km": 73.051
+        },
+        {
+          "code": "JCNR",
+          "name": "Juichandra",
+          "km": 79.85
+        },
+        {
+          "code": "BSR",
+          "name": "Vasai Road",
+          "km": 84.0
+        }
+      ],
+      "scope": "optional-memu-current-service-to-verify",
+      "notes": [
+        "Kopar High Level is separate from KOPR Low Level; walking transfer only. Vasai84 is rounded on map; Western2026 map conflicts Juichandra78.84 vsCR79.85. Do not treat as fare-distance source."
+      ]
+    },
+    {
+      "id": "memu-diva-panvel",
+      "name": "Limited MEMU corridor: Diva–Panvel",
+      "sourceId": "cr-map-2024-mirror",
+      "distanceKind": "railway-chainage-not-chargeable-fare-distance",
+      "stations": [
+        {
+          "code": "DW",
+          "name": "Diva",
+          "km": 42.46
+        },
+        {
+          "code": "DTVL",
+          "name": "Dativali",
+          "km": null
+        },
+        {
+          "code": "NILJ",
+          "name": "Nilje",
+          "km": 48.63
+        },
+        {
+          "code": "TPND",
+          "name": "Taloje Panchanand",
+          "km": 57.092
+        },
+        {
+          "code": "NVRD",
+          "name": "Navade Road",
+          "km": 60.334
+        },
+        {
+          "code": "KLMG",
+          "name": "Kalamboli",
+          "km": 62.892
+        },
+        {
+          "code": "PNVL",
+          "name": "Panvel",
+          "km": 68.128
+        }
+      ],
+      "scope": "optional-memu-current-service-to-verify",
+      "notes": [
+        "Dativali is not labelled in2019/2024 engineering map; code/stop needs current timetable. Agasan44.172 is not included as a public halt. Kalamboli printedKLMI2019, KLMG2024. Panvel68.128 is viaDiva, not Harbour48.94."
+      ]
+    },
+    {
+      "id": "memu-panvel-roha",
+      "name": "Limited MEMU extension: Panvel–Roha",
+      "sourceId": "cr-map-2024-mirror",
+      "distanceKind": "railway-chainage-not-chargeable-fare-distance",
+      "stations": [
+        {
+          "code": "PNVL",
+          "name": "Panvel",
+          "km": 68.128
+        },
+        {
+          "code": "SMTN",
+          "name": "Somatne",
+          "km": 73.3
+        },
+        {
+          "code": "RSYI",
+          "name": "Rasayani",
+          "km": 79.8
+        },
+        {
+          "code": "APTA",
+          "name": "Apta",
+          "km": 83.24
+        },
+        {
+          "code": "JITE",
+          "name": "Jite",
+          "km": 93.01
+        },
+        {
+          "code": "HMRR",
+          "name": "Hamrapur",
+          "km": 98.0
+        },
+        {
+          "code": "PEN",
+          "name": "Pen",
+          "km": 103.59
+        },
+        {
+          "code": "KASU",
+          "name": "Kasu",
+          "km": 117.28
+        },
+        {
+          "code": "NGTN",
+          "name": "Nagothane",
+          "km": 130.91
+        },
+        {
+          "code": "NIDI",
+          "name": "Nidi",
+          "km": 139.43
+        },
+        {
+          "code": "ROHA",
+          "name": "Roha",
+          "km": 143.61
+        }
+      ],
+      "scope": "optional-memu-current-service-to-verify",
+      "notes": [
+        "2019 official Diva-Roha MEMU introduction confirms local service corridor; current 2026 operating timetable not retrieved. Dapoli railway locality is not assumed to be a passenger halt."
+      ]
+    }
+  ],
+  "acServices": [
+    {
+      "id": "cr-98242",
+      "lineId": "harbour-panvel",
+      "trainNo": "98242",
+      "stops": [
+        "PNVL",
+        "KNDS",
+        "MANR",
+        "KHAG",
+        "BEPR",
+        "SWDV",
+        "NEU",
+        "JNJ",
+        "SNCR",
+        "VSH",
+        "MNKD",
+        "GV",
+        "CMBR",
+        "TKNG",
+        "CLA",
+        "CHF",
+        "GTBN",
+        "VDLR",
+        "SVE",
+        "CTGN",
+        "RRD",
+        "DKRD",
+        "SNRD",
+        "MSD",
+        "CSMT"
+      ],
+      "sourceId": "cr-hb-ac-circular-2026-05",
+      "effectiveFrom": "2026-05-01",
+      "days": [
+        "Mon",
+        "Tue",
+        "Wed",
+        "Thu",
+        "Fri",
+        "Sat"
+      ],
+      "excludes": [
+        "nominated holidays"
+      ],
+      "scheduleKnown": true,
+      "departure": "22:58",
+      "arrival": "00:17",
+      "arrivalDayOffset": 1,
+      "notes": [
+        "Every listed passenger stop has a time in actual98242 correction-slip column. RVJ cabin excluded. This is a representative proven service, not fullACtimetable."
+      ],
+      "directional": true,
+      "snapshotDate": "2026-05-01",
+      "currentCoverageVerified": false,
+      "dateCoverage": "Actual stopping column in the circular effective 1 May 2026; later changes and live operation on 2 November 2026 are unverified."
+    },
+    {
+      "id": "cr-98573",
+      "lineId": "harbour-panvel",
+      "trainNo": "98573",
+      "stops": [
+        "CSMT",
+        "MSD",
+        "SNRD",
+        "DKRD",
+        "RRD",
+        "CTGN",
+        "SVE",
+        "VDLR",
+        "GTBN",
+        "CHF",
+        "CLA",
+        "TKNG",
+        "CMBR",
+        "GV",
+        "MNKD",
+        "VSH"
+      ],
+      "sourceId": "cr-hb-ac-circular-2026-05",
+      "effectiveFrom": "2026-05-01",
+      "days": [
+        "Mon",
+        "Tue",
+        "Wed",
+        "Thu",
+        "Fri",
+        "Sat"
+      ],
+      "excludes": [
+        "nominated holidays"
+      ],
+      "scheduleKnown": true,
+      "departure": "00:24",
+      "arrival": "01:13",
+      "notes": [
+        "Annexure V69 column train98573; circular summary has apparent98003 typo."
+      ],
+      "directional": true,
+      "snapshotDate": "2026-05-01",
+      "currentCoverageVerified": false,
+      "dateCoverage": "Actual stopping column in the circular effective 1 May 2026; later changes and live operation on 2 November 2026 are unverified."
+    },
+    {
+      "id": "cr-98520",
+      "lineId": "harbour-panvel",
+      "trainNo": "98520",
+      "stops": [
+        "VSH",
+        "MNKD",
+        "GV",
+        "CMBR",
+        "TKNG",
+        "CLA",
+        "CHF",
+        "GTBN",
+        "VDLR",
+        "SVE",
+        "CTGN",
+        "RRD",
+        "DKRD",
+        "SNRD",
+        "MSD",
+        "CSMT"
+      ],
+      "sourceId": "cr-hb-ac-circular-2026-05",
+      "effectiveFrom": "2026-05-01",
+      "days": [
+        "Mon",
+        "Tue",
+        "Wed",
+        "Thu",
+        "Fri",
+        "Sat"
+      ],
+      "excludes": [
+        "nominated holidays"
+      ],
+      "scheduleKnown": true,
+      "departure": "06:23",
+      "arrival": "07:13",
+      "directional": true,
+      "snapshotDate": "2026-05-01",
+      "currentCoverageVerified": false,
+      "dateCoverage": "Actual stopping column in the circular effective 1 May 2026; later changes and live operation on 2 November 2026 are unverified."
+    },
+    {
+      "id": "cr-97301-2022",
+      "trainNo": "97301",
+      "lineId": "central-main",
+      "direction": "down",
+      "stops": [
+        "DR",
+        "MTN",
+        "SIN",
+        "CLA",
+        "VVH",
+        "GC",
+        "VK",
+        "KJMG",
+        "BND",
+        "NHU",
+        "MLND",
+        "TNA"
+      ],
+      "stopTimes": [
+        {
+          "code": "DR",
+          "time": "00:29"
+        },
+        {
+          "code": "MTN",
+          "time": "00:32"
+        },
+        {
+          "code": "SIN",
+          "time": "00:35"
+        },
+        {
+          "code": "CLA",
+          "time": "00:39"
+        },
+        {
+          "code": "VVH",
+          "time": "00:42"
+        },
+        {
+          "code": "GC",
+          "time": "00:45"
+        },
+        {
+          "code": "VK",
+          "time": "00:49"
+        },
+        {
+          "code": "KJMG",
+          "time": "00:52"
+        },
+        {
+          "code": "BND",
+          "time": "00:55"
+        },
+        {
+          "code": "NHU",
+          "time": "00:58"
+        },
+        {
+          "code": "MLND",
+          "time": "01:01"
+        },
+        {
+          "code": "TNA",
+          "time": "01:05"
+        }
+      ],
+      "sourceId": "cr-main-ac-2022-primary",
+      "effectiveFrom": null,
+      "snapshotDate": "2022-05-19",
+      "currentCoverageVerified": false,
+      "historical": true,
+      "dateCoverage": "Documented May 2022 snapshot only; availability after that snapshot is unverified.",
+      "days": [
+        "Mon",
+        "Tue",
+        "Wed",
+        "Thu",
+        "Fri",
+        "Sat"
+      ],
+      "calendarNote": "Monday-Saturday table; separate Sunday/nominatedholiday table",
+      "scheduleKnown": true,
+      "departure": "00:29",
+      "arrival": "01:05",
+      "sourceRows": [
+        78,
+        131
+      ],
+      "directional": true
+    },
+    {
+      "id": "cr-97603-2022",
+      "trainNo": "97603",
+      "lineId": "central-main",
+      "direction": "down",
+      "stops": [
+        "CSMT",
+        "MSD",
+        "SNRD",
+        "BY",
+        "CHG",
+        "CRD",
+        "PR",
+        "DR",
+        "MTN",
+        "SIN",
+        "CLA"
+      ],
+      "stopTimes": [
+        {
+          "code": "CSMT",
+          "time": "00:31"
+        },
+        {
+          "code": "MSD",
+          "time": "00:34"
+        },
+        {
+          "code": "SNRD",
+          "time": "00:36"
+        },
+        {
+          "code": "BY",
+          "time": "00:39"
+        },
+        {
+          "code": "CHG",
+          "time": "00:41"
+        },
+        {
+          "code": "CRD",
+          "time": "00:43"
+        },
+        {
+          "code": "PR",
+          "time": "00:46"
+        },
+        {
+          "code": "DR",
+          "time": "00:49"
+        },
+        {
+          "code": "MTN",
+          "time": "00:52"
+        },
+        {
+          "code": "SIN",
+          "time": "00:55"
+        },
+        {
+          "code": "CLA",
+          "time": "01:00"
+        }
+      ],
+      "sourceId": "cr-main-ac-2022-primary",
+      "effectiveFrom": null,
+      "snapshotDate": "2022-05-19",
+      "currentCoverageVerified": false,
+      "historical": true,
+      "dateCoverage": "Documented May 2022 snapshot only; availability after that snapshot is unverified.",
+      "days": [
+        "Mon",
+        "Tue",
+        "Wed",
+        "Thu",
+        "Fri",
+        "Sat"
+      ],
+      "calendarNote": "Monday-Saturday table; separate Sunday/nominatedholiday table",
+      "scheduleKnown": true,
+      "departure": "00:31",
+      "arrival": "01:00",
+      "sourceRows": [
+        78,
+        131
+      ],
+      "directional": true
+    },
+    {
+      "id": "cr-95701-2022",
+      "trainNo": "95701",
+      "lineId": "central-main",
+      "direction": "down",
+      "stops": [
+        "CSMT",
+        "BY",
+        "DR",
+        "CLA",
+        "GC",
+        "TNA",
+        "DI",
+        "KYN"
+      ],
+      "stopTimes": [
+        {
+          "code": "CSMT",
+          "time": "05:20"
+        },
+        {
+          "code": "BY",
+          "time": "05:27"
+        },
+        {
+          "code": "DR",
+          "time": "05:33"
+        },
+        {
+          "code": "CLA",
+          "time": "05:40"
+        },
+        {
+          "code": "GC",
+          "time": "05:44"
+        },
+        {
+          "code": "TNA",
+          "time": "06:01"
+        },
+        {
+          "code": "DI",
+          "time": "06:17"
+        },
+        {
+          "code": "KYN",
+          "time": "06:24"
+        }
+      ],
+      "sourceId": "cr-main-ac-2022-primary",
+      "effectiveFrom": null,
+      "snapshotDate": "2022-05-19",
+      "currentCoverageVerified": false,
+      "historical": true,
+      "dateCoverage": "Documented May 2022 snapshot only; availability after that snapshot is unverified.",
+      "days": [
+        "Mon",
+        "Tue",
+        "Wed",
+        "Thu",
+        "Fri",
+        "Sat"
+      ],
+      "calendarNote": "Monday-Saturday table; separate Sunday/nominatedholiday table",
+      "scheduleKnown": true,
+      "departure": "05:20",
+      "arrival": "06:24",
+      "sourceRows": [
+        78,
+        131
+      ],
+      "directional": true
+    },
+    {
+      "id": "cr-96611-2022",
+      "trainNo": "96611",
+      "lineId": "central-main",
+      "direction": "down",
+      "stops": [
+        "CSMT",
+        "MSD",
+        "SNRD",
+        "BY",
+        "CHG",
+        "CRD",
+        "PR",
+        "DR",
+        "MTN",
+        "SIN",
+        "CLA",
+        "VVH",
+        "GC",
+        "VK",
+        "KJMG",
+        "BND",
+        "NHU",
+        "MLND",
+        "TNA",
+        "KLVA",
+        "MBQ",
+        "DW",
+        "KOPR",
+        "DI",
+        "THK",
+        "KYN",
+        "SHD",
+        "ABY",
+        "TLA"
+      ],
+      "stopTimes": [
+        {
+          "code": "CSMT",
+          "time": "06:30"
+        },
+        {
+          "code": "MSD",
+          "time": "06:33"
+        },
+        {
+          "code": "SNRD",
+          "time": "06:35"
+        },
+        {
+          "code": "BY",
+          "time": "06:38"
+        },
+        {
+          "code": "CHG",
+          "time": "06:40"
+        },
+        {
+          "code": "CRD",
+          "time": "06:42"
+        },
+        {
+          "code": "PR",
+          "time": "06:45"
+        },
+        {
+          "code": "DR",
+          "time": "06:48"
+        },
+        {
+          "code": "MTN",
+          "time": "06:51"
+        },
+        {
+          "code": "SIN",
+          "time": "06:54"
+        },
+        {
+          "code": "CLA",
+          "time": "06:58"
+        },
+        {
+          "code": "VVH",
+          "time": "07:01"
+        },
+        {
+          "code": "GC",
+          "time": "07:04"
+        },
+        {
+          "code": "VK",
+          "time": "07:08"
+        },
+        {
+          "code": "KJMG",
+          "time": "07:11"
+        },
+        {
+          "code": "BND",
+          "time": "07:14"
+        },
+        {
+          "code": "NHU",
+          "time": "07:17"
+        },
+        {
+          "code": "MLND",
+          "time": "07:20"
+        },
+        {
+          "code": "TNA",
+          "time": "07:25"
+        },
+        {
+          "code": "KLVA",
+          "time": "07:30"
+        },
+        {
+          "code": "MBQ",
+          "time": "07:36"
+        },
+        {
+          "code": "DW",
+          "time": "07:40"
+        },
+        {
+          "code": "KOPR",
+          "time": "07:45"
+        },
+        {
+          "code": "DI",
+          "time": "07:49"
+        },
+        {
+          "code": "THK",
+          "time": "07:53"
+        },
+        {
+          "code": "KYN",
+          "time": "08:01"
+        },
+        {
+          "code": "SHD",
+          "time": "08:05"
+        },
+        {
+          "code": "ABY",
+          "time": "08:08"
+        },
+        {
+          "code": "TLA",
+          "time": "08:15"
+        }
+      ],
+      "sourceId": "cr-main-ac-2022-primary",
+      "effectiveFrom": null,
+      "snapshotDate": "2022-05-19",
+      "currentCoverageVerified": false,
+      "historical": true,
+      "dateCoverage": "Documented May 2022 snapshot only; availability after that snapshot is unverified.",
+      "days": [
+        "Mon",
+        "Tue",
+        "Wed",
+        "Thu",
+        "Fri",
+        "Sat"
+      ],
+      "calendarNote": "Monday-Saturday table; separate Sunday/nominatedholiday table",
+      "scheduleKnown": true,
+      "departure": "06:30",
+      "arrival": "08:15",
+      "sourceRows": [
+        78,
+        131
+      ],
+      "directional": true
+    },
+    {
+      "id": "cr-95707-2022",
+      "trainNo": "95707",
+      "lineId": "central-main",
+      "direction": "down",
+      "stops": [
+        "CSMT",
+        "BY",
+        "DR",
+        "CLA",
+        "GC",
+        "TNA",
+        "DI",
+        "KYN"
+      ],
+      "stopTimes": [
+        {
+          "code": "CSMT",
+          "time": "07:43"
+        },
+        {
+          "code": "BY",
+          "time": "07:50"
+        },
+        {
+          "code": "DR",
+          "time": "07:56"
+        },
+        {
+          "code": "CLA",
+          "time": "08:03"
+        },
+        {
+          "code": "GC",
+          "time": "08:07"
+        },
+        {
+          "code": "TNA",
+          "time": "08:23"
+        },
+        {
+          "code": "DI",
+          "time": "08:39"
+        },
+        {
+          "code": "KYN",
+          "time": "08:46"
+        }
+      ],
+      "sourceId": "cr-main-ac-2022-primary",
+      "effectiveFrom": null,
+      "snapshotDate": "2022-05-19",
+      "currentCoverageVerified": false,
+      "historical": true,
+      "dateCoverage": "Documented May 2022 snapshot only; availability after that snapshot is unverified.",
+      "days": [
+        "Mon",
+        "Tue",
+        "Wed",
+        "Thu",
+        "Fri",
+        "Sat"
+      ],
+      "calendarNote": "Monday-Saturday table; separate Sunday/nominatedholiday table",
+      "scheduleKnown": true,
+      "departure": "07:43",
+      "arrival": "08:46",
+      "sourceRows": [
+        78,
+        131
+      ],
+      "directional": true
+    },
+    {
+      "id": "cr-95901-2022",
+      "trainNo": "95901",
+      "lineId": "central-main",
+      "direction": "down",
+      "stops": [
+        "CSMT",
+        "BY",
+        "DR",
+        "CLA",
+        "GC",
+        "TNA"
+      ],
+      "stopTimes": [
+        {
+          "code": "CSMT",
+          "time": "08:04"
+        },
+        {
+          "code": "BY",
+          "time": "08:11"
+        },
+        {
+          "code": "DR",
+          "time": "08:17"
+        },
+        {
+          "code": "CLA",
+          "time": "08:24"
+        },
+        {
+          "code": "GC",
+          "time": "08:28"
+        },
+        {
+          "code": "TNA",
+          "time": "08:46"
+        }
+      ],
+      "sourceId": "cr-main-ac-2022-primary",
+      "effectiveFrom": null,
+      "snapshotDate": "2022-05-19",
+      "currentCoverageVerified": false,
+      "historical": true,
+      "dateCoverage": "Documented May 2022 snapshot only; availability after that snapshot is unverified.",
+      "days": [
+        "Mon",
+        "Tue",
+        "Wed",
+        "Thu",
+        "Fri",
+        "Sat"
+      ],
+      "calendarNote": "Monday-Saturday table; separate Sunday/nominatedholiday table",
+      "scheduleKnown": true,
+      "departure": "08:04",
+      "arrival": "08:46",
+      "sourceRows": [
+        78,
+        131
+      ],
+      "directional": true
+    },
+    {
+      "id": "cr-95711-2022",
+      "trainNo": "95711",
+      "lineId": "central-main",
+      "direction": "down",
+      "stops": [
+        "CSMT",
+        "BY",
+        "DR",
+        "CLA",
+        "GC",
+        "BND",
+        "TNA",
+        "DI",
+        "KYN"
+      ],
+      "stopTimes": [
+        {
+          "code": "CSMT",
+          "time": "08:56"
+        },
+        {
+          "code": "BY",
+          "time": "09:03"
+        },
+        {
+          "code": "DR",
+          "time": "09:10"
+        },
+        {
+          "code": "CLA",
+          "time": "09:17"
+        },
+        {
+          "code": "GC",
+          "time": "09:21"
+        },
+        {
+          "code": "BND",
+          "time": "09:29"
+        },
+        {
+          "code": "TNA",
+          "time": "09:37"
+        },
+        {
+          "code": "DI",
+          "time": "09:52"
+        },
+        {
+          "code": "KYN",
+          "time": "09:58"
+        }
+      ],
+      "sourceId": "cr-main-ac-2022-primary",
+      "effectiveFrom": null,
+      "snapshotDate": "2022-05-19",
+      "currentCoverageVerified": false,
+      "historical": true,
+      "dateCoverage": "Documented May 2022 snapshot only; availability after that snapshot is unverified.",
+      "days": [
+        "Mon",
+        "Tue",
+        "Wed",
+        "Thu",
+        "Fri",
+        "Sat"
+      ],
+      "calendarNote": "Monday-Saturday table; separate Sunday/nominatedholiday table",
+      "scheduleKnown": true,
+      "departure": "08:56",
+      "arrival": "09:58",
+      "sourceRows": [
+        78,
+        131
+      ],
+      "directional": true
+    },
+    {
+      "id": "cr-95307-2022",
+      "trainNo": "95307",
+      "lineId": "central-main",
+      "direction": "down",
+      "stops": [
+        "CSMT",
+        "BY",
+        "DR",
+        "CLA",
+        "VK",
+        "MLND",
+        "TNA",
+        "DI",
+        "KYN",
+        "VLDI",
+        "ULNR",
+        "ABH"
+      ],
+      "stopTimes": [
+        {
+          "code": "CSMT",
+          "time": "09:51"
+        },
+        {
+          "code": "BY",
+          "time": "09:58"
+        },
+        {
+          "code": "DR",
+          "time": "10:04"
+        },
+        {
+          "code": "CLA",
+          "time": "10:11"
+        },
+        {
+          "code": "VK",
+          "time": "10:19"
+        },
+        {
+          "code": "MLND",
+          "time": "10:27"
+        },
+        {
+          "code": "TNA",
+          "time": "10:32"
+        },
+        {
+          "code": "DI",
+          "time": "10:47"
+        },
+        {
+          "code": "KYN",
+          "time": "10:55"
+        },
+        {
+          "code": "VLDI",
+          "time": "11:00"
+        },
+        {
+          "code": "ULNR",
+          "time": "11:03"
+        },
+        {
+          "code": "ABH",
+          "time": "11:08"
+        }
+      ],
+      "sourceId": "cr-main-ac-2022-primary",
+      "effectiveFrom": null,
+      "snapshotDate": "2022-05-19",
+      "currentCoverageVerified": false,
+      "historical": true,
+      "dateCoverage": "Documented May 2022 snapshot only; availability after that snapshot is unverified.",
+      "days": [
+        "Mon",
+        "Tue",
+        "Wed",
+        "Thu",
+        "Fri",
+        "Sat"
+      ],
+      "calendarNote": "Monday-Saturday table; separate Sunday/nominatedholiday table",
+      "scheduleKnown": true,
+      "departure": "09:51",
+      "arrival": "11:08",
+      "sourceRows": [
+        78,
+        131
+      ],
+      "directional": true
+    },
+    {
+      "id": "cr-95713-2022",
+      "trainNo": "95713",
+      "lineId": "central-main",
+      "direction": "down",
+      "stops": [
+        "CSMT",
+        "BY",
+        "DR",
+        "CLA",
+        "GC",
+        "TNA",
+        "DI",
+        "KYN"
+      ],
+      "stopTimes": [
+        {
+          "code": "CSMT",
+          "time": "10:04"
+        },
+        {
+          "code": "BY",
+          "time": "10:11"
+        },
+        {
+          "code": "DR",
+          "time": "10:17"
+        },
+        {
+          "code": "CLA",
+          "time": "10:24"
+        },
+        {
+          "code": "GC",
+          "time": "10:28"
+        },
+        {
+          "code": "TNA",
+          "time": "10:44"
+        },
+        {
+          "code": "DI",
+          "time": "11:00"
+        },
+        {
+          "code": "KYN",
+          "time": "11:07"
+        }
+      ],
+      "sourceId": "cr-main-ac-2022-primary",
+      "effectiveFrom": null,
+      "snapshotDate": "2022-05-19",
+      "currentCoverageVerified": false,
+      "historical": true,
+      "dateCoverage": "Documented May 2022 snapshot only; availability after that snapshot is unverified.",
+      "days": [
+        "Mon",
+        "Tue",
+        "Wed",
+        "Thu",
+        "Fri",
+        "Sat"
+      ],
+      "calendarNote": "Monday-Saturday table; separate Sunday/nominatedholiday table",
+      "scheduleKnown": true,
+      "departure": "10:04",
+      "arrival": "11:07",
+      "sourceRows": [
+        78,
+        131
+      ],
+      "directional": true
+    },
+    {
+      "id": "cr-97215-2022",
+      "trainNo": "97215",
+      "lineId": "central-main",
+      "direction": "down",
+      "stops": [
+        "CSMT",
+        "MSD",
+        "SNRD",
+        "BY",
+        "CHG",
+        "CRD",
+        "PR",
+        "DR",
+        "MTN",
+        "SIN",
+        "CLA",
+        "VVH",
+        "GC",
+        "VK",
+        "KJMG",
+        "BND",
+        "NHU",
+        "MLND",
+        "TNA",
+        "KLVA",
+        "MBQ",
+        "DW",
+        "KOPR",
+        "DI"
+      ],
+      "stopTimes": [
+        {
+          "code": "CSMT",
+          "time": "10:22"
+        },
+        {
+          "code": "MSD",
+          "time": "10:25"
+        },
+        {
+          "code": "SNRD",
+          "time": "10:27"
+        },
+        {
+          "code": "BY",
+          "time": "10:30"
+        },
+        {
+          "code": "CHG",
+          "time": "10:32"
+        },
+        {
+          "code": "CRD",
+          "time": "10:34"
+        },
+        {
+          "code": "PR",
+          "time": "10:37"
+        },
+        {
+          "code": "DR",
+          "time": "10:40"
+        },
+        {
+          "code": "MTN",
+          "time": "10:43"
+        },
+        {
+          "code": "SIN",
+          "time": "10:46"
+        },
+        {
+          "code": "CLA",
+          "time": "10:50"
+        },
+        {
+          "code": "VVH",
+          "time": "10:53"
+        },
+        {
+          "code": "GC",
+          "time": "10:56"
+        },
+        {
+          "code": "VK",
+          "time": "11:00"
+        },
+        {
+          "code": "KJMG",
+          "time": "11:03"
+        },
+        {
+          "code": "BND",
+          "time": "11:06"
+        },
+        {
+          "code": "NHU",
+          "time": "11:09"
+        },
+        {
+          "code": "MLND",
+          "time": "11:12"
+        },
+        {
+          "code": "TNA",
+          "time": "11:16"
+        },
+        {
+          "code": "KLVA",
+          "time": "11:21"
+        },
+        {
+          "code": "MBQ",
+          "time": "11:27"
+        },
+        {
+          "code": "DW",
+          "time": "11:31"
+        },
+        {
+          "code": "KOPR",
+          "time": "11:36"
+        },
+        {
+          "code": "DI",
+          "time": "11:40"
+        }
+      ],
+      "sourceId": "cr-main-ac-2022-primary",
+      "effectiveFrom": null,
+      "snapshotDate": "2022-05-19",
+      "currentCoverageVerified": false,
+      "historical": true,
+      "dateCoverage": "Documented May 2022 snapshot only; availability after that snapshot is unverified.",
+      "days": [
+        "Mon",
+        "Tue",
+        "Wed",
+        "Thu",
+        "Fri",
+        "Sat"
+      ],
+      "calendarNote": "Monday-Saturday table; separate Sunday/nominatedholiday table",
+      "scheduleKnown": true,
+      "departure": "10:22",
+      "arrival": "11:40",
+      "sourceRows": [
+        78,
+        131
+      ],
+      "directional": true
+    },
+    {
+      "id": "cr-95221-2022",
+      "trainNo": "95221",
+      "lineId": "central-main",
+      "direction": "down",
+      "stops": [
+        "DR",
+        "CLA",
+        "GC",
+        "TNA",
+        "DI",
+        "KYN",
+        "VLDI",
+        "ULNR",
+        "ABH",
+        "BUD"
+      ],
+      "stopTimes": [
+        {
+          "code": "DR",
+          "time": "11:08"
+        },
+        {
+          "code": "CLA",
+          "time": "11:15"
+        },
+        {
+          "code": "GC",
+          "time": "11:19"
+        },
+        {
+          "code": "TNA",
+          "time": "11:34"
+        },
+        {
+          "code": "DI",
+          "time": "11:50"
+        },
+        {
+          "code": "KYN",
+          "time": "12:00"
+        },
+        {
+          "code": "VLDI",
+          "time": "12:05"
+        },
+        {
+          "code": "ULNR",
+          "time": "12:08"
+        },
+        {
+          "code": "ABH",
+          "time": "12:13"
+        },
+        {
+          "code": "BUD",
+          "time": "12:21"
+        }
+      ],
+      "sourceId": "cr-main-ac-2022-primary",
+      "effectiveFrom": null,
+      "snapshotDate": "2022-05-19",
+      "currentCoverageVerified": false,
+      "historical": true,
+      "dateCoverage": "Documented May 2022 snapshot only; availability after that snapshot is unverified.",
+      "days": [
+        "Mon",
+        "Tue",
+        "Wed",
+        "Thu",
+        "Fri",
+        "Sat"
+      ],
+      "calendarNote": "Monday-Saturday table; separate Sunday/nominatedholiday table",
+      "scheduleKnown": true,
+      "departure": "11:08",
+      "arrival": "12:21",
+      "sourceRows": [
+        78,
+        131
+      ],
+      "directional": true
+    },
+    {
+      "id": "cr-95225-2022",
+      "trainNo": "95225",
+      "lineId": "central-main",
+      "direction": "down",
+      "stops": [
+        "DR",
+        "CLA",
+        "GC",
+        "TNA",
+        "DI",
+        "KYN",
+        "VLDI",
+        "ULNR",
+        "ABH",
+        "BUD"
+      ],
+      "stopTimes": [
+        {
+          "code": "DR",
+          "time": "12:30"
+        },
+        {
+          "code": "CLA",
+          "time": "12:38"
+        },
+        {
+          "code": "GC",
+          "time": "12:42"
+        },
+        {
+          "code": "TNA",
+          "time": "12:57"
+        },
+        {
+          "code": "DI",
+          "time": "13:13"
+        },
+        {
+          "code": "KYN",
+          "time": "13:21"
+        },
+        {
+          "code": "VLDI",
+          "time": "13:25"
+        },
+        {
+          "code": "ULNR",
+          "time": "13:28"
+        },
+        {
+          "code": "ABH",
+          "time": "13:32"
+        },
+        {
+          "code": "BUD",
+          "time": "13:39"
+        }
+      ],
+      "sourceId": "cr-main-ac-2022-primary",
+      "effectiveFrom": null,
+      "snapshotDate": "2022-05-19",
+      "currentCoverageVerified": false,
+      "historical": true,
+      "dateCoverage": "Documented May 2022 snapshot only; availability after that snapshot is unverified.",
+      "days": [
+        "Mon",
+        "Tue",
+        "Wed",
+        "Thu",
+        "Fri",
+        "Sat"
+      ],
+      "calendarNote": "Monday-Saturday table; separate Sunday/nominatedholiday table",
+      "scheduleKnown": true,
+      "departure": "12:30",
+      "arrival": "13:39",
+      "sourceRows": [
+        78,
+        131
+      ],
+      "directional": true
+    },
+    {
+      "id": "cr-97367-2022",
+      "trainNo": "97367",
+      "lineId": "central-main",
+      "direction": "down",
+      "stops": [
+        "CSMT",
+        "MSD",
+        "SNRD",
+        "BY",
+        "CHG",
+        "CRD",
+        "PR",
+        "DR",
+        "MTN",
+        "SIN",
+        "CLA",
+        "VVH",
+        "GC",
+        "VK",
+        "KJMG",
+        "BND",
+        "NHU",
+        "MLND",
+        "TNA"
+      ],
+      "stopTimes": [
+        {
+          "code": "CSMT",
+          "time": "13:06"
+        },
+        {
+          "code": "MSD",
+          "time": "13:09"
+        },
+        {
+          "code": "SNRD",
+          "time": "13:11"
+        },
+        {
+          "code": "BY",
+          "time": "13:14"
+        },
+        {
+          "code": "CHG",
+          "time": "13:16"
+        },
+        {
+          "code": "CRD",
+          "time": "13:18"
+        },
+        {
+          "code": "PR",
+          "time": "13:21"
+        },
+        {
+          "code": "DR",
+          "time": "13:25"
+        },
+        {
+          "code": "MTN",
+          "time": "13:29"
+        },
+        {
+          "code": "SIN",
+          "time": "13:32"
+        },
+        {
+          "code": "CLA",
+          "time": "13:36"
+        },
+        {
+          "code": "VVH",
+          "time": "13:39"
+        },
+        {
+          "code": "GC",
+          "time": "13:42"
+        },
+        {
+          "code": "VK",
+          "time": "13:46"
+        },
+        {
+          "code": "KJMG",
+          "time": "13:50"
+        },
+        {
+          "code": "BND",
+          "time": "13:53"
+        },
+        {
+          "code": "NHU",
+          "time": "13:56"
+        },
+        {
+          "code": "MLND",
+          "time": "14:00"
+        },
+        {
+          "code": "TNA",
+          "time": "14:06"
+        }
+      ],
+      "sourceId": "cr-main-ac-2022-primary",
+      "effectiveFrom": null,
+      "snapshotDate": "2022-05-19",
+      "currentCoverageVerified": false,
+      "historical": true,
+      "dateCoverage": "Documented May 2022 snapshot only; availability after that snapshot is unverified.",
+      "days": [
+        "Mon",
+        "Tue",
+        "Wed",
+        "Thu",
+        "Fri",
+        "Sat"
+      ],
+      "calendarNote": "Monday-Saturday table; separate Sunday/nominatedholiday table",
+      "scheduleKnown": true,
+      "departure": "13:06",
+      "arrival": "14:06",
+      "sourceRows": [
+        78,
+        131
+      ],
+      "directional": true
+    },
+    {
+      "id": "cr-96317-2022",
+      "trainNo": "96317",
+      "lineId": "central-main",
+      "direction": "down",
+      "stops": [
+        "CSMT",
+        "MSD",
+        "SNRD",
+        "BY",
+        "CHG",
+        "CRD",
+        "PR",
+        "DR",
+        "MTN",
+        "SIN",
+        "CLA",
+        "VVH",
+        "GC",
+        "VK",
+        "KJMG",
+        "BND",
+        "NHU",
+        "MLND",
+        "TNA",
+        "KLVA",
+        "MBQ",
+        "DW",
+        "KOPR",
+        "DI",
+        "THK",
+        "KYN",
+        "VLDI",
+        "ULNR",
+        "ABH"
+      ],
+      "stopTimes": [
+        {
+          "code": "CSMT",
+          "time": "13:15"
+        },
+        {
+          "code": "MSD",
+          "time": "13:18"
+        },
+        {
+          "code": "SNRD",
+          "time": "13:20"
+        },
+        {
+          "code": "BY",
+          "time": "13:23"
+        },
+        {
+          "code": "CHG",
+          "time": "13:25"
+        },
+        {
+          "code": "CRD",
+          "time": "13:27"
+        },
+        {
+          "code": "PR",
+          "time": "13:30"
+        },
+        {
+          "code": "DR",
+          "time": "13:34"
+        },
+        {
+          "code": "MTN",
+          "time": "13:37"
+        },
+        {
+          "code": "SIN",
+          "time": "13:40"
+        },
+        {
+          "code": "CLA",
+          "time": "13:44"
+        },
+        {
+          "code": "VVH",
+          "time": "13:47"
+        },
+        {
+          "code": "GC",
+          "time": "13:50"
+        },
+        {
+          "code": "VK",
+          "time": "13:54"
+        },
+        {
+          "code": "KJMG",
+          "time": "13:57"
+        },
+        {
+          "code": "BND",
+          "time": "14:00"
+        },
+        {
+          "code": "NHU",
+          "time": "14:03"
+        },
+        {
+          "code": "MLND",
+          "time": "14:07"
+        },
+        {
+          "code": "TNA",
+          "time": "14:12"
+        },
+        {
+          "code": "KLVA",
+          "time": "14:17"
+        },
+        {
+          "code": "MBQ",
+          "time": "14:23"
+        },
+        {
+          "code": "DW",
+          "time": "14:27"
+        },
+        {
+          "code": "KOPR",
+          "time": "14:32"
+        },
+        {
+          "code": "DI",
+          "time": "14:35"
+        },
+        {
+          "code": "THK",
+          "time": "14:39"
+        },
+        {
+          "code": "KYN",
+          "time": "14:47"
+        },
+        {
+          "code": "VLDI",
+          "time": "14:51"
+        },
+        {
+          "code": "ULNR",
+          "time": "14:54"
+        },
+        {
+          "code": "ABH",
+          "time": "15:00"
+        }
+      ],
+      "sourceId": "cr-main-ac-2022-primary",
+      "effectiveFrom": null,
+      "snapshotDate": "2022-05-19",
+      "currentCoverageVerified": false,
+      "historical": true,
+      "dateCoverage": "Documented May 2022 snapshot only; availability after that snapshot is unverified.",
+      "days": [
+        "Mon",
+        "Tue",
+        "Wed",
+        "Thu",
+        "Fri",
+        "Sat"
+      ],
+      "calendarNote": "Monday-Saturday table; separate Sunday/nominatedholiday table",
+      "scheduleKnown": true,
+      "departure": "13:15",
+      "arrival": "15:00",
+      "sourceRows": [
+        78,
+        131
+      ],
+      "directional": true
+    },
+    {
+      "id": "cr-95909-2022",
+      "trainNo": "95909",
+      "lineId": "central-main",
+      "direction": "down",
+      "stops": [
+        "CSMT",
+        "BY",
+        "DR",
+        "CLA",
+        "GC",
+        "TNA"
+      ],
+      "stopTimes": [
+        {
+          "code": "CSMT",
+          "time": "14:03"
+        },
+        {
+          "code": "BY",
+          "time": "14:11"
+        },
+        {
+          "code": "DR",
+          "time": "14:20"
+        },
+        {
+          "code": "CLA",
+          "time": "14:28"
+        },
+        {
+          "code": "GC",
+          "time": "14:32"
+        },
+        {
+          "code": "TNA",
+          "time": "14:46"
+        }
+      ],
+      "sourceId": "cr-main-ac-2022-primary",
+      "effectiveFrom": null,
+      "snapshotDate": "2022-05-19",
+      "currentCoverageVerified": false,
+      "historical": true,
+      "dateCoverage": "Documented May 2022 snapshot only; availability after that snapshot is unverified.",
+      "days": [
+        "Mon",
+        "Tue",
+        "Wed",
+        "Thu",
+        "Fri",
+        "Sat"
+      ],
+      "calendarNote": "Monday-Saturday table; separate Sunday/nominatedholiday table",
+      "scheduleKnown": true,
+      "departure": "14:03",
+      "arrival": "14:46",
+      "sourceRows": [
+        78,
+        131
+      ],
+      "directional": true
+    },
+    {
+      "id": "cr-95611-2022",
+      "trainNo": "95611",
+      "lineId": "central-main",
+      "direction": "down",
+      "stops": [
+        "CSMT",
+        "BY",
+        "DR",
+        "CLA",
+        "GC",
+        "TNA",
+        "DI",
+        "KYN",
+        "SHD",
+        "ABY",
+        "TLA"
+      ],
+      "stopTimes": [
+        {
+          "code": "CSMT",
+          "time": "15:19"
+        },
+        {
+          "code": "BY",
+          "time": "15:27"
+        },
+        {
+          "code": "DR",
+          "time": "15:33"
+        },
+        {
+          "code": "CLA",
+          "time": "15:40"
+        },
+        {
+          "code": "GC",
+          "time": "15:44"
+        },
+        {
+          "code": "TNA",
+          "time": "15:59"
+        },
+        {
+          "code": "DI",
+          "time": "16:15"
+        },
+        {
+          "code": "KYN",
+          "time": "16:24"
+        },
+        {
+          "code": "SHD",
+          "time": "16:28"
+        },
+        {
+          "code": "ABY",
+          "time": "16:31"
+        },
+        {
+          "code": "TLA",
+          "time": "16:39"
+        }
+      ],
+      "sourceId": "cr-main-ac-2022-primary",
+      "effectiveFrom": null,
+      "snapshotDate": "2022-05-19",
+      "currentCoverageVerified": false,
+      "historical": true,
+      "dateCoverage": "Documented May 2022 snapshot only; availability after that snapshot is unverified.",
+      "days": [
+        "Mon",
+        "Tue",
+        "Wed",
+        "Thu",
+        "Fri",
+        "Sat"
+      ],
+      "calendarNote": "Monday-Saturday table; separate Sunday/nominatedholiday table",
+      "scheduleKnown": true,
+      "departure": "15:19",
+      "arrival": "16:39",
+      "sourceRows": [
+        258,
+        310
+      ],
+      "directional": true
+    },
+    {
+      "id": "cr-97233-2022",
+      "trainNo": "97233",
+      "lineId": "central-main",
+      "direction": "down",
+      "stops": [
+        "CSMT",
+        "MSD",
+        "SNRD",
+        "BY",
+        "CHG",
+        "CRD",
+        "PR",
+        "DR",
+        "MTN",
+        "SIN",
+        "CLA",
+        "VVH",
+        "GC",
+        "VK",
+        "KJMG",
+        "BND",
+        "NHU",
+        "MLND",
+        "TNA",
+        "KLVA",
+        "MBQ",
+        "DW",
+        "KOPR",
+        "DI"
+      ],
+      "stopTimes": [
+        {
+          "code": "CSMT",
+          "time": "15:24"
+        },
+        {
+          "code": "MSD",
+          "time": "15:27"
+        },
+        {
+          "code": "SNRD",
+          "time": "15:29"
+        },
+        {
+          "code": "BY",
+          "time": "15:32"
+        },
+        {
+          "code": "CHG",
+          "time": "15:34"
+        },
+        {
+          "code": "CRD",
+          "time": "15:36"
+        },
+        {
+          "code": "PR",
+          "time": "15:39"
+        },
+        {
+          "code": "DR",
+          "time": "15:42"
+        },
+        {
+          "code": "MTN",
+          "time": "15:45"
+        },
+        {
+          "code": "SIN",
+          "time": "15:48"
+        },
+        {
+          "code": "CLA",
+          "time": "15:52"
+        },
+        {
+          "code": "VVH",
+          "time": "15:55"
+        },
+        {
+          "code": "GC",
+          "time": "15:58"
+        },
+        {
+          "code": "VK",
+          "time": "16:02"
+        },
+        {
+          "code": "KJMG",
+          "time": "16:05"
+        },
+        {
+          "code": "BND",
+          "time": "16:08"
+        },
+        {
+          "code": "NHU",
+          "time": "16:11"
+        },
+        {
+          "code": "MLND",
+          "time": "16:14"
+        },
+        {
+          "code": "TNA",
+          "time": "16:19"
+        },
+        {
+          "code": "KLVA",
+          "time": "16:24"
+        },
+        {
+          "code": "MBQ",
+          "time": "16:30"
+        },
+        {
+          "code": "DW",
+          "time": "16:34"
+        },
+        {
+          "code": "KOPR",
+          "time": "16:39"
+        },
+        {
+          "code": "DI",
+          "time": "16:43"
+        }
+      ],
+      "sourceId": "cr-main-ac-2022-primary",
+      "effectiveFrom": null,
+      "snapshotDate": "2022-05-19",
+      "currentCoverageVerified": false,
+      "historical": true,
+      "dateCoverage": "Documented May 2022 snapshot only; availability after that snapshot is unverified.",
+      "days": [
+        "Mon",
+        "Tue",
+        "Wed",
+        "Thu",
+        "Fri",
+        "Sat"
+      ],
+      "calendarNote": "Monday-Saturday table; separate Sunday/nominatedholiday table",
+      "scheduleKnown": true,
+      "departure": "15:24",
+      "arrival": "16:43",
+      "sourceRows": [
+        258,
+        310
+      ],
+      "directional": true
+    },
+    {
+      "id": "cr-95723-2022",
+      "trainNo": "95723",
+      "lineId": "central-main",
+      "direction": "down",
+      "stops": [
+        "CSMT",
+        "BY",
+        "DR",
+        "CLA",
+        "GC",
+        "TNA",
+        "DI",
+        "KYN"
+      ],
+      "stopTimes": [
+        {
+          "code": "CSMT",
+          "time": "16:10"
+        },
+        {
+          "code": "BY",
+          "time": "16:18"
+        },
+        {
+          "code": "DR",
+          "time": "16:26"
+        },
+        {
+          "code": "CLA",
+          "time": "16:34"
+        },
+        {
+          "code": "GC",
+          "time": "16:38"
+        },
+        {
+          "code": "TNA",
+          "time": "16:52"
+        },
+        {
+          "code": "DI",
+          "time": "17:08"
+        },
+        {
+          "code": "KYN",
+          "time": "17:18"
+        }
+      ],
+      "sourceId": "cr-main-ac-2022-primary",
+      "effectiveFrom": null,
+      "snapshotDate": "2022-05-19",
+      "currentCoverageVerified": false,
+      "historical": true,
+      "dateCoverage": "Documented May 2022 snapshot only; availability after that snapshot is unverified.",
+      "days": [
+        "Mon",
+        "Tue",
+        "Wed",
+        "Thu",
+        "Fri",
+        "Sat"
+      ],
+      "calendarNote": "Monday-Saturday table; separate Sunday/nominatedholiday table",
+      "scheduleKnown": true,
+      "departure": "16:10",
+      "arrival": "17:18",
+      "sourceRows": [
+        258,
+        310
+      ],
+      "directional": true
+    },
+    {
+      "id": "cr-95321-2022",
+      "trainNo": "95321",
+      "lineId": "central-main",
+      "direction": "down",
+      "stops": [
+        "CSMT",
+        "DR",
+        "TNA",
+        "KLVA",
+        "MBQ",
+        "DW",
+        "KOPR",
+        "DI",
+        "THK",
+        "KYN",
+        "VLDI",
+        "ULNR",
+        "ABH"
+      ],
+      "stopTimes": [
+        {
+          "code": "CSMT",
+          "time": "17:00"
+        },
+        {
+          "code": "DR",
+          "time": "17:12"
+        },
+        {
+          "code": "TNA",
+          "time": "17:35"
+        },
+        {
+          "code": "KLVA",
+          "time": "17:41"
+        },
+        {
+          "code": "MBQ",
+          "time": "17:47"
+        },
+        {
+          "code": "DW",
+          "time": "17:51"
+        },
+        {
+          "code": "KOPR",
+          "time": "17:56"
+        },
+        {
+          "code": "DI",
+          "time": "18:00"
+        },
+        {
+          "code": "THK",
+          "time": "18:04"
+        },
+        {
+          "code": "KYN",
+          "time": "18:10"
+        },
+        {
+          "code": "VLDI",
+          "time": "18:14"
+        },
+        {
+          "code": "ULNR",
+          "time": "18:17"
+        },
+        {
+          "code": "ABH",
+          "time": "18:23"
+        }
+      ],
+      "sourceId": "cr-main-ac-2022-primary",
+      "effectiveFrom": null,
+      "snapshotDate": "2022-05-19",
+      "currentCoverageVerified": false,
+      "historical": true,
+      "dateCoverage": "Documented May 2022 snapshot only; availability after that snapshot is unverified.",
+      "days": [
+        "Mon",
+        "Tue",
+        "Wed",
+        "Thu",
+        "Fri",
+        "Sat"
+      ],
+      "calendarNote": "Monday-Saturday table; separate Sunday/nominatedholiday table",
+      "scheduleKnown": true,
+      "departure": "17:00",
+      "arrival": "18:23",
+      "sourceRows": [
+        258,
+        310
+      ],
+      "directional": true
+    },
+    {
+      "id": "cr-95911-2022",
+      "trainNo": "95911",
+      "lineId": "central-main",
+      "direction": "down",
+      "stops": [
+        "CSMT",
+        "DR",
+        "CLA",
+        "BND",
+        "MLND",
+        "TNA"
+      ],
+      "stopTimes": [
+        {
+          "code": "CSMT",
+          "time": "18:10"
+        },
+        {
+          "code": "DR",
+          "time": "18:23"
+        },
+        {
+          "code": "CLA",
+          "time": "18:30"
+        },
+        {
+          "code": "BND",
+          "time": "18:40"
+        },
+        {
+          "code": "MLND",
+          "time": "18:45"
+        },
+        {
+          "code": "TNA",
+          "time": "18:52"
+        }
+      ],
+      "sourceId": "cr-main-ac-2022-primary",
+      "effectiveFrom": null,
+      "snapshotDate": "2022-05-19",
+      "currentCoverageVerified": false,
+      "historical": true,
+      "dateCoverage": "Documented May 2022 snapshot only; availability after that snapshot is unverified.",
+      "days": [
+        "Mon",
+        "Tue",
+        "Wed",
+        "Thu",
+        "Fri",
+        "Sat"
+      ],
+      "calendarNote": "Monday-Saturday table; separate Sunday/nominatedholiday table",
+      "scheduleKnown": true,
+      "departure": "18:10",
+      "arrival": "18:52",
+      "sourceRows": [
+        258,
+        310
+      ],
+      "directional": true
+    },
+    {
+      "id": "cr-97247-2022",
+      "trainNo": "97247",
+      "lineId": "central-main",
+      "direction": "down",
+      "stops": [
+        "CSMT",
+        "MSD",
+        "SNRD",
+        "BY",
+        "CHG",
+        "CRD",
+        "PR",
+        "DR",
+        "MTN",
+        "SIN",
+        "CLA",
+        "VVH",
+        "GC",
+        "VK",
+        "KJMG",
+        "BND",
+        "NHU",
+        "MLND",
+        "TNA",
+        "KLVA",
+        "MBQ",
+        "DW",
+        "KOPR",
+        "DI"
+      ],
+      "stopTimes": [
+        {
+          "code": "CSMT",
+          "time": "18:18"
+        },
+        {
+          "code": "MSD",
+          "time": "18:21"
+        },
+        {
+          "code": "SNRD",
+          "time": "18:23"
+        },
+        {
+          "code": "BY",
+          "time": "18:26"
+        },
+        {
+          "code": "CHG",
+          "time": "18:28"
+        },
+        {
+          "code": "CRD",
+          "time": "18:30"
+        },
+        {
+          "code": "PR",
+          "time": "18:33"
+        },
+        {
+          "code": "DR",
+          "time": "18:36"
+        },
+        {
+          "code": "MTN",
+          "time": "18:39"
+        },
+        {
+          "code": "SIN",
+          "time": "18:42"
+        },
+        {
+          "code": "CLA",
+          "time": "18:46"
+        },
+        {
+          "code": "VVH",
+          "time": "18:49"
+        },
+        {
+          "code": "GC",
+          "time": "18:52"
+        },
+        {
+          "code": "VK",
+          "time": "18:56"
+        },
+        {
+          "code": "KJMG",
+          "time": "18:59"
+        },
+        {
+          "code": "BND",
+          "time": "19:02"
+        },
+        {
+          "code": "NHU",
+          "time": "19:05"
+        },
+        {
+          "code": "MLND",
+          "time": "19:08"
+        },
+        {
+          "code": "TNA",
+          "time": "19:13"
+        },
+        {
+          "code": "KLVA",
+          "time": "19:18"
+        },
+        {
+          "code": "MBQ",
+          "time": "19:24"
+        },
+        {
+          "code": "DW",
+          "time": "19:28"
+        },
+        {
+          "code": "KOPR",
+          "time": "19:33"
+        },
+        {
+          "code": "DI",
+          "time": "19:37"
+        }
+      ],
+      "sourceId": "cr-main-ac-2022-primary",
+      "effectiveFrom": null,
+      "snapshotDate": "2022-05-19",
+      "currentCoverageVerified": false,
+      "historical": true,
+      "dateCoverage": "Documented May 2022 snapshot only; availability after that snapshot is unverified.",
+      "days": [
+        "Mon",
+        "Tue",
+        "Wed",
+        "Thu",
+        "Fri",
+        "Sat"
+      ],
+      "calendarNote": "Monday-Saturday table; separate Sunday/nominatedholiday table",
+      "scheduleKnown": true,
+      "departure": "18:18",
+      "arrival": "19:37",
+      "sourceRows": [
+        258,
+        310
+      ],
+      "directional": true
+    },
+    {
+      "id": "cr-95733-2022",
+      "trainNo": "95733",
+      "lineId": "central-main",
+      "direction": "down",
+      "stops": [
+        "CSMT",
+        "BY",
+        "DR",
+        "CLA",
+        "GC",
+        "BND",
+        "TNA",
+        "DI",
+        "KYN"
+      ],
+      "stopTimes": [
+        {
+          "code": "CSMT",
+          "time": "18:36"
+        },
+        {
+          "code": "BY",
+          "time": "18:43"
+        },
+        {
+          "code": "DR",
+          "time": "18:49"
+        },
+        {
+          "code": "CLA",
+          "time": "18:56"
+        },
+        {
+          "code": "GC",
+          "time": "19:00"
+        },
+        {
+          "code": "BND",
+          "time": "19:07"
+        },
+        {
+          "code": "TNA",
+          "time": "19:18"
+        },
+        {
+          "code": "DI",
+          "time": "19:34"
+        },
+        {
+          "code": "KYN",
+          "time": "19:41"
+        }
+      ],
+      "sourceId": "cr-main-ac-2022-primary",
+      "effectiveFrom": null,
+      "snapshotDate": "2022-05-19",
+      "currentCoverageVerified": false,
+      "historical": true,
+      "dateCoverage": "Documented May 2022 snapshot only; availability after that snapshot is unverified.",
+      "days": [
+        "Mon",
+        "Tue",
+        "Wed",
+        "Thu",
+        "Fri",
+        "Sat"
+      ],
+      "calendarNote": "Monday-Saturday table; separate Sunday/nominatedholiday table",
+      "scheduleKnown": true,
+      "departure": "18:36",
+      "arrival": "19:41",
+      "sourceRows": [
+        258,
+        310
+      ],
+      "directional": true
+    },
+    {
+      "id": "cr-95331-2022",
+      "trainNo": "95331",
+      "lineId": "central-main",
+      "direction": "down",
+      "stops": [
+        "DR",
+        "GC",
+        "BND",
+        "TNA",
+        "DI",
+        "KYN",
+        "VLDI",
+        "ULNR",
+        "ABH"
+      ],
+      "stopTimes": [
+        {
+          "code": "DR",
+          "time": "19:39"
+        },
+        {
+          "code": "GC",
+          "time": "19:50"
+        },
+        {
+          "code": "BND",
+          "time": "19:57"
+        },
+        {
+          "code": "TNA",
+          "time": "20:05"
+        },
+        {
+          "code": "DI",
+          "time": "20:20"
+        },
+        {
+          "code": "KYN",
+          "time": "20:32"
+        },
+        {
+          "code": "VLDI",
+          "time": "20:36"
+        },
+        {
+          "code": "ULNR",
+          "time": "20:39"
+        },
+        {
+          "code": "ABH",
+          "time": "20:44"
+        }
+      ],
+      "sourceId": "cr-main-ac-2022-primary",
+      "effectiveFrom": null,
+      "snapshotDate": "2022-05-19",
+      "currentCoverageVerified": false,
+      "historical": true,
+      "dateCoverage": "Documented May 2022 snapshot only; availability after that snapshot is unverified.",
+      "days": [
+        "Mon",
+        "Tue",
+        "Wed",
+        "Thu",
+        "Fri",
+        "Sat"
+      ],
+      "calendarNote": "Monday-Saturday table; separate Sunday/nominatedholiday table",
+      "scheduleKnown": true,
+      "departure": "19:39",
+      "arrival": "20:44",
+      "sourceRows": [
+        258,
+        310
+      ],
+      "directional": true
+    },
+    {
+      "id": "cr-97153-2022",
+      "trainNo": "97153",
+      "lineId": "central-main",
+      "direction": "down",
+      "stops": [
+        "CSMT",
+        "MSD",
+        "SNRD",
+        "BY",
+        "CHG",
+        "CRD",
+        "PR",
+        "DR",
+        "MTN",
+        "SIN",
+        "CLA",
+        "VVH",
+        "GC",
+        "VK",
+        "KJMG",
+        "BND",
+        "NHU",
+        "MLND",
+        "TNA",
+        "KLVA",
+        "MBQ",
+        "DW",
+        "KOPR",
+        "DI",
+        "THK",
+        "KYN"
+      ],
+      "stopTimes": [
+        {
+          "code": "CSMT",
+          "time": "20:00"
+        },
+        {
+          "code": "MSD",
+          "time": "20:03"
+        },
+        {
+          "code": "SNRD",
+          "time": "20:05"
+        },
+        {
+          "code": "BY",
+          "time": "20:08"
+        },
+        {
+          "code": "CHG",
+          "time": "20:10"
+        },
+        {
+          "code": "CRD",
+          "time": "20:12"
+        },
+        {
+          "code": "PR",
+          "time": "20:15"
+        },
+        {
+          "code": "DR",
+          "time": "20:18"
+        },
+        {
+          "code": "MTN",
+          "time": "20:21"
+        },
+        {
+          "code": "SIN",
+          "time": "20:24"
+        },
+        {
+          "code": "CLA",
+          "time": "20:28"
+        },
+        {
+          "code": "VVH",
+          "time": "20:31"
+        },
+        {
+          "code": "GC",
+          "time": "20:34"
+        },
+        {
+          "code": "VK",
+          "time": "20:38"
+        },
+        {
+          "code": "KJMG",
+          "time": "20:41"
+        },
+        {
+          "code": "BND",
+          "time": "20:44"
+        },
+        {
+          "code": "NHU",
+          "time": "20:47"
+        },
+        {
+          "code": "MLND",
+          "time": "20:50"
+        },
+        {
+          "code": "TNA",
+          "time": "20:55"
+        },
+        {
+          "code": "KLVA",
+          "time": "20:59"
+        },
+        {
+          "code": "MBQ",
+          "time": "21:05"
+        },
+        {
+          "code": "DW",
+          "time": "21:09"
+        },
+        {
+          "code": "KOPR",
+          "time": "21:14"
+        },
+        {
+          "code": "DI",
+          "time": "21:18"
+        },
+        {
+          "code": "THK",
+          "time": "21:22"
+        },
+        {
+          "code": "KYN",
+          "time": "21:28"
+        }
+      ],
+      "sourceId": "cr-main-ac-2022-primary",
+      "effectiveFrom": null,
+      "snapshotDate": "2022-05-19",
+      "currentCoverageVerified": false,
+      "historical": true,
+      "dateCoverage": "Documented May 2022 snapshot only; availability after that snapshot is unverified.",
+      "days": [
+        "Mon",
+        "Tue",
+        "Wed",
+        "Thu",
+        "Fri",
+        "Sat"
+      ],
+      "calendarNote": "Monday-Saturday table; separate Sunday/nominatedholiday table",
+      "scheduleKnown": true,
+      "departure": "20:00",
+      "arrival": "21:28",
+      "sourceRows": [
+        258,
+        310
+      ],
+      "directional": true
+    },
+    {
+      "id": "cr-97163-2022",
+      "trainNo": "97163",
+      "lineId": "central-main",
+      "direction": "down",
+      "stops": [
+        "CSMT",
+        "MSD",
+        "SNRD",
+        "BY",
+        "CHG",
+        "CRD",
+        "PR",
+        "DR",
+        "MTN",
+        "SIN",
+        "CLA",
+        "VVH",
+        "GC",
+        "VK",
+        "KJMG",
+        "BND",
+        "NHU",
+        "MLND",
+        "TNA",
+        "KLVA",
+        "MBQ",
+        "DW",
+        "KOPR",
+        "DI",
+        "THK",
+        "KYN"
+      ],
+      "stopTimes": [
+        {
+          "code": "CSMT",
+          "time": "21:16"
+        },
+        {
+          "code": "MSD",
+          "time": "21:19"
+        },
+        {
+          "code": "SNRD",
+          "time": "21:21"
+        },
+        {
+          "code": "BY",
+          "time": "21:24"
+        },
+        {
+          "code": "CHG",
+          "time": "21:26"
+        },
+        {
+          "code": "CRD",
+          "time": "21:28"
+        },
+        {
+          "code": "PR",
+          "time": "21:31"
+        },
+        {
+          "code": "DR",
+          "time": "21:34"
+        },
+        {
+          "code": "MTN",
+          "time": "21:37"
+        },
+        {
+          "code": "SIN",
+          "time": "21:40"
+        },
+        {
+          "code": "CLA",
+          "time": "21:44"
+        },
+        {
+          "code": "VVH",
+          "time": "21:47"
+        },
+        {
+          "code": "GC",
+          "time": "21:50"
+        },
+        {
+          "code": "VK",
+          "time": "21:54"
+        },
+        {
+          "code": "KJMG",
+          "time": "21:57"
+        },
+        {
+          "code": "BND",
+          "time": "22:00"
+        },
+        {
+          "code": "NHU",
+          "time": "22:03"
+        },
+        {
+          "code": "MLND",
+          "time": "22:06"
+        },
+        {
+          "code": "TNA",
+          "time": "22:11"
+        },
+        {
+          "code": "KLVA",
+          "time": "22:16"
+        },
+        {
+          "code": "MBQ",
+          "time": "22:22"
+        },
+        {
+          "code": "DW",
+          "time": "22:26"
+        },
+        {
+          "code": "KOPR",
+          "time": "22:31"
+        },
+        {
+          "code": "DI",
+          "time": "22:35"
+        },
+        {
+          "code": "THK",
+          "time": "22:39"
+        },
+        {
+          "code": "KYN",
+          "time": "22:45"
+        }
+      ],
+      "sourceId": "cr-main-ac-2022-primary",
+      "effectiveFrom": null,
+      "snapshotDate": "2022-05-19",
+      "currentCoverageVerified": false,
+      "historical": true,
+      "dateCoverage": "Documented May 2022 snapshot only; availability after that snapshot is unverified.",
+      "days": [
+        "Mon",
+        "Tue",
+        "Wed",
+        "Thu",
+        "Fri",
+        "Sat"
+      ],
+      "calendarNote": "Monday-Saturday table; separate Sunday/nominatedholiday table",
+      "scheduleKnown": true,
+      "departure": "21:16",
+      "arrival": "22:45",
+      "sourceRows": [
+        258,
+        310
+      ],
+      "directional": true
+    },
+    {
+      "id": "cr-95741-2022",
+      "trainNo": "95741",
+      "lineId": "central-main",
+      "direction": "down",
+      "stops": [
+        "CSMT",
+        "BY",
+        "DR",
+        "CLA",
+        "GC",
+        "VK",
+        "KJMG",
+        "BND",
+        "NHU",
+        "MLND",
+        "TNA",
+        "KLVA",
+        "MBQ",
+        "DW",
+        "KOPR",
+        "DI",
+        "THK",
+        "KYN"
+      ],
+      "stopTimes": [
+        {
+          "code": "CSMT",
+          "time": "21:42"
+        },
+        {
+          "code": "BY",
+          "time": "21:49"
+        },
+        {
+          "code": "DR",
+          "time": "21:55"
+        },
+        {
+          "code": "CLA",
+          "time": "22:03"
+        },
+        {
+          "code": "GC",
+          "time": "22:10"
+        },
+        {
+          "code": "VK",
+          "time": "22:14"
+        },
+        {
+          "code": "KJMG",
+          "time": "22:17"
+        },
+        {
+          "code": "BND",
+          "time": "22:20"
+        },
+        {
+          "code": "NHU",
+          "time": "22:23"
+        },
+        {
+          "code": "MLND",
+          "time": "22:26"
+        },
+        {
+          "code": "TNA",
+          "time": "22:31"
+        },
+        {
+          "code": "KLVA",
+          "time": "22:36"
+        },
+        {
+          "code": "MBQ",
+          "time": "22:42"
+        },
+        {
+          "code": "DW",
+          "time": "22:46"
+        },
+        {
+          "code": "KOPR",
+          "time": "22:51"
+        },
+        {
+          "code": "DI",
+          "time": "22:55"
+        },
+        {
+          "code": "THK",
+          "time": "22:59"
+        },
+        {
+          "code": "KYN",
+          "time": "23:05"
+        }
+      ],
+      "sourceId": "cr-main-ac-2022-primary",
+      "effectiveFrom": null,
+      "snapshotDate": "2022-05-19",
+      "currentCoverageVerified": false,
+      "historical": true,
+      "dateCoverage": "Documented May 2022 snapshot only; availability after that snapshot is unverified.",
+      "days": [
+        "Mon",
+        "Tue",
+        "Wed",
+        "Thu",
+        "Fri",
+        "Sat"
+      ],
+      "calendarNote": "Monday-Saturday table; separate Sunday/nominatedholiday table",
+      "scheduleKnown": true,
+      "departure": "21:42",
+      "arrival": "23:05",
+      "sourceRows": [
+        258,
+        310
+      ],
+      "directional": true
+    },
+    {
+      "id": "cr-97435-2022",
+      "trainNo": "97435",
+      "lineId": "central-main",
+      "direction": "down",
+      "stops": [
+        "CSMT",
+        "MSD",
+        "SNRD",
+        "BY",
+        "CHG",
+        "CRD",
+        "PR",
+        "DR",
+        "MTN",
+        "SIN",
+        "CLA",
+        "VVH",
+        "GC",
+        "VK",
+        "KJMG",
+        "BND",
+        "NHU",
+        "MLND",
+        "TNA"
+      ],
+      "stopTimes": [
+        {
+          "code": "CSMT",
+          "time": "22:20"
+        },
+        {
+          "code": "MSD",
+          "time": "22:23"
+        },
+        {
+          "code": "SNRD",
+          "time": "22:25"
+        },
+        {
+          "code": "BY",
+          "time": "22:28"
+        },
+        {
+          "code": "CHG",
+          "time": "22:30"
+        },
+        {
+          "code": "CRD",
+          "time": "22:32"
+        },
+        {
+          "code": "PR",
+          "time": "22:35"
+        },
+        {
+          "code": "DR",
+          "time": "22:38"
+        },
+        {
+          "code": "MTN",
+          "time": "22:42"
+        },
+        {
+          "code": "SIN",
+          "time": "22:45"
+        },
+        {
+          "code": "CLA",
+          "time": "22:49"
+        },
+        {
+          "code": "VVH",
+          "time": "22:52"
+        },
+        {
+          "code": "GC",
+          "time": "22:55"
+        },
+        {
+          "code": "VK",
+          "time": "22:59"
+        },
+        {
+          "code": "KJMG",
+          "time": "23:02"
+        },
+        {
+          "code": "BND",
+          "time": "23:05"
+        },
+        {
+          "code": "NHU",
+          "time": "23:08"
+        },
+        {
+          "code": "MLND",
+          "time": "23:11"
+        },
+        {
+          "code": "TNA",
+          "time": "23:15"
+        }
+      ],
+      "sourceId": "cr-main-ac-2022-primary",
+      "effectiveFrom": null,
+      "snapshotDate": "2022-05-19",
+      "currentCoverageVerified": false,
+      "historical": true,
+      "dateCoverage": "Documented May 2022 snapshot only; availability after that snapshot is unverified.",
+      "days": [
+        "Mon",
+        "Tue",
+        "Wed",
+        "Thu",
+        "Fri",
+        "Sat"
+      ],
+      "calendarNote": "Monday-Saturday table; separate Sunday/nominatedholiday table",
+      "scheduleKnown": true,
+      "departure": "22:20",
+      "arrival": "23:15",
+      "sourceRows": [
+        258,
+        310
+      ],
+      "directional": true
+    },
+    {
+      "id": "cr-97443-2022",
+      "trainNo": "97443",
+      "lineId": "central-main",
+      "direction": "down",
+      "stops": [
+        "CSMT",
+        "MSD",
+        "SNRD",
+        "BY",
+        "CHG",
+        "CRD",
+        "PR",
+        "DR",
+        "MTN",
+        "SIN",
+        "CLA",
+        "VVH",
+        "GC",
+        "VK",
+        "KJMG",
+        "BND",
+        "NHU",
+        "MLND",
+        "TNA"
+      ],
+      "stopTimes": [
+        {
+          "code": "CSMT",
+          "time": "23:12"
+        },
+        {
+          "code": "MSD",
+          "time": "23:15"
+        },
+        {
+          "code": "SNRD",
+          "time": "23:17"
+        },
+        {
+          "code": "BY",
+          "time": "23:20"
+        },
+        {
+          "code": "CHG",
+          "time": "23:22"
+        },
+        {
+          "code": "CRD",
+          "time": "23:24"
+        },
+        {
+          "code": "PR",
+          "time": "23:27"
+        },
+        {
+          "code": "DR",
+          "time": "23:30"
+        },
+        {
+          "code": "MTN",
+          "time": "23:33"
+        },
+        {
+          "code": "SIN",
+          "time": "23:36"
+        },
+        {
+          "code": "CLA",
+          "time": "23:40"
+        },
+        {
+          "code": "VVH",
+          "time": "23:43"
+        },
+        {
+          "code": "GC",
+          "time": "23:46"
+        },
+        {
+          "code": "VK",
+          "time": "23:50"
+        },
+        {
+          "code": "KJMG",
+          "time": "23:53"
+        },
+        {
+          "code": "BND",
+          "time": "23:56"
+        },
+        {
+          "code": "NHU",
+          "time": "23:59"
+        },
+        {
+          "code": "MLND",
+          "time": "00:02"
+        },
+        {
+          "code": "TNA",
+          "time": "00:07"
+        }
+      ],
+      "sourceId": "cr-main-ac-2022-primary",
+      "effectiveFrom": null,
+      "snapshotDate": "2022-05-19",
+      "currentCoverageVerified": false,
+      "historical": true,
+      "dateCoverage": "Documented May 2022 snapshot only; availability after that snapshot is unverified.",
+      "days": [
+        "Mon",
+        "Tue",
+        "Wed",
+        "Thu",
+        "Fri",
+        "Sat"
+      ],
+      "calendarNote": "Monday-Saturday table; separate Sunday/nominatedholiday table",
+      "scheduleKnown": true,
+      "departure": "23:12",
+      "arrival": "00:07",
+      "sourceRows": [
+        258,
+        310
+      ],
+      "directional": true
+    },
+    {
+      "id": "cr-97604-2022",
+      "trainNo": "97604",
+      "lineId": "central-main",
+      "direction": "up",
+      "stops": [
+        "CLA",
+        "SIN",
+        "MTN",
+        "DR",
+        "PR",
+        "CRD",
+        "CHG",
+        "BY",
+        "SNRD",
+        "MSD",
+        "CSMT"
+      ],
+      "stopTimes": [
+        {
+          "code": "CLA",
+          "time": "04:46"
+        },
+        {
+          "code": "SIN",
+          "time": "04:50"
+        },
+        {
+          "code": "MTN",
+          "time": "04:53"
+        },
+        {
+          "code": "DR",
+          "time": "04:57"
+        },
+        {
+          "code": "PR",
+          "time": "05:00"
+        },
+        {
+          "code": "CRD",
+          "time": "05:03"
+        },
+        {
+          "code": "CHG",
+          "time": "05:05"
+        },
+        {
+          "code": "BY",
+          "time": "05:07"
+        },
+        {
+          "code": "SNRD",
+          "time": "05:10"
+        },
+        {
+          "code": "MSD",
+          "time": "05:13"
+        },
+        {
+          "code": "CSMT",
+          "time": "05:16"
+        }
+      ],
+      "sourceId": "cr-main-ac-2022-primary",
+      "effectiveFrom": null,
+      "snapshotDate": "2022-05-19",
+      "currentCoverageVerified": false,
+      "historical": true,
+      "dateCoverage": "Documented May 2022 snapshot only; availability after that snapshot is unverified.",
+      "days": [
+        "Mon",
+        "Tue",
+        "Wed",
+        "Thu",
+        "Fri",
+        "Sat"
+      ],
+      "calendarNote": "Monday-Saturday table; separate Sunday/nominatedholiday table",
+      "scheduleKnown": true,
+      "departure": "04:46",
+      "arrival": "05:16",
+      "sourceRows": [
+        389,
+        442
+      ],
+      "directional": true
+    },
+    {
+      "id": "cr-97310-2022",
+      "trainNo": "97310",
+      "lineId": "central-main",
+      "direction": "up",
+      "stops": [
+        "TNA",
+        "MLND",
+        "NHU",
+        "BND",
+        "KJMG",
+        "VK",
+        "GC",
+        "VVH",
+        "CLA",
+        "SIN",
+        "MTN",
+        "DR",
+        "PR",
+        "CRD",
+        "CHG",
+        "BY",
+        "SNRD",
+        "MSD",
+        "CSMT"
+      ],
+      "stopTimes": [
+        {
+          "code": "TNA",
+          "time": "05:24"
+        },
+        {
+          "code": "MLND",
+          "time": "05:28"
+        },
+        {
+          "code": "NHU",
+          "time": "05:31"
+        },
+        {
+          "code": "BND",
+          "time": "05:34"
+        },
+        {
+          "code": "KJMG",
+          "time": "05:37"
+        },
+        {
+          "code": "VK",
+          "time": "05:40"
+        },
+        {
+          "code": "GC",
+          "time": "05:44"
+        },
+        {
+          "code": "VVH",
+          "time": "05:47"
+        },
+        {
+          "code": "CLA",
+          "time": "05:50"
+        },
+        {
+          "code": "SIN",
+          "time": "05:54"
+        },
+        {
+          "code": "MTN",
+          "time": "05:57"
+        },
+        {
+          "code": "DR",
+          "time": "06:01"
+        },
+        {
+          "code": "PR",
+          "time": "06:04"
+        },
+        {
+          "code": "CRD",
+          "time": "06:07"
+        },
+        {
+          "code": "CHG",
+          "time": "06:09"
+        },
+        {
+          "code": "BY",
+          "time": "06:11"
+        },
+        {
+          "code": "SNRD",
+          "time": "06:14"
+        },
+        {
+          "code": "MSD",
+          "time": "06:17"
+        },
+        {
+          "code": "CSMT",
+          "time": "06:20"
+        }
+      ],
+      "sourceId": "cr-main-ac-2022-primary",
+      "effectiveFrom": null,
+      "snapshotDate": "2022-05-19",
+      "currentCoverageVerified": false,
+      "historical": true,
+      "dateCoverage": "Documented May 2022 snapshot only; availability after that snapshot is unverified.",
+      "days": [
+        "Mon",
+        "Tue",
+        "Wed",
+        "Thu",
+        "Fri",
+        "Sat"
+      ],
+      "calendarNote": "Monday-Saturday table; separate Sunday/nominatedholiday table",
+      "scheduleKnown": true,
+      "departure": "05:24",
+      "arrival": "06:20",
+      "sourceRows": [
+        389,
+        442
+      ],
+      "directional": true
+    },
+    {
+      "id": "cr-95702-2022",
+      "trainNo": "95702",
+      "lineId": "central-main",
+      "direction": "up",
+      "stops": [
+        "KYN",
+        "DI",
+        "TNA",
+        "GC",
+        "CLA",
+        "DR",
+        "BY",
+        "CSMT"
+      ],
+      "stopTimes": [
+        {
+          "code": "KYN",
+          "time": "06:32"
+        },
+        {
+          "code": "DI",
+          "time": "06:37"
+        },
+        {
+          "code": "TNA",
+          "time": "06:55"
+        },
+        {
+          "code": "GC",
+          "time": "07:11"
+        },
+        {
+          "code": "CLA",
+          "time": "07:15"
+        },
+        {
+          "code": "DR",
+          "time": "07:24"
+        },
+        {
+          "code": "BY",
+          "time": "07:29"
+        },
+        {
+          "code": "CSMT",
+          "time": "07:39"
+        }
+      ],
+      "sourceId": "cr-main-ac-2022-primary",
+      "effectiveFrom": null,
+      "snapshotDate": "2022-05-19",
+      "currentCoverageVerified": false,
+      "historical": true,
+      "dateCoverage": "Documented May 2022 snapshot only; availability after that snapshot is unverified.",
+      "days": [
+        "Mon",
+        "Tue",
+        "Wed",
+        "Thu",
+        "Fri",
+        "Sat"
+      ],
+      "calendarNote": "Monday-Saturday table; separate Sunday/nominatedholiday table",
+      "scheduleKnown": true,
+      "departure": "06:32",
+      "arrival": "07:39",
+      "sourceRows": [
+        389,
+        442
+      ],
+      "directional": true
+    },
+    {
+      "id": "cr-97322-2022",
+      "trainNo": "97322",
+      "lineId": "central-main",
+      "direction": "up",
+      "stops": [
+        "TNA",
+        "MLND",
+        "NHU",
+        "BND",
+        "KJMG",
+        "VK",
+        "GC",
+        "VVH",
+        "CLA",
+        "SIN",
+        "MTN",
+        "DR",
+        "PR",
+        "CRD",
+        "CHG",
+        "BY",
+        "SNRD",
+        "MSD",
+        "CSMT"
+      ],
+      "stopTimes": [
+        {
+          "code": "TNA",
+          "time": "07:04"
+        },
+        {
+          "code": "MLND",
+          "time": "07:08"
+        },
+        {
+          "code": "NHU",
+          "time": "07:11"
+        },
+        {
+          "code": "BND",
+          "time": "07:14"
+        },
+        {
+          "code": "KJMG",
+          "time": "07:17"
+        },
+        {
+          "code": "VK",
+          "time": "07:20"
+        },
+        {
+          "code": "GC",
+          "time": "07:24"
+        },
+        {
+          "code": "VVH",
+          "time": "07:27"
+        },
+        {
+          "code": "CLA",
+          "time": "07:30"
+        },
+        {
+          "code": "SIN",
+          "time": "07:34"
+        },
+        {
+          "code": "MTN",
+          "time": "07:37"
+        },
+        {
+          "code": "DR",
+          "time": "07:41"
+        },
+        {
+          "code": "PR",
+          "time": "07:44"
+        },
+        {
+          "code": "CRD",
+          "time": "07:47"
+        },
+        {
+          "code": "CHG",
+          "time": "07:49"
+        },
+        {
+          "code": "BY",
+          "time": "07:51"
+        },
+        {
+          "code": "SNRD",
+          "time": "07:54"
+        },
+        {
+          "code": "MSD",
+          "time": "07:57"
+        },
+        {
+          "code": "CSMT",
+          "time": "08:00"
+        }
+      ],
+      "sourceId": "cr-main-ac-2022-primary",
+      "effectiveFrom": null,
+      "snapshotDate": "2022-05-19",
+      "currentCoverageVerified": false,
+      "historical": true,
+      "dateCoverage": "Documented May 2022 snapshot only; availability after that snapshot is unverified.",
+      "days": [
+        "Mon",
+        "Tue",
+        "Wed",
+        "Thu",
+        "Fri",
+        "Sat"
+      ],
+      "calendarNote": "Monday-Saturday table; separate Sunday/nominatedholiday table",
+      "scheduleKnown": true,
+      "departure": "07:04",
+      "arrival": "08:00",
+      "sourceRows": [
+        389,
+        442
+      ],
+      "directional": true
+    },
+    {
+      "id": "cr-95904-2022",
+      "trainNo": "95904",
+      "lineId": "central-main",
+      "direction": "up",
+      "stops": [
+        "TNA",
+        "MLND",
+        "VK",
+        "CLA",
+        "DR",
+        "BY",
+        "CSMT"
+      ],
+      "stopTimes": [
+        {
+          "code": "TNA",
+          "time": "08:02"
+        },
+        {
+          "code": "MLND",
+          "time": "08:07"
+        },
+        {
+          "code": "VK",
+          "time": "08:15"
+        },
+        {
+          "code": "CLA",
+          "time": "08:23"
+        },
+        {
+          "code": "DR",
+          "time": "08:31"
+        },
+        {
+          "code": "BY",
+          "time": "08:39"
+        },
+        {
+          "code": "CSMT",
+          "time": "08:50"
+        }
+      ],
+      "sourceId": "cr-main-ac-2022-primary",
+      "effectiveFrom": null,
+      "snapshotDate": "2022-05-19",
+      "currentCoverageVerified": false,
+      "historical": true,
+      "dateCoverage": "Documented May 2022 snapshot only; availability after that snapshot is unverified.",
+      "days": [
+        "Mon",
+        "Tue",
+        "Wed",
+        "Thu",
+        "Fri",
+        "Sat"
+      ],
+      "calendarNote": "Monday-Saturday table; separate Sunday/nominatedholiday table",
+      "scheduleKnown": true,
+      "departure": "08:02",
+      "arrival": "08:50",
+      "sourceRows": [
+        389,
+        442
+      ],
+      "directional": true
+    },
+    {
+      "id": "cr-95908-2022",
+      "trainNo": "95908",
+      "lineId": "central-main",
+      "direction": "up",
+      "stops": [
+        "TNA",
+        "MLND",
+        "GC",
+        "CLA",
+        "DR",
+        "BY",
+        "CSMT"
+      ],
+      "stopTimes": [
+        {
+          "code": "TNA",
+          "time": "09:03"
+        },
+        {
+          "code": "MLND",
+          "time": "09:09"
+        },
+        {
+          "code": "GC",
+          "time": "09:20"
+        },
+        {
+          "code": "CLA",
+          "time": "09:24"
+        },
+        {
+          "code": "DR",
+          "time": "09:32"
+        },
+        {
+          "code": "BY",
+          "time": "09:38"
+        },
+        {
+          "code": "CSMT",
+          "time": "09:47"
+        }
+      ],
+      "sourceId": "cr-main-ac-2022-primary",
+      "effectiveFrom": null,
+      "snapshotDate": "2022-05-19",
+      "currentCoverageVerified": false,
+      "historical": true,
+      "dateCoverage": "Documented May 2022 snapshot only; availability after that snapshot is unverified.",
+      "days": [
+        "Mon",
+        "Tue",
+        "Wed",
+        "Thu",
+        "Fri",
+        "Sat"
+      ],
+      "calendarNote": "Monday-Saturday table; separate Sunday/nominatedholiday table",
+      "scheduleKnown": true,
+      "departure": "09:03",
+      "arrival": "09:47",
+      "sourceRows": [
+        389,
+        442
+      ],
+      "directional": true
+    },
+    {
+      "id": "cr-95716-2022",
+      "trainNo": "95716",
+      "lineId": "central-main",
+      "direction": "up",
+      "stops": [
+        "KYN",
+        "DI",
+        "TNA",
+        "MLND",
+        "GC",
+        "CLA",
+        "DR",
+        "BY",
+        "CSMT"
+      ],
+      "stopTimes": [
+        {
+          "code": "KYN",
+          "time": "08:54"
+        },
+        {
+          "code": "DI",
+          "time": "08:59"
+        },
+        {
+          "code": "TNA",
+          "time": "09:16"
+        },
+        {
+          "code": "MLND",
+          "time": "09:20"
+        },
+        {
+          "code": "GC",
+          "time": "09:32"
+        },
+        {
+          "code": "CLA",
+          "time": "09:36"
+        },
+        {
+          "code": "DR",
+          "time": "09:44"
+        },
+        {
+          "code": "BY",
+          "time": "09:50"
+        },
+        {
+          "code": "CSMT",
+          "time": "09:59"
+        }
+      ],
+      "sourceId": "cr-main-ac-2022-primary",
+      "effectiveFrom": null,
+      "snapshotDate": "2022-05-19",
+      "currentCoverageVerified": false,
+      "historical": true,
+      "dateCoverage": "Documented May 2022 snapshot only; availability after that snapshot is unverified.",
+      "days": [
+        "Mon",
+        "Tue",
+        "Wed",
+        "Thu",
+        "Fri",
+        "Sat"
+      ],
+      "calendarNote": "Monday-Saturday table; separate Sunday/nominatedholiday table",
+      "scheduleKnown": true,
+      "departure": "08:54",
+      "arrival": "09:59",
+      "sourceRows": [
+        389,
+        442
+      ],
+      "directional": true
+    },
+    {
+      "id": "cr-96618-2022",
+      "trainNo": "96618",
+      "lineId": "central-main",
+      "direction": "up",
+      "stops": [
+        "TLA",
+        "ABY",
+        "SHD",
+        "KYN",
+        "THK",
+        "DI",
+        "KOPR",
+        "DW",
+        "MBQ",
+        "KLVA",
+        "TNA",
+        "MLND",
+        "NHU",
+        "BND",
+        "KJMG",
+        "VK",
+        "GC",
+        "VVH",
+        "CLA",
+        "SIN",
+        "MTN",
+        "DR",
+        "PR",
+        "CRD",
+        "CHG",
+        "BY",
+        "SNRD",
+        "MSD",
+        "CSMT"
+      ],
+      "stopTimes": [
+        {
+          "code": "TLA",
+          "time": "08:33"
+        },
+        {
+          "code": "ABY",
+          "time": "08:41"
+        },
+        {
+          "code": "SHD",
+          "time": "08:45"
+        },
+        {
+          "code": "KYN",
+          "time": "08:51"
+        },
+        {
+          "code": "THK",
+          "time": "08:56"
+        },
+        {
+          "code": "DI",
+          "time": "08:59"
+        },
+        {
+          "code": "KOPR",
+          "time": "09:02"
+        },
+        {
+          "code": "DW",
+          "time": "09:07"
+        },
+        {
+          "code": "MBQ",
+          "time": "09:11"
+        },
+        {
+          "code": "KLVA",
+          "time": "09:17"
+        },
+        {
+          "code": "TNA",
+          "time": "09:22"
+        },
+        {
+          "code": "MLND",
+          "time": "09:26"
+        },
+        {
+          "code": "NHU",
+          "time": "09:29"
+        },
+        {
+          "code": "BND",
+          "time": "09:32"
+        },
+        {
+          "code": "KJMG",
+          "time": "09:35"
+        },
+        {
+          "code": "VK",
+          "time": "09:38"
+        },
+        {
+          "code": "GC",
+          "time": "09:42"
+        },
+        {
+          "code": "VVH",
+          "time": "09:45"
+        },
+        {
+          "code": "CLA",
+          "time": "09:48"
+        },
+        {
+          "code": "SIN",
+          "time": "09:52"
+        },
+        {
+          "code": "MTN",
+          "time": "09:55"
+        },
+        {
+          "code": "DR",
+          "time": "09:59"
+        },
+        {
+          "code": "PR",
+          "time": "10:02"
+        },
+        {
+          "code": "CRD",
+          "time": "10:05"
+        },
+        {
+          "code": "CHG",
+          "time": "10:07"
+        },
+        {
+          "code": "BY",
+          "time": "10:09"
+        },
+        {
+          "code": "SNRD",
+          "time": "10:12"
+        },
+        {
+          "code": "MSD",
+          "time": "10:15"
+        },
+        {
+          "code": "CSMT",
+          "time": "10:18"
+        }
+      ],
+      "sourceId": "cr-main-ac-2022-primary",
+      "effectiveFrom": null,
+      "snapshotDate": "2022-05-19",
+      "currentCoverageVerified": false,
+      "historical": true,
+      "dateCoverage": "Documented May 2022 snapshot only; availability after that snapshot is unverified.",
+      "days": [
+        "Mon",
+        "Tue",
+        "Wed",
+        "Thu",
+        "Fri",
+        "Sat"
+      ],
+      "calendarNote": "Monday-Saturday table; separate Sunday/nominatedholiday table",
+      "scheduleKnown": true,
+      "departure": "08:33",
+      "arrival": "10:18",
+      "sourceRows": [
+        389,
+        442
+      ],
+      "directional": true
+    },
+    {
+      "id": "cr-95724-2022",
+      "trainNo": "95724",
+      "lineId": "central-main",
+      "direction": "up",
+      "stops": [
+        "KYN",
+        "DI",
+        "TNA",
+        "GC",
+        "CLA",
+        "DR"
+      ],
+      "stopTimes": [
+        {
+          "code": "KYN",
+          "time": "10:02"
+        },
+        {
+          "code": "DI",
+          "time": "10:07"
+        },
+        {
+          "code": "TNA",
+          "time": "10:23"
+        },
+        {
+          "code": "GC",
+          "time": "10:40"
+        },
+        {
+          "code": "CLA",
+          "time": "10:44"
+        },
+        {
+          "code": "DR",
+          "time": "10:52"
+        }
+      ],
+      "sourceId": "cr-main-ac-2022-primary",
+      "effectiveFrom": null,
+      "snapshotDate": "2022-05-19",
+      "currentCoverageVerified": false,
+      "historical": true,
+      "dateCoverage": "Documented May 2022 snapshot only; availability after that snapshot is unverified.",
+      "days": [
+        "Mon",
+        "Tue",
+        "Wed",
+        "Thu",
+        "Fri",
+        "Sat"
+      ],
+      "calendarNote": "Monday-Saturday table; separate Sunday/nominatedholiday table",
+      "scheduleKnown": true,
+      "departure": "10:02",
+      "arrival": "10:52",
+      "sourceRows": [
+        389,
+        442
+      ],
+      "directional": true
+    },
+    {
+      "id": "cr-95726-2022",
+      "trainNo": "95726",
+      "lineId": "central-main",
+      "direction": "up",
+      "stops": [
+        "KYN",
+        "DI",
+        "DW",
+        "TNA",
+        "GC",
+        "CLA",
+        "DR"
+      ],
+      "stopTimes": [
+        {
+          "code": "KYN",
+          "time": "11:22"
+        },
+        {
+          "code": "DI",
+          "time": "11:29"
+        },
+        {
+          "code": "DW",
+          "time": "11:34"
+        },
+        {
+          "code": "TNA",
+          "time": "11:45"
+        },
+        {
+          "code": "GC",
+          "time": "12:01"
+        },
+        {
+          "code": "CLA",
+          "time": "12:05"
+        },
+        {
+          "code": "DR",
+          "time": "12:15"
+        }
+      ],
+      "sourceId": "cr-main-ac-2022-primary",
+      "effectiveFrom": null,
+      "snapshotDate": "2022-05-19",
+      "currentCoverageVerified": false,
+      "historical": true,
+      "dateCoverage": "Documented May 2022 snapshot only; availability after that snapshot is unverified.",
+      "days": [
+        "Mon",
+        "Tue",
+        "Wed",
+        "Thu",
+        "Fri",
+        "Sat"
+      ],
+      "calendarNote": "Monday-Saturday table; separate Sunday/nominatedholiday table",
+      "scheduleKnown": true,
+      "departure": "11:22",
+      "arrival": "12:15",
+      "sourceRows": [
+        389,
+        442
+      ],
+      "directional": true
+    },
+    {
+      "id": "cr-96314-2022",
+      "trainNo": "96314",
+      "lineId": "central-main",
+      "direction": "up",
+      "stops": [
+        "ABH",
+        "ULNR",
+        "VLDI",
+        "KYN",
+        "THK",
+        "DI",
+        "KOPR",
+        "DW",
+        "MBQ",
+        "KLVA",
+        "TNA",
+        "MLND",
+        "NHU",
+        "BND",
+        "KJMG",
+        "VK",
+        "GC",
+        "VVH",
+        "CLA",
+        "SIN",
+        "MTN",
+        "DR",
+        "PR",
+        "CRD",
+        "CHG",
+        "BY",
+        "SNRD",
+        "MSD",
+        "CSMT"
+      ],
+      "stopTimes": [
+        {
+          "code": "ABH",
+          "time": "11:17"
+        },
+        {
+          "code": "ULNR",
+          "time": "11:22"
+        },
+        {
+          "code": "VLDI",
+          "time": "11:25"
+        },
+        {
+          "code": "KYN",
+          "time": "11:31"
+        },
+        {
+          "code": "THK",
+          "time": "11:38"
+        },
+        {
+          "code": "DI",
+          "time": "11:41"
+        },
+        {
+          "code": "KOPR",
+          "time": "11:44"
+        },
+        {
+          "code": "DW",
+          "time": "11:49"
+        },
+        {
+          "code": "MBQ",
+          "time": "11:53"
+        },
+        {
+          "code": "KLVA",
+          "time": "11:59"
+        },
+        {
+          "code": "TNA",
+          "time": "12:05"
+        },
+        {
+          "code": "MLND",
+          "time": "12:10"
+        },
+        {
+          "code": "NHU",
+          "time": "12:13"
+        },
+        {
+          "code": "BND",
+          "time": "12:16"
+        },
+        {
+          "code": "KJMG",
+          "time": "12:19"
+        },
+        {
+          "code": "VK",
+          "time": "12:22"
+        },
+        {
+          "code": "GC",
+          "time": "12:26"
+        },
+        {
+          "code": "VVH",
+          "time": "12:29"
+        },
+        {
+          "code": "CLA",
+          "time": "12:32"
+        },
+        {
+          "code": "SIN",
+          "time": "12:36"
+        },
+        {
+          "code": "MTN",
+          "time": "12:39"
+        },
+        {
+          "code": "DR",
+          "time": "12:43"
+        },
+        {
+          "code": "PR",
+          "time": "12:46"
+        },
+        {
+          "code": "CRD",
+          "time": "12:49"
+        },
+        {
+          "code": "CHG",
+          "time": "12:51"
+        },
+        {
+          "code": "BY",
+          "time": "12:53"
+        },
+        {
+          "code": "SNRD",
+          "time": "12:56"
+        },
+        {
+          "code": "MSD",
+          "time": "12:59"
+        },
+        {
+          "code": "CSMT",
+          "time": "13:02"
+        }
+      ],
+      "sourceId": "cr-main-ac-2022-primary",
+      "effectiveFrom": null,
+      "snapshotDate": "2022-05-19",
+      "currentCoverageVerified": false,
+      "historical": true,
+      "dateCoverage": "Documented May 2022 snapshot only; availability after that snapshot is unverified.",
+      "days": [
+        "Mon",
+        "Tue",
+        "Wed",
+        "Thu",
+        "Fri",
+        "Sat"
+      ],
+      "calendarNote": "Monday-Saturday table; separate Sunday/nominatedholiday table",
+      "scheduleKnown": true,
+      "departure": "11:17",
+      "arrival": "13:02",
+      "sourceRows": [
+        389,
+        442
+      ],
+      "directional": true
+    },
+    {
+      "id": "cr-97218-2022",
+      "trainNo": "97218",
+      "lineId": "central-main",
+      "direction": "up",
+      "stops": [
+        "DI",
+        "KOPR",
+        "DW",
+        "MBQ",
+        "KLVA",
+        "TNA",
+        "MLND",
+        "NHU",
+        "BND",
+        "KJMG",
+        "VK",
+        "GC",
+        "VVH",
+        "CLA",
+        "SIN",
+        "MTN",
+        "DR",
+        "PR",
+        "CRD",
+        "CHG",
+        "BY",
+        "SNRD",
+        "MSD",
+        "CSMT"
+      ],
+      "stopTimes": [
+        {
+          "code": "DI",
+          "time": "11:48"
+        },
+        {
+          "code": "KOPR",
+          "time": "11:52"
+        },
+        {
+          "code": "DW",
+          "time": "11:57"
+        },
+        {
+          "code": "MBQ",
+          "time": "12:01"
+        },
+        {
+          "code": "KLVA",
+          "time": "12:07"
+        },
+        {
+          "code": "TNA",
+          "time": "12:13"
+        },
+        {
+          "code": "MLND",
+          "time": "12:18"
+        },
+        {
+          "code": "NHU",
+          "time": "12:21"
+        },
+        {
+          "code": "BND",
+          "time": "12:24"
+        },
+        {
+          "code": "KJMG",
+          "time": "12:27"
+        },
+        {
+          "code": "VK",
+          "time": "12:30"
+        },
+        {
+          "code": "GC",
+          "time": "12:34"
+        },
+        {
+          "code": "VVH",
+          "time": "12:37"
+        },
+        {
+          "code": "CLA",
+          "time": "12:40"
+        },
+        {
+          "code": "SIN",
+          "time": "12:44"
+        },
+        {
+          "code": "MTN",
+          "time": "12:47"
+        },
+        {
+          "code": "DR",
+          "time": "12:51"
+        },
+        {
+          "code": "PR",
+          "time": "12:54"
+        },
+        {
+          "code": "CRD",
+          "time": "12:57"
+        },
+        {
+          "code": "CHG",
+          "time": "12:59"
+        },
+        {
+          "code": "BY",
+          "time": "13:01"
+        },
+        {
+          "code": "SNRD",
+          "time": "13:04"
+        },
+        {
+          "code": "MSD",
+          "time": "13:07"
+        },
+        {
+          "code": "CSMT",
+          "time": "13:10"
+        }
+      ],
+      "sourceId": "cr-main-ac-2022-primary",
+      "effectiveFrom": null,
+      "snapshotDate": "2022-05-19",
+      "currentCoverageVerified": false,
+      "historical": true,
+      "dateCoverage": "Documented May 2022 snapshot only; availability after that snapshot is unverified.",
+      "days": [
+        "Mon",
+        "Tue",
+        "Wed",
+        "Thu",
+        "Fri",
+        "Sat"
+      ],
+      "calendarNote": "Monday-Saturday table; separate Sunday/nominatedholiday table",
+      "scheduleKnown": true,
+      "departure": "11:48",
+      "arrival": "13:10",
+      "sourceRows": [
+        389,
+        442
+      ],
+      "directional": true
+    },
+    {
+      "id": "cr-95214-2022",
+      "trainNo": "95214",
+      "lineId": "central-main",
+      "direction": "up",
+      "stops": [
+        "BUD",
+        "ABH",
+        "ULNR",
+        "VLDI",
+        "KYN",
+        "DI",
+        "TNA",
+        "GC",
+        "CLA",
+        "DR",
+        "BY",
+        "CSMT"
+      ],
+      "stopTimes": [
+        {
+          "code": "BUD",
+          "time": "12:27"
+        },
+        {
+          "code": "ABH",
+          "time": "12:36"
+        },
+        {
+          "code": "ULNR",
+          "time": "12:40"
+        },
+        {
+          "code": "VLDI",
+          "time": "12:43"
+        },
+        {
+          "code": "KYN",
+          "time": "12:48"
+        },
+        {
+          "code": "DI",
+          "time": "12:54"
+        },
+        {
+          "code": "TNA",
+          "time": "13:10"
+        },
+        {
+          "code": "GC",
+          "time": "13:25"
+        },
+        {
+          "code": "CLA",
+          "time": "13:29"
+        },
+        {
+          "code": "DR",
+          "time": "13:38"
+        },
+        {
+          "code": "BY",
+          "time": "13:44"
+        },
+        {
+          "code": "CSMT",
+          "time": "13:53"
+        }
+      ],
+      "sourceId": "cr-main-ac-2022-primary",
+      "effectiveFrom": null,
+      "snapshotDate": "2022-05-19",
+      "currentCoverageVerified": false,
+      "historical": true,
+      "dateCoverage": "Documented May 2022 snapshot only; availability after that snapshot is unverified.",
+      "days": [
+        "Mon",
+        "Tue",
+        "Wed",
+        "Thu",
+        "Fri",
+        "Sat"
+      ],
+      "calendarNote": "Monday-Saturday table; separate Sunday/nominatedholiday table",
+      "scheduleKnown": true,
+      "departure": "12:27",
+      "arrival": "13:53",
+      "sourceRows": [
+        389,
+        442
+      ],
+      "directional": true
+    },
+    {
+      "id": "cr-95218-2022",
+      "trainNo": "95218",
+      "lineId": "central-main",
+      "direction": "up",
+      "stops": [
+        "BUD",
+        "ABH",
+        "ULNR",
+        "VLDI",
+        "KYN",
+        "DI",
+        "TNA",
+        "GC",
+        "CLA",
+        "DR",
+        "BY",
+        "CSMT"
+      ],
+      "stopTimes": [
+        {
+          "code": "BUD",
+          "time": "13:48"
+        },
+        {
+          "code": "ABH",
+          "time": "13:56"
+        },
+        {
+          "code": "ULNR",
+          "time": "14:00"
+        },
+        {
+          "code": "VLDI",
+          "time": "14:03"
+        },
+        {
+          "code": "KYN",
+          "time": "14:09"
+        },
+        {
+          "code": "DI",
+          "time": "14:15"
+        },
+        {
+          "code": "TNA",
+          "time": "14:30"
+        },
+        {
+          "code": "GC",
+          "time": "14:46"
+        },
+        {
+          "code": "CLA",
+          "time": "14:51"
+        },
+        {
+          "code": "DR",
+          "time": "14:59"
+        },
+        {
+          "code": "BY",
+          "time": "15:05"
+        },
+        {
+          "code": "CSMT",
+          "time": "15:14"
+        }
+      ],
+      "sourceId": "cr-main-ac-2022-primary",
+      "effectiveFrom": null,
+      "snapshotDate": "2022-05-19",
+      "currentCoverageVerified": false,
+      "historical": true,
+      "dateCoverage": "Documented May 2022 snapshot only; availability after that snapshot is unverified.",
+      "days": [
+        "Mon",
+        "Tue",
+        "Wed",
+        "Thu",
+        "Fri",
+        "Sat"
+      ],
+      "calendarNote": "Monday-Saturday table; separate Sunday/nominatedholiday table",
+      "scheduleKnown": true,
+      "departure": "13:48",
+      "arrival": "15:14",
+      "sourceRows": [
+        389,
+        442
+      ],
+      "directional": true
+    },
+    {
+      "id": "cr-97376-2022",
+      "trainNo": "97376",
+      "lineId": "central-main",
+      "direction": "up",
+      "stops": [
+        "TNA",
+        "MLND",
+        "NHU",
+        "BND",
+        "KJMG",
+        "VK",
+        "GC",
+        "VVH",
+        "CLA",
+        "SIN",
+        "MTN",
+        "DR",
+        "PR",
+        "CRD",
+        "CHG",
+        "BY",
+        "SNRD",
+        "MSD",
+        "CSMT"
+      ],
+      "stopTimes": [
+        {
+          "code": "TNA",
+          "time": "14:22"
+        },
+        {
+          "code": "MLND",
+          "time": "14:28"
+        },
+        {
+          "code": "NHU",
+          "time": "14:31"
+        },
+        {
+          "code": "BND",
+          "time": "14:34"
+        },
+        {
+          "code": "KJMG",
+          "time": "14:37"
+        },
+        {
+          "code": "VK",
+          "time": "14:40"
+        },
+        {
+          "code": "GC",
+          "time": "14:44"
+        },
+        {
+          "code": "VVH",
+          "time": "14:47"
+        },
+        {
+          "code": "CLA",
+          "time": "14:50"
+        },
+        {
+          "code": "SIN",
+          "time": "14:54"
+        },
+        {
+          "code": "MTN",
+          "time": "14:57"
+        },
+        {
+          "code": "DR",
+          "time": "15:01"
+        },
+        {
+          "code": "PR",
+          "time": "15:04"
+        },
+        {
+          "code": "CRD",
+          "time": "15:07"
+        },
+        {
+          "code": "CHG",
+          "time": "15:09"
+        },
+        {
+          "code": "BY",
+          "time": "15:11"
+        },
+        {
+          "code": "SNRD",
+          "time": "15:14"
+        },
+        {
+          "code": "MSD",
+          "time": "15:17"
+        },
+        {
+          "code": "CSMT",
+          "time": "15:20"
+        }
+      ],
+      "sourceId": "cr-main-ac-2022-primary",
+      "effectiveFrom": null,
+      "snapshotDate": "2022-05-19",
+      "currentCoverageVerified": false,
+      "historical": true,
+      "dateCoverage": "Documented May 2022 snapshot only; availability after that snapshot is unverified.",
+      "days": [
+        "Mon",
+        "Tue",
+        "Wed",
+        "Thu",
+        "Fri",
+        "Sat"
+      ],
+      "calendarNote": "Monday-Saturday table; separate Sunday/nominatedholiday table",
+      "scheduleKnown": true,
+      "departure": "14:22",
+      "arrival": "15:20",
+      "sourceRows": [
+        389,
+        442
+      ],
+      "directional": true
+    },
+    {
+      "id": "cr-95914-2022",
+      "trainNo": "95914",
+      "lineId": "central-main",
+      "direction": "up",
+      "stops": [
+        "TNA",
+        "GC",
+        "CLA",
+        "DR",
+        "BY",
+        "CSMT"
+      ],
+      "stopTimes": [
+        {
+          "code": "TNA",
+          "time": "15:03"
+        },
+        {
+          "code": "GC",
+          "time": "15:19"
+        },
+        {
+          "code": "CLA",
+          "time": "15:23"
+        },
+        {
+          "code": "DR",
+          "time": "15:31"
+        },
+        {
+          "code": "BY",
+          "time": "15:37"
+        },
+        {
+          "code": "CSMT",
+          "time": "15:45"
+        }
+      ],
+      "sourceId": "cr-main-ac-2022-primary",
+      "effectiveFrom": null,
+      "snapshotDate": "2022-05-19",
+      "currentCoverageVerified": false,
+      "historical": true,
+      "dateCoverage": "Documented May 2022 snapshot only; availability after that snapshot is unverified.",
+      "days": [
+        "Mon",
+        "Tue",
+        "Wed",
+        "Thu",
+        "Fri",
+        "Sat"
+      ],
+      "calendarNote": "Monday-Saturday table; separate Sunday/nominatedholiday table",
+      "scheduleKnown": true,
+      "departure": "15:03",
+      "arrival": "15:45",
+      "sourceRows": [
+        511,
+        564
+      ],
+      "directional": true
+    },
+    {
+      "id": "cr-95324-2022",
+      "trainNo": "95324",
+      "lineId": "central-main",
+      "direction": "up",
+      "stops": [
+        "ABH",
+        "ULNR",
+        "VLDI",
+        "KYN",
+        "DI",
+        "TNA",
+        "BND",
+        "GC",
+        "CLA",
+        "DR",
+        "BY",
+        "CSMT"
+      ],
+      "stopTimes": [
+        {
+          "code": "ABH",
+          "time": "15:12"
+        },
+        {
+          "code": "ULNR",
+          "time": "15:17"
+        },
+        {
+          "code": "VLDI",
+          "time": "15:20"
+        },
+        {
+          "code": "KYN",
+          "time": "15:25"
+        },
+        {
+          "code": "DI",
+          "time": "15:31"
+        },
+        {
+          "code": "TNA",
+          "time": "15:46"
+        },
+        {
+          "code": "BND",
+          "time": "15:54"
+        },
+        {
+          "code": "GC",
+          "time": "16:02"
+        },
+        {
+          "code": "CLA",
+          "time": "16:06"
+        },
+        {
+          "code": "DR",
+          "time": "16:14"
+        },
+        {
+          "code": "BY",
+          "time": "16:20"
+        },
+        {
+          "code": "CSMT",
+          "time": "16:31"
+        }
+      ],
+      "sourceId": "cr-main-ac-2022-primary",
+      "effectiveFrom": null,
+      "snapshotDate": "2022-05-19",
+      "currentCoverageVerified": false,
+      "historical": true,
+      "dateCoverage": "Documented May 2022 snapshot only; availability after that snapshot is unverified.",
+      "days": [
+        "Mon",
+        "Tue",
+        "Wed",
+        "Thu",
+        "Fri",
+        "Sat"
+      ],
+      "calendarNote": "Monday-Saturday table; separate Sunday/nominatedholiday table",
+      "scheduleKnown": true,
+      "departure": "15:12",
+      "arrival": "16:31",
+      "sourceRows": [
+        511,
+        564
+      ],
+      "directional": true
+    },
+    {
+      "id": "cr-95610-2022",
+      "trainNo": "95610",
+      "lineId": "central-main",
+      "direction": "up",
+      "stops": [
+        "TLA",
+        "ABY",
+        "SHD",
+        "KYN",
+        "DI",
+        "TNA",
+        "GC",
+        "CLA",
+        "DR",
+        "BY",
+        "CSMT"
+      ],
+      "stopTimes": [
+        {
+          "code": "TLA",
+          "time": "16:47"
+        },
+        {
+          "code": "ABY",
+          "time": "16:55"
+        },
+        {
+          "code": "SHD",
+          "time": "16:58"
+        },
+        {
+          "code": "KYN",
+          "time": "17:03"
+        },
+        {
+          "code": "DI",
+          "time": "17:09"
+        },
+        {
+          "code": "TNA",
+          "time": "17:24"
+        },
+        {
+          "code": "GC",
+          "time": "17:37"
+        },
+        {
+          "code": "CLA",
+          "time": "17:41"
+        },
+        {
+          "code": "DR",
+          "time": "17:49"
+        },
+        {
+          "code": "BY",
+          "time": "17:55"
+        },
+        {
+          "code": "CSMT",
+          "time": "18:06"
+        }
+      ],
+      "sourceId": "cr-main-ac-2022-primary",
+      "effectiveFrom": null,
+      "snapshotDate": "2022-05-19",
+      "currentCoverageVerified": false,
+      "historical": true,
+      "dateCoverage": "Documented May 2022 snapshot only; availability after that snapshot is unverified.",
+      "days": [
+        "Mon",
+        "Tue",
+        "Wed",
+        "Thu",
+        "Fri",
+        "Sat"
+      ],
+      "calendarNote": "Monday-Saturday table; separate Sunday/nominatedholiday table",
+      "scheduleKnown": true,
+      "departure": "16:47",
+      "arrival": "18:06",
+      "sourceRows": [
+        511,
+        564
+      ],
+      "directional": true
+    },
+    {
+      "id": "cr-97236-2022",
+      "trainNo": "97236",
+      "lineId": "central-main",
+      "direction": "up",
+      "stops": [
+        "DI",
+        "KOPR",
+        "DW",
+        "MBQ",
+        "KLVA",
+        "TNA",
+        "MLND",
+        "NHU",
+        "BND",
+        "KJMG",
+        "VK",
+        "GC",
+        "VVH",
+        "CLA",
+        "SIN",
+        "MTN",
+        "DR",
+        "PR",
+        "CRD",
+        "CHG",
+        "BY",
+        "SNRD",
+        "MSD",
+        "CSMT"
+      ],
+      "stopTimes": [
+        {
+          "code": "DI",
+          "time": "16:55"
+        },
+        {
+          "code": "KOPR",
+          "time": "16:59"
+        },
+        {
+          "code": "DW",
+          "time": "17:04"
+        },
+        {
+          "code": "MBQ",
+          "time": "17:08"
+        },
+        {
+          "code": "KLVA",
+          "time": "17:14"
+        },
+        {
+          "code": "TNA",
+          "time": "17:19"
+        },
+        {
+          "code": "MLND",
+          "time": "17:23"
+        },
+        {
+          "code": "NHU",
+          "time": "17:26"
+        },
+        {
+          "code": "BND",
+          "time": "17:29"
+        },
+        {
+          "code": "KJMG",
+          "time": "17:32"
+        },
+        {
+          "code": "VK",
+          "time": "17:35"
+        },
+        {
+          "code": "GC",
+          "time": "17:39"
+        },
+        {
+          "code": "VVH",
+          "time": "17:42"
+        },
+        {
+          "code": "CLA",
+          "time": "17:45"
+        },
+        {
+          "code": "SIN",
+          "time": "17:49"
+        },
+        {
+          "code": "MTN",
+          "time": "17:52"
+        },
+        {
+          "code": "DR",
+          "time": "17:55"
+        },
+        {
+          "code": "PR",
+          "time": "17:58"
+        },
+        {
+          "code": "CRD",
+          "time": "18:01"
+        },
+        {
+          "code": "CHG",
+          "time": "18:03"
+        },
+        {
+          "code": "BY",
+          "time": "18:05"
+        },
+        {
+          "code": "SNRD",
+          "time": "18:08"
+        },
+        {
+          "code": "MSD",
+          "time": "18:11"
+        },
+        {
+          "code": "CSMT",
+          "time": "18:14"
+        }
+      ],
+      "sourceId": "cr-main-ac-2022-primary",
+      "effectiveFrom": null,
+      "snapshotDate": "2022-05-19",
+      "currentCoverageVerified": false,
+      "historical": true,
+      "dateCoverage": "Documented May 2022 snapshot only; availability after that snapshot is unverified.",
+      "days": [
+        "Mon",
+        "Tue",
+        "Wed",
+        "Thu",
+        "Fri",
+        "Sat"
+      ],
+      "calendarNote": "Monday-Saturday table; separate Sunday/nominatedholiday table",
+      "scheduleKnown": true,
+      "departure": "16:55",
+      "arrival": "18:14",
+      "sourceRows": [
+        511,
+        564
+      ],
+      "directional": true
+    },
+    {
+      "id": "cr-95738-2022",
+      "trainNo": "95738",
+      "lineId": "central-main",
+      "direction": "up",
+      "stops": [
+        "KYN",
+        "DI",
+        "TNA",
+        "GC",
+        "CLA",
+        "DR",
+        "BY",
+        "CSMT"
+      ],
+      "stopTimes": [
+        {
+          "code": "KYN",
+          "time": "17:27"
+        },
+        {
+          "code": "DI",
+          "time": "17:33"
+        },
+        {
+          "code": "TNA",
+          "time": "17:49"
+        },
+        {
+          "code": "GC",
+          "time": "18:04"
+        },
+        {
+          "code": "CLA",
+          "time": "18:08"
+        },
+        {
+          "code": "DR",
+          "time": "18:15"
+        },
+        {
+          "code": "BY",
+          "time": "18:21"
+        },
+        {
+          "code": "CSMT",
+          "time": "18:30"
+        }
+      ],
+      "sourceId": "cr-main-ac-2022-primary",
+      "effectiveFrom": null,
+      "snapshotDate": "2022-05-19",
+      "currentCoverageVerified": false,
+      "historical": true,
+      "dateCoverage": "Documented May 2022 snapshot only; availability after that snapshot is unverified.",
+      "days": [
+        "Mon",
+        "Tue",
+        "Wed",
+        "Thu",
+        "Fri",
+        "Sat"
+      ],
+      "calendarNote": "Monday-Saturday table; separate Sunday/nominatedholiday table",
+      "scheduleKnown": true,
+      "departure": "17:27",
+      "arrival": "18:30",
+      "sourceRows": [
+        511,
+        564
+      ],
+      "directional": true
+    },
+    {
+      "id": "cr-95338-2022",
+      "trainNo": "95338",
+      "lineId": "central-main",
+      "direction": "up",
+      "stops": [
+        "ABH",
+        "ULNR",
+        "VLDI",
+        "KYN",
+        "DI",
+        "TNA",
+        "MLND",
+        "GC",
+        "CLA",
+        "DR"
+      ],
+      "stopTimes": [
+        {
+          "code": "ABH",
+          "time": "18:30"
+        },
+        {
+          "code": "ULNR",
+          "time": "18:35"
+        },
+        {
+          "code": "VLDI",
+          "time": "18:38"
+        },
+        {
+          "code": "KYN",
+          "time": "18:43"
+        },
+        {
+          "code": "DI",
+          "time": "18:49"
+        },
+        {
+          "code": "TNA",
+          "time": "19:04"
+        },
+        {
+          "code": "MLND",
+          "time": "19:08"
+        },
+        {
+          "code": "GC",
+          "time": "19:20"
+        },
+        {
+          "code": "CLA",
+          "time": "19:24"
+        },
+        {
+          "code": "DR",
+          "time": "19:32"
+        }
+      ],
+      "sourceId": "cr-main-ac-2022-primary",
+      "effectiveFrom": null,
+      "snapshotDate": "2022-05-19",
+      "currentCoverageVerified": false,
+      "historical": true,
+      "dateCoverage": "Documented May 2022 snapshot only; availability after that snapshot is unverified.",
+      "days": [
+        "Mon",
+        "Tue",
+        "Wed",
+        "Thu",
+        "Fri",
+        "Sat"
+      ],
+      "calendarNote": "Monday-Saturday table; separate Sunday/nominatedholiday table",
+      "scheduleKnown": true,
+      "departure": "18:30",
+      "arrival": "19:32",
+      "sourceRows": [
+        511,
+        564
+      ],
+      "directional": true
+    },
+    {
+      "id": "cr-97424-2022",
+      "trainNo": "97424",
+      "lineId": "central-main",
+      "direction": "up",
+      "stops": [
+        "TNA",
+        "MLND",
+        "NHU",
+        "BND",
+        "KJMG",
+        "VK",
+        "GC",
+        "VVH",
+        "CLA",
+        "SIN",
+        "MTN",
+        "DR",
+        "PR",
+        "CRD",
+        "CHG",
+        "BY",
+        "SNRD",
+        "MSD",
+        "CSMT"
+      ],
+      "stopTimes": [
+        {
+          "code": "TNA",
+          "time": "18:57"
+        },
+        {
+          "code": "MLND",
+          "time": "19:03"
+        },
+        {
+          "code": "NHU",
+          "time": "19:06"
+        },
+        {
+          "code": "BND",
+          "time": "19:09"
+        },
+        {
+          "code": "KJMG",
+          "time": "19:12"
+        },
+        {
+          "code": "VK",
+          "time": "19:15"
+        },
+        {
+          "code": "GC",
+          "time": "19:19"
+        },
+        {
+          "code": "VVH",
+          "time": "19:22"
+        },
+        {
+          "code": "CLA",
+          "time": "19:25"
+        },
+        {
+          "code": "SIN",
+          "time": "19:29"
+        },
+        {
+          "code": "MTN",
+          "time": "19:32"
+        },
+        {
+          "code": "DR",
+          "time": "19:36"
+        },
+        {
+          "code": "PR",
+          "time": "19:39"
+        },
+        {
+          "code": "CRD",
+          "time": "19:42"
+        },
+        {
+          "code": "CHG",
+          "time": "19:44"
+        },
+        {
+          "code": "BY",
+          "time": "19:46"
+        },
+        {
+          "code": "SNRD",
+          "time": "19:49"
+        },
+        {
+          "code": "MSD",
+          "time": "19:52"
+        },
+        {
+          "code": "CSMT",
+          "time": "19:55"
+        }
+      ],
+      "sourceId": "cr-main-ac-2022-primary",
+      "effectiveFrom": null,
+      "snapshotDate": "2022-05-19",
+      "currentCoverageVerified": false,
+      "historical": true,
+      "dateCoverage": "Documented May 2022 snapshot only; availability after that snapshot is unverified.",
+      "days": [
+        "Mon",
+        "Tue",
+        "Wed",
+        "Thu",
+        "Fri",
+        "Sat"
+      ],
+      "calendarNote": "Monday-Saturday table; separate Sunday/nominatedholiday table",
+      "scheduleKnown": true,
+      "departure": "18:57",
+      "arrival": "19:55",
+      "sourceRows": [
+        511,
+        564
+      ],
+      "directional": true
+    },
+    {
+      "id": "cr-97252-2022",
+      "trainNo": "97252",
+      "lineId": "central-main",
+      "direction": "up",
+      "stops": [
+        "DI",
+        "KOPR",
+        "DW",
+        "MBQ",
+        "KLVA",
+        "TNA",
+        "MLND",
+        "NHU",
+        "BND",
+        "KJMG",
+        "VK",
+        "GC",
+        "VVH",
+        "CLA",
+        "SIN",
+        "MTN",
+        "DR",
+        "PR",
+        "CRD",
+        "CHG",
+        "BY",
+        "SNRD",
+        "MSD",
+        "CSMT"
+      ],
+      "stopTimes": [
+        {
+          "code": "DI",
+          "time": "19:50"
+        },
+        {
+          "code": "KOPR",
+          "time": "19:54"
+        },
+        {
+          "code": "DW",
+          "time": "19:59"
+        },
+        {
+          "code": "MBQ",
+          "time": "20:03"
+        },
+        {
+          "code": "KLVA",
+          "time": "20:09"
+        },
+        {
+          "code": "TNA",
+          "time": "20:14"
+        },
+        {
+          "code": "MLND",
+          "time": "20:19"
+        },
+        {
+          "code": "NHU",
+          "time": "20:22"
+        },
+        {
+          "code": "BND",
+          "time": "20:25"
+        },
+        {
+          "code": "KJMG",
+          "time": "20:28"
+        },
+        {
+          "code": "VK",
+          "time": "20:31"
+        },
+        {
+          "code": "GC",
+          "time": "20:35"
+        },
+        {
+          "code": "VVH",
+          "time": "20:38"
+        },
+        {
+          "code": "CLA",
+          "time": "20:41"
+        },
+        {
+          "code": "SIN",
+          "time": "20:45"
+        },
+        {
+          "code": "MTN",
+          "time": "20:48"
+        },
+        {
+          "code": "DR",
+          "time": "20:52"
+        },
+        {
+          "code": "PR",
+          "time": "20:55"
+        },
+        {
+          "code": "CRD",
+          "time": "20:58"
+        },
+        {
+          "code": "CHG",
+          "time": "21:00"
+        },
+        {
+          "code": "BY",
+          "time": "21:03"
+        },
+        {
+          "code": "SNRD",
+          "time": "21:06"
+        },
+        {
+          "code": "MSD",
+          "time": "21:09"
+        },
+        {
+          "code": "CSMT",
+          "time": "21:12"
+        }
+      ],
+      "sourceId": "cr-main-ac-2022-primary",
+      "effectiveFrom": null,
+      "snapshotDate": "2022-05-19",
+      "currentCoverageVerified": false,
+      "historical": true,
+      "dateCoverage": "Documented May 2022 snapshot only; availability after that snapshot is unverified.",
+      "days": [
+        "Mon",
+        "Tue",
+        "Wed",
+        "Thu",
+        "Fri",
+        "Sat"
+      ],
+      "calendarNote": "Monday-Saturday table; separate Sunday/nominatedholiday table",
+      "scheduleKnown": true,
+      "departure": "19:50",
+      "arrival": "21:12",
+      "sourceRows": [
+        511,
+        564
+      ],
+      "directional": true
+    },
+    {
+      "id": "cr-97142-2022",
+      "trainNo": "97142",
+      "lineId": "central-main",
+      "direction": "up",
+      "stops": [
+        "KYN",
+        "THK",
+        "DI",
+        "KOPR",
+        "DW",
+        "MBQ",
+        "KLVA",
+        "TNA",
+        "MLND",
+        "NHU",
+        "BND",
+        "KJMG",
+        "VK",
+        "GC",
+        "VVH",
+        "CLA",
+        "SIN",
+        "MTN",
+        "DR",
+        "PR",
+        "CRD",
+        "CHG",
+        "BY",
+        "SNRD",
+        "MSD",
+        "CSMT"
+      ],
+      "stopTimes": [
+        {
+          "code": "KYN",
+          "time": "19:56"
+        },
+        {
+          "code": "THK",
+          "time": "20:03"
+        },
+        {
+          "code": "DI",
+          "time": "20:07"
+        },
+        {
+          "code": "KOPR",
+          "time": "20:10"
+        },
+        {
+          "code": "DW",
+          "time": "20:15"
+        },
+        {
+          "code": "MBQ",
+          "time": "20:19"
+        },
+        {
+          "code": "KLVA",
+          "time": "20:25"
+        },
+        {
+          "code": "TNA",
+          "time": "20:30"
+        },
+        {
+          "code": "MLND",
+          "time": "20:35"
+        },
+        {
+          "code": "NHU",
+          "time": "20:38"
+        },
+        {
+          "code": "BND",
+          "time": "20:41"
+        },
+        {
+          "code": "KJMG",
+          "time": "20:44"
+        },
+        {
+          "code": "VK",
+          "time": "20:47"
+        },
+        {
+          "code": "GC",
+          "time": "20:51"
+        },
+        {
+          "code": "VVH",
+          "time": "20:54"
+        },
+        {
+          "code": "CLA",
+          "time": "20:57"
+        },
+        {
+          "code": "SIN",
+          "time": "21:01"
+        },
+        {
+          "code": "MTN",
+          "time": "21:04"
+        },
+        {
+          "code": "DR",
+          "time": "21:08"
+        },
+        {
+          "code": "PR",
+          "time": "21:11"
+        },
+        {
+          "code": "CRD",
+          "time": "21:14"
+        },
+        {
+          "code": "CHG",
+          "time": "21:16"
+        },
+        {
+          "code": "BY",
+          "time": "21:18"
+        },
+        {
+          "code": "SNRD",
+          "time": "21:21"
+        },
+        {
+          "code": "MSD",
+          "time": "21:24"
+        },
+        {
+          "code": "CSMT",
+          "time": "21:28"
+        }
+      ],
+      "sourceId": "cr-main-ac-2022-primary",
+      "effectiveFrom": null,
+      "snapshotDate": "2022-05-19",
+      "currentCoverageVerified": false,
+      "historical": true,
+      "dateCoverage": "Documented May 2022 snapshot only; availability after that snapshot is unverified.",
+      "days": [
+        "Mon",
+        "Tue",
+        "Wed",
+        "Thu",
+        "Fri",
+        "Sat"
+      ],
+      "calendarNote": "Monday-Saturday table; separate Sunday/nominatedholiday table",
+      "scheduleKnown": true,
+      "departure": "19:56",
+      "arrival": "21:28",
+      "sourceRows": [
+        511,
+        564
+      ],
+      "directional": true
+    },
+    {
+      "id": "cr-95344-2022",
+      "trainNo": "95344",
+      "lineId": "central-main",
+      "direction": "up",
+      "stops": [
+        "ABH",
+        "ULNR",
+        "VLDI",
+        "KYN",
+        "DI",
+        "TNA",
+        "GC",
+        "CLA",
+        "DR",
+        "BY",
+        "CSMT"
+      ],
+      "stopTimes": [
+        {
+          "code": "ABH",
+          "time": "20:50"
+        },
+        {
+          "code": "ULNR",
+          "time": "20:55"
+        },
+        {
+          "code": "VLDI",
+          "time": "20:58"
+        },
+        {
+          "code": "KYN",
+          "time": "21:04"
+        },
+        {
+          "code": "DI",
+          "time": "21:11"
+        },
+        {
+          "code": "TNA",
+          "time": "21:26"
+        },
+        {
+          "code": "GC",
+          "time": "21:39"
+        },
+        {
+          "code": "CLA",
+          "time": "21:43"
+        },
+        {
+          "code": "DR",
+          "time": "21:51"
+        },
+        {
+          "code": "BY",
+          "time": "21:58"
+        },
+        {
+          "code": "CSMT",
+          "time": "22:07"
+        }
+      ],
+      "sourceId": "cr-main-ac-2022-primary",
+      "effectiveFrom": null,
+      "snapshotDate": "2022-05-19",
+      "currentCoverageVerified": false,
+      "historical": true,
+      "dateCoverage": "Documented May 2022 snapshot only; availability after that snapshot is unverified.",
+      "days": [
+        "Mon",
+        "Tue",
+        "Wed",
+        "Thu",
+        "Fri",
+        "Sat"
+      ],
+      "calendarNote": "Monday-Saturday table; separate Sunday/nominatedholiday table",
+      "scheduleKnown": true,
+      "departure": "20:50",
+      "arrival": "22:07",
+      "sourceRows": [
+        511,
+        564
+      ],
+      "directional": true
+    },
+    {
+      "id": "cr-97158-2022",
+      "trainNo": "97158",
+      "lineId": "central-main",
+      "direction": "up",
+      "stops": [
+        "KYN",
+        "THK",
+        "DI",
+        "KOPR",
+        "DW",
+        "MBQ",
+        "KLVA",
+        "TNA",
+        "MLND",
+        "NHU",
+        "BND",
+        "KJMG",
+        "VK",
+        "GC",
+        "VVH",
+        "CLA",
+        "SIN",
+        "MTN",
+        "DR",
+        "PR",
+        "CRD",
+        "CHG",
+        "BY",
+        "SNRD",
+        "MSD",
+        "CSMT"
+      ],
+      "stopTimes": [
+        {
+          "code": "KYN",
+          "time": "21:36"
+        },
+        {
+          "code": "THK",
+          "time": "21:42"
+        },
+        {
+          "code": "DI",
+          "time": "21:45"
+        },
+        {
+          "code": "KOPR",
+          "time": "21:48"
+        },
+        {
+          "code": "DW",
+          "time": "21:53"
+        },
+        {
+          "code": "MBQ",
+          "time": "21:57"
+        },
+        {
+          "code": "KLVA",
+          "time": "22:03"
+        },
+        {
+          "code": "TNA",
+          "time": "22:08"
+        },
+        {
+          "code": "MLND",
+          "time": "22:13"
+        },
+        {
+          "code": "NHU",
+          "time": "22:16"
+        },
+        {
+          "code": "BND",
+          "time": "22:19"
+        },
+        {
+          "code": "KJMG",
+          "time": "22:22"
+        },
+        {
+          "code": "VK",
+          "time": "22:25"
+        },
+        {
+          "code": "GC",
+          "time": "22:29"
+        },
+        {
+          "code": "VVH",
+          "time": "22:32"
+        },
+        {
+          "code": "CLA",
+          "time": "22:35"
+        },
+        {
+          "code": "SIN",
+          "time": "22:39"
+        },
+        {
+          "code": "MTN",
+          "time": "22:42"
+        },
+        {
+          "code": "DR",
+          "time": "22:46"
+        },
+        {
+          "code": "PR",
+          "time": "22:49"
+        },
+        {
+          "code": "CRD",
+          "time": "22:52"
+        },
+        {
+          "code": "CHG",
+          "time": "22:54"
+        },
+        {
+          "code": "BY",
+          "time": "22:56"
+        },
+        {
+          "code": "SNRD",
+          "time": "22:59"
+        },
+        {
+          "code": "MSD",
+          "time": "23:02"
+        },
+        {
+          "code": "CSMT",
+          "time": "23:05"
+        }
+      ],
+      "sourceId": "cr-main-ac-2022-primary",
+      "effectiveFrom": null,
+      "snapshotDate": "2022-05-19",
+      "currentCoverageVerified": false,
+      "historical": true,
+      "dateCoverage": "Documented May 2022 snapshot only; availability after that snapshot is unverified.",
+      "days": [
+        "Mon",
+        "Tue",
+        "Wed",
+        "Thu",
+        "Fri",
+        "Sat"
+      ],
+      "calendarNote": "Monday-Saturday table; separate Sunday/nominatedholiday table",
+      "scheduleKnown": true,
+      "departure": "21:36",
+      "arrival": "23:05",
+      "sourceRows": [
+        511,
+        564
+      ],
+      "directional": true
+    },
+    {
+      "id": "cr-97166-2022",
+      "trainNo": "97166",
+      "lineId": "central-main",
+      "direction": "up",
+      "stops": [
+        "KYN",
+        "THK",
+        "DI",
+        "KOPR",
+        "DW",
+        "MBQ",
+        "KLVA",
+        "TNA",
+        "MLND",
+        "NHU",
+        "BND",
+        "KJMG",
+        "VK",
+        "GC",
+        "VVH",
+        "CLA",
+        "SIN",
+        "MTN",
+        "DR",
+        "PR",
+        "CRD",
+        "CHG",
+        "BY",
+        "SNRD",
+        "MSD",
+        "CSMT"
+      ],
+      "stopTimes": [
+        {
+          "code": "KYN",
+          "time": "22:56"
+        },
+        {
+          "code": "THK",
+          "time": "23:01"
+        },
+        {
+          "code": "DI",
+          "time": "23:04"
+        },
+        {
+          "code": "KOPR",
+          "time": "23:08"
+        },
+        {
+          "code": "DW",
+          "time": "23:13"
+        },
+        {
+          "code": "MBQ",
+          "time": "23:17"
+        },
+        {
+          "code": "KLVA",
+          "time": "23:23"
+        },
+        {
+          "code": "TNA",
+          "time": "23:28"
+        },
+        {
+          "code": "MLND",
+          "time": "23:33"
+        },
+        {
+          "code": "NHU",
+          "time": "23:36"
+        },
+        {
+          "code": "BND",
+          "time": "23:39"
+        },
+        {
+          "code": "KJMG",
+          "time": "23:42"
+        },
+        {
+          "code": "VK",
+          "time": "23:45"
+        },
+        {
+          "code": "GC",
+          "time": "23:49"
+        },
+        {
+          "code": "VVH",
+          "time": "23:52"
+        },
+        {
+          "code": "CLA",
+          "time": "23:55"
+        },
+        {
+          "code": "SIN",
+          "time": "23:59"
+        },
+        {
+          "code": "MTN",
+          "time": "00:02"
+        },
+        {
+          "code": "DR",
+          "time": "00:06"
+        },
+        {
+          "code": "PR",
+          "time": "00:09"
+        },
+        {
+          "code": "CRD",
+          "time": "00:12"
+        },
+        {
+          "code": "CHG",
+          "time": "00:14"
+        },
+        {
+          "code": "BY",
+          "time": "00:17"
+        },
+        {
+          "code": "SNRD",
+          "time": "00:20"
+        },
+        {
+          "code": "MSD",
+          "time": "00:23"
+        },
+        {
+          "code": "CSMT",
+          "time": "00:27"
+        }
+      ],
+      "sourceId": "cr-main-ac-2022-primary",
+      "effectiveFrom": null,
+      "snapshotDate": "2022-05-19",
+      "currentCoverageVerified": false,
+      "historical": true,
+      "dateCoverage": "Documented May 2022 snapshot only; availability after that snapshot is unverified.",
+      "days": [
+        "Mon",
+        "Tue",
+        "Wed",
+        "Thu",
+        "Fri",
+        "Sat"
+      ],
+      "calendarNote": "Monday-Saturday table; separate Sunday/nominatedholiday table",
+      "scheduleKnown": true,
+      "departure": "22:56",
+      "arrival": "00:27",
+      "sourceRows": [
+        511,
+        564
+      ],
+      "directional": true
+    },
+    {
+      "id": "cr-97168-2022",
+      "trainNo": "97168",
+      "lineId": "central-main",
+      "direction": "up",
+      "stops": [
+        "KYN",
+        "THK",
+        "DI",
+        "KOPR",
+        "DW",
+        "MBQ",
+        "KLVA",
+        "TNA",
+        "MLND",
+        "NHU",
+        "BND",
+        "KJMG",
+        "VK",
+        "GC",
+        "VVH",
+        "CLA",
+        "SIN",
+        "MTN",
+        "DR"
+      ],
+      "stopTimes": [
+        {
+          "code": "KYN",
+          "time": "23:11"
+        },
+        {
+          "code": "THK",
+          "time": "23:17"
+        },
+        {
+          "code": "DI",
+          "time": "23:20"
+        },
+        {
+          "code": "KOPR",
+          "time": "23:24"
+        },
+        {
+          "code": "DW",
+          "time": "23:28"
+        },
+        {
+          "code": "MBQ",
+          "time": "23:32"
+        },
+        {
+          "code": "KLVA",
+          "time": "23:38"
+        },
+        {
+          "code": "TNA",
+          "time": "23:43"
+        },
+        {
+          "code": "MLND",
+          "time": "23:47"
+        },
+        {
+          "code": "NHU",
+          "time": "23:50"
+        },
+        {
+          "code": "BND",
+          "time": "23:53"
+        },
+        {
+          "code": "KJMG",
+          "time": "23:56"
+        },
+        {
+          "code": "VK",
+          "time": "23:59"
+        },
+        {
+          "code": "GC",
+          "time": "00:04"
+        },
+        {
+          "code": "VVH",
+          "time": "00:07"
+        },
+        {
+          "code": "CLA",
+          "time": "00:10"
+        },
+        {
+          "code": "SIN",
+          "time": "00:14"
+        },
+        {
+          "code": "MTN",
+          "time": "00:18"
+        },
+        {
+          "code": "DR",
+          "time": "00:21"
+        }
+      ],
+      "sourceId": "cr-main-ac-2022-primary",
+      "effectiveFrom": null,
+      "snapshotDate": "2022-05-19",
+      "currentCoverageVerified": false,
+      "historical": true,
+      "dateCoverage": "Documented May 2022 snapshot only; availability after that snapshot is unverified.",
+      "days": [
+        "Mon",
+        "Tue",
+        "Wed",
+        "Thu",
+        "Fri",
+        "Sat"
+      ],
+      "calendarNote": "Monday-Saturday table; separate Sunday/nominatedholiday table",
+      "scheduleKnown": true,
+      "departure": "23:11",
+      "arrival": "00:21",
+      "sourceRows": [
+        511,
+        564
+      ],
+      "directional": true
+    },
+    {
+      "id": "cr-95701-sun-2022",
+      "trainNo": "95701",
+      "lineId": "central-main",
+      "direction": "down",
+      "stops": [
+        "CSMT",
+        "BY",
+        "DR",
+        "CLA",
+        "GC",
+        "TNA",
+        "DI",
+        "KYN"
+      ],
+      "stopTimes": [
+        {
+          "code": "CSMT",
+          "time": "05:20"
+        },
+        {
+          "code": "BY",
+          "time": "05:27"
+        },
+        {
+          "code": "DR",
+          "time": "05:33"
+        },
+        {
+          "code": "CLA",
+          "time": "05:40"
+        },
+        {
+          "code": "GC",
+          "time": "05:44"
+        },
+        {
+          "code": "TNA",
+          "time": "06:01"
+        },
+        {
+          "code": "DI",
+          "time": "06:17"
+        },
+        {
+          "code": "KYN",
+          "time": "06:24"
+        }
+      ],
+      "sourceId": "cr-main-ac-2022-primary",
+      "effectiveFrom": null,
+      "snapshotDate": "2022-05-19",
+      "currentCoverageVerified": false,
+      "historical": true,
+      "dateCoverage": "Documented May 2022 snapshot only; availability after that snapshot is unverified.",
+      "days": [
+        "Sun"
+      ],
+      "calendarNote": "Sunday/nominatedholiday table",
+      "scheduleKnown": true,
+      "departure": "05:20",
+      "arrival": "06:24",
+      "sourceRows": [
+        639,
+        692
+      ],
+      "directional": true
+    },
+    {
+      "id": "cr-95707-sun-2022",
+      "trainNo": "95707",
+      "lineId": "central-main",
+      "direction": "down",
+      "stops": [
+        "CSMT",
+        "BY",
+        "DR",
+        "CLA",
+        "GC",
+        "TNA",
+        "DI",
+        "KYN"
+      ],
+      "stopTimes": [
+        {
+          "code": "CSMT",
+          "time": "07:43"
+        },
+        {
+          "code": "BY",
+          "time": "07:50"
+        },
+        {
+          "code": "DR",
+          "time": "07:56"
+        },
+        {
+          "code": "CLA",
+          "time": "08:03"
+        },
+        {
+          "code": "GC",
+          "time": "08:07"
+        },
+        {
+          "code": "TNA",
+          "time": "08:23"
+        },
+        {
+          "code": "DI",
+          "time": "08:39"
+        },
+        {
+          "code": "KYN",
+          "time": "08:46"
+        }
+      ],
+      "sourceId": "cr-main-ac-2022-primary",
+      "effectiveFrom": null,
+      "snapshotDate": "2022-05-19",
+      "currentCoverageVerified": false,
+      "historical": true,
+      "dateCoverage": "Documented May 2022 snapshot only; availability after that snapshot is unverified.",
+      "days": [
+        "Sun"
+      ],
+      "calendarNote": "Sunday/nominatedholiday table",
+      "scheduleKnown": true,
+      "departure": "07:43",
+      "arrival": "08:46",
+      "sourceRows": [
+        639,
+        692
+      ],
+      "directional": true
+    },
+    {
+      "id": "cr-95713-sun-2022",
+      "trainNo": "95713",
+      "lineId": "central-main",
+      "direction": "down",
+      "stops": [
+        "CSMT",
+        "BY",
+        "DR",
+        "CLA",
+        "GC",
+        "TNA",
+        "DI",
+        "KYN"
+      ],
+      "stopTimes": [
+        {
+          "code": "CSMT",
+          "time": "10:04"
+        },
+        {
+          "code": "BY",
+          "time": "10:11"
+        },
+        {
+          "code": "DR",
+          "time": "10:17"
+        },
+        {
+          "code": "CLA",
+          "time": "10:24"
+        },
+        {
+          "code": "GC",
+          "time": "10:28"
+        },
+        {
+          "code": "TNA",
+          "time": "10:44"
+        },
+        {
+          "code": "DI",
+          "time": "11:00"
+        },
+        {
+          "code": "KYN",
+          "time": "11:07"
+        }
+      ],
+      "sourceId": "cr-main-ac-2022-primary",
+      "effectiveFrom": null,
+      "snapshotDate": "2022-05-19",
+      "currentCoverageVerified": false,
+      "historical": true,
+      "dateCoverage": "Documented May 2022 snapshot only; availability after that snapshot is unverified.",
+      "days": [
+        "Sun"
+      ],
+      "calendarNote": "Sunday/nominatedholiday table",
+      "scheduleKnown": true,
+      "departure": "10:04",
+      "arrival": "11:07",
+      "sourceRows": [
+        639,
+        692
+      ],
+      "directional": true
+    },
+    {
+      "id": "cr-95225-sun-2022",
+      "trainNo": "95225",
+      "lineId": "central-main",
+      "direction": "down",
+      "stops": [
+        "DR",
+        "CLA",
+        "GC",
+        "TNA",
+        "DI",
+        "KYN",
+        "VLDI",
+        "ULNR",
+        "ABH",
+        "BUD"
+      ],
+      "stopTimes": [
+        {
+          "code": "DR",
+          "time": "12:30"
+        },
+        {
+          "code": "CLA",
+          "time": "12:38"
+        },
+        {
+          "code": "GC",
+          "time": "12:42"
+        },
+        {
+          "code": "TNA",
+          "time": "12:57"
+        },
+        {
+          "code": "DI",
+          "time": "13:13"
+        },
+        {
+          "code": "KYN",
+          "time": "13:21"
+        },
+        {
+          "code": "VLDI",
+          "time": "13:25"
+        },
+        {
+          "code": "ULNR",
+          "time": "13:28"
+        },
+        {
+          "code": "ABH",
+          "time": "13:32"
+        },
+        {
+          "code": "BUD",
+          "time": "13:39"
+        }
+      ],
+      "sourceId": "cr-main-ac-2022-primary",
+      "effectiveFrom": null,
+      "snapshotDate": "2022-05-19",
+      "currentCoverageVerified": false,
+      "historical": true,
+      "dateCoverage": "Documented May 2022 snapshot only; availability after that snapshot is unverified.",
+      "days": [
+        "Sun"
+      ],
+      "calendarNote": "Sunday/nominatedholiday table",
+      "scheduleKnown": true,
+      "departure": "12:30",
+      "arrival": "13:39",
+      "sourceRows": [
+        639,
+        692
+      ],
+      "directional": true
+    },
+    {
+      "id": "cr-97233-sun-2022",
+      "trainNo": "97233",
+      "lineId": "central-main",
+      "direction": "down",
+      "stops": [
+        "CSMT",
+        "MSD",
+        "SNRD",
+        "BY",
+        "CHG",
+        "CRD",
+        "PR",
+        "DR",
+        "MTN",
+        "SIN",
+        "CLA",
+        "VVH",
+        "GC",
+        "VK",
+        "KJMG",
+        "BND",
+        "NHU",
+        "MLND",
+        "TNA",
+        "KLVA",
+        "MBQ",
+        "DW",
+        "KOPR",
+        "DI"
+      ],
+      "stopTimes": [
+        {
+          "code": "CSMT",
+          "time": "15:24"
+        },
+        {
+          "code": "MSD",
+          "time": "15:27"
+        },
+        {
+          "code": "SNRD",
+          "time": "15:29"
+        },
+        {
+          "code": "BY",
+          "time": "15:32"
+        },
+        {
+          "code": "CHG",
+          "time": "15:34"
+        },
+        {
+          "code": "CRD",
+          "time": "15:36"
+        },
+        {
+          "code": "PR",
+          "time": "15:39"
+        },
+        {
+          "code": "DR",
+          "time": "15:42"
+        },
+        {
+          "code": "MTN",
+          "time": "15:45"
+        },
+        {
+          "code": "SIN",
+          "time": "15:48"
+        },
+        {
+          "code": "CLA",
+          "time": "15:52"
+        },
+        {
+          "code": "VVH",
+          "time": "15:55"
+        },
+        {
+          "code": "GC",
+          "time": "15:58"
+        },
+        {
+          "code": "VK",
+          "time": "16:02"
+        },
+        {
+          "code": "KJMG",
+          "time": "16:05"
+        },
+        {
+          "code": "BND",
+          "time": "16:08"
+        },
+        {
+          "code": "NHU",
+          "time": "16:11"
+        },
+        {
+          "code": "MLND",
+          "time": "16:14"
+        },
+        {
+          "code": "TNA",
+          "time": "16:19"
+        },
+        {
+          "code": "KLVA",
+          "time": "16:24"
+        },
+        {
+          "code": "MBQ",
+          "time": "16:30"
+        },
+        {
+          "code": "DW",
+          "time": "16:34"
+        },
+        {
+          "code": "KOPR",
+          "time": "16:39"
+        },
+        {
+          "code": "DI",
+          "time": "16:43"
+        }
+      ],
+      "sourceId": "cr-main-ac-2022-primary",
+      "effectiveFrom": null,
+      "snapshotDate": "2022-05-19",
+      "currentCoverageVerified": false,
+      "historical": true,
+      "dateCoverage": "Documented May 2022 snapshot only; availability after that snapshot is unverified.",
+      "days": [
+        "Sun"
+      ],
+      "calendarNote": "Sunday/nominatedholiday table",
+      "scheduleKnown": true,
+      "departure": "15:24",
+      "arrival": "16:43",
+      "sourceRows": [
+        639,
+        692
+      ],
+      "directional": true
+    },
+    {
+      "id": "cr-95733-sun-2022",
+      "trainNo": "95733",
+      "lineId": "central-main",
+      "direction": "down",
+      "stops": [
+        "CSMT",
+        "BY",
+        "DR",
+        "CLA",
+        "GC",
+        "BND",
+        "TNA",
+        "DI",
+        "KYN"
+      ],
+      "stopTimes": [
+        {
+          "code": "CSMT",
+          "time": "18:36"
+        },
+        {
+          "code": "BY",
+          "time": "18:43"
+        },
+        {
+          "code": "DR",
+          "time": "18:49"
+        },
+        {
+          "code": "CLA",
+          "time": "18:56"
+        },
+        {
+          "code": "GC",
+          "time": "19:00"
+        },
+        {
+          "code": "BND",
+          "time": "19:07"
+        },
+        {
+          "code": "TNA",
+          "time": "19:18"
+        },
+        {
+          "code": "DI",
+          "time": "19:34"
+        },
+        {
+          "code": "KYN",
+          "time": "19:41"
+        }
+      ],
+      "sourceId": "cr-main-ac-2022-primary",
+      "effectiveFrom": null,
+      "snapshotDate": "2022-05-19",
+      "currentCoverageVerified": false,
+      "historical": true,
+      "dateCoverage": "Documented May 2022 snapshot only; availability after that snapshot is unverified.",
+      "days": [
+        "Sun"
+      ],
+      "calendarNote": "Sunday/nominatedholiday table",
+      "scheduleKnown": true,
+      "departure": "18:36",
+      "arrival": "19:41",
+      "sourceRows": [
+        639,
+        692
+      ],
+      "directional": true
+    },
+    {
+      "id": "cr-97643-sun-2022",
+      "trainNo": "97643",
+      "lineId": "central-main",
+      "direction": "down",
+      "stops": [
+        "CSMT",
+        "MSD",
+        "SNRD",
+        "BY",
+        "CHG",
+        "CRD",
+        "PR",
+        "DR",
+        "MTN",
+        "SIN",
+        "CLA"
+      ],
+      "stopTimes": [
+        {
+          "code": "CSMT",
+          "time": "21:56"
+        },
+        {
+          "code": "MSD",
+          "time": "21:59"
+        },
+        {
+          "code": "SNRD",
+          "time": "22:01"
+        },
+        {
+          "code": "BY",
+          "time": "22:04"
+        },
+        {
+          "code": "CHG",
+          "time": "22:06"
+        },
+        {
+          "code": "CRD",
+          "time": "22:08"
+        },
+        {
+          "code": "PR",
+          "time": "22:11"
+        },
+        {
+          "code": "DR",
+          "time": "22:14"
+        },
+        {
+          "code": "MTN",
+          "time": "22:17"
+        },
+        {
+          "code": "SIN",
+          "time": "22:20"
+        },
+        {
+          "code": "CLA",
+          "time": "22:25"
+        }
+      ],
+      "sourceId": "cr-main-ac-2022-primary",
+      "effectiveFrom": null,
+      "snapshotDate": "2022-05-19",
+      "currentCoverageVerified": false,
+      "historical": true,
+      "dateCoverage": "Documented May 2022 snapshot only; availability after that snapshot is unverified.",
+      "days": [
+        "Sun"
+      ],
+      "calendarNote": "Sunday/nominatedholiday table",
+      "scheduleKnown": true,
+      "departure": "21:56",
+      "arrival": "22:25",
+      "sourceRows": [
+        639,
+        692
+      ],
+      "directional": true
+    },
+    {
+      "id": "cr-97604-sun-2022",
+      "trainNo": "97604",
+      "lineId": "central-main",
+      "direction": "up",
+      "stops": [
+        "CLA",
+        "SIN",
+        "MTN",
+        "DR",
+        "PR",
+        "CRD",
+        "CHG",
+        "BY",
+        "SNRD",
+        "MSD",
+        "CSMT"
+      ],
+      "stopTimes": [
+        {
+          "code": "CLA",
+          "time": "04:46"
+        },
+        {
+          "code": "SIN",
+          "time": "04:50"
+        },
+        {
+          "code": "MTN",
+          "time": "04:53"
+        },
+        {
+          "code": "DR",
+          "time": "04:57"
+        },
+        {
+          "code": "PR",
+          "time": "05:00"
+        },
+        {
+          "code": "CRD",
+          "time": "05:03"
+        },
+        {
+          "code": "CHG",
+          "time": "05:05"
+        },
+        {
+          "code": "BY",
+          "time": "05:07"
+        },
+        {
+          "code": "SNRD",
+          "time": "05:10"
+        },
+        {
+          "code": "MSD",
+          "time": "05:13"
+        },
+        {
+          "code": "CSMT",
+          "time": "05:16"
+        }
+      ],
+      "sourceId": "cr-main-ac-2022-primary",
+      "effectiveFrom": null,
+      "snapshotDate": "2022-05-19",
+      "currentCoverageVerified": false,
+      "historical": true,
+      "dateCoverage": "Documented May 2022 snapshot only; availability after that snapshot is unverified.",
+      "days": [
+        "Sun"
+      ],
+      "calendarNote": "Sunday/nominatedholiday table",
+      "scheduleKnown": true,
+      "departure": "04:46",
+      "arrival": "05:16",
+      "sourceRows": [
+        639,
+        692
+      ],
+      "directional": true
+    },
+    {
+      "id": "cr-95702-sun-2022",
+      "trainNo": "95702",
+      "lineId": "central-main",
+      "direction": "up",
+      "stops": [
+        "KYN",
+        "DI",
+        "TNA",
+        "GC",
+        "CLA",
+        "DR",
+        "BY",
+        "CSMT"
+      ],
+      "stopTimes": [
+        {
+          "code": "KYN",
+          "time": "06:32"
+        },
+        {
+          "code": "DI",
+          "time": "06:37"
+        },
+        {
+          "code": "TNA",
+          "time": "06:55"
+        },
+        {
+          "code": "GC",
+          "time": "07:11"
+        },
+        {
+          "code": "CLA",
+          "time": "07:15"
+        },
+        {
+          "code": "DR",
+          "time": "07:24"
+        },
+        {
+          "code": "BY",
+          "time": "07:29"
+        },
+        {
+          "code": "CSMT",
+          "time": "07:39"
+        }
+      ],
+      "sourceId": "cr-main-ac-2022-primary",
+      "effectiveFrom": null,
+      "snapshotDate": "2022-05-19",
+      "currentCoverageVerified": false,
+      "historical": true,
+      "dateCoverage": "Documented May 2022 snapshot only; availability after that snapshot is unverified.",
+      "days": [
+        "Sun"
+      ],
+      "calendarNote": "Sunday/nominatedholiday table",
+      "scheduleKnown": true,
+      "departure": "06:32",
+      "arrival": "07:39",
+      "sourceRows": [
+        639,
+        692
+      ],
+      "directional": true
+    },
+    {
+      "id": "cr-95716-sun-2022",
+      "trainNo": "95716",
+      "lineId": "central-main",
+      "direction": "up",
+      "stops": [
+        "KYN",
+        "DI",
+        "TNA",
+        "MLND",
+        "GC",
+        "CLA",
+        "DR",
+        "BY",
+        "CSMT"
+      ],
+      "stopTimes": [
+        {
+          "code": "KYN",
+          "time": "08:54"
+        },
+        {
+          "code": "DI",
+          "time": "08:59"
+        },
+        {
+          "code": "TNA",
+          "time": "09:16"
+        },
+        {
+          "code": "MLND",
+          "time": "09:20"
+        },
+        {
+          "code": "GC",
+          "time": "09:32"
+        },
+        {
+          "code": "CLA",
+          "time": "09:36"
+        },
+        {
+          "code": "DR",
+          "time": "09:44"
+        },
+        {
+          "code": "BY",
+          "time": "09:50"
+        },
+        {
+          "code": "CSMT",
+          "time": "09:59"
+        }
+      ],
+      "sourceId": "cr-main-ac-2022-primary",
+      "effectiveFrom": null,
+      "snapshotDate": "2022-05-19",
+      "currentCoverageVerified": false,
+      "historical": true,
+      "dateCoverage": "Documented May 2022 snapshot only; availability after that snapshot is unverified.",
+      "days": [
+        "Sun"
+      ],
+      "calendarNote": "Sunday/nominatedholiday table",
+      "scheduleKnown": true,
+      "departure": "08:54",
+      "arrival": "09:59",
+      "sourceRows": [
+        639,
+        692
+      ],
+      "directional": true
+    },
+    {
+      "id": "cr-95726-sun-2022",
+      "trainNo": "95726",
+      "lineId": "central-main",
+      "direction": "up",
+      "stops": [
+        "KYN",
+        "DI",
+        "DW",
+        "TNA",
+        "GC",
+        "CLA",
+        "DR"
+      ],
+      "stopTimes": [
+        {
+          "code": "KYN",
+          "time": "11:22"
+        },
+        {
+          "code": "DI",
+          "time": "11:29"
+        },
+        {
+          "code": "DW",
+          "time": "11:34"
+        },
+        {
+          "code": "TNA",
+          "time": "11:45"
+        },
+        {
+          "code": "GC",
+          "time": "12:01"
+        },
+        {
+          "code": "CLA",
+          "time": "12:05"
+        },
+        {
+          "code": "DR",
+          "time": "12:15"
+        }
+      ],
+      "sourceId": "cr-main-ac-2022-primary",
+      "effectiveFrom": null,
+      "snapshotDate": "2022-05-19",
+      "currentCoverageVerified": false,
+      "historical": true,
+      "dateCoverage": "Documented May 2022 snapshot only; availability after that snapshot is unverified.",
+      "days": [
+        "Sun"
+      ],
+      "calendarNote": "Sunday/nominatedholiday table",
+      "scheduleKnown": true,
+      "departure": "11:22",
+      "arrival": "12:15",
+      "sourceRows": [
+        639,
+        692
+      ],
+      "directional": true
+    },
+    {
+      "id": "cr-95218-sun-2022",
+      "trainNo": "95218",
+      "lineId": "central-main",
+      "direction": "up",
+      "stops": [
+        "BUD",
+        "ABH",
+        "ULNR",
+        "VLDI",
+        "KYN",
+        "DI",
+        "TNA",
+        "GC",
+        "CLA",
+        "DR",
+        "BY",
+        "CSMT"
+      ],
+      "stopTimes": [
+        {
+          "code": "BUD",
+          "time": "13:48"
+        },
+        {
+          "code": "ABH",
+          "time": "13:56"
+        },
+        {
+          "code": "ULNR",
+          "time": "14:00"
+        },
+        {
+          "code": "VLDI",
+          "time": "14:03"
+        },
+        {
+          "code": "KYN",
+          "time": "14:09"
+        },
+        {
+          "code": "DI",
+          "time": "14:15"
+        },
+        {
+          "code": "TNA",
+          "time": "14:30"
+        },
+        {
+          "code": "GC",
+          "time": "14:46"
+        },
+        {
+          "code": "CLA",
+          "time": "14:51"
+        },
+        {
+          "code": "DR",
+          "time": "14:59"
+        },
+        {
+          "code": "BY",
+          "time": "15:05"
+        },
+        {
+          "code": "CSMT",
+          "time": "15:14"
+        }
+      ],
+      "sourceId": "cr-main-ac-2022-primary",
+      "effectiveFrom": null,
+      "snapshotDate": "2022-05-19",
+      "currentCoverageVerified": false,
+      "historical": true,
+      "dateCoverage": "Documented May 2022 snapshot only; availability after that snapshot is unverified.",
+      "days": [
+        "Sun"
+      ],
+      "calendarNote": "Sunday/nominatedholiday table",
+      "scheduleKnown": true,
+      "departure": "13:48",
+      "arrival": "15:14",
+      "sourceRows": [
+        639,
+        692
+      ],
+      "directional": true
+    },
+    {
+      "id": "cr-97236-sun-2022",
+      "trainNo": "97236",
+      "lineId": "central-main",
+      "direction": "up",
+      "stops": [
+        "DI",
+        "KOPR",
+        "DW",
+        "MBQ",
+        "KLVA",
+        "TNA",
+        "MLND",
+        "NHU",
+        "BND",
+        "KJMG",
+        "VK",
+        "GC",
+        "VVH",
+        "CLA",
+        "SIN",
+        "MTN",
+        "DR",
+        "PR",
+        "CRD",
+        "CHG",
+        "BY",
+        "SNRD",
+        "MSD",
+        "CSMT"
+      ],
+      "stopTimes": [
+        {
+          "code": "DI",
+          "time": "16:55"
+        },
+        {
+          "code": "KOPR",
+          "time": "16:59"
+        },
+        {
+          "code": "DW",
+          "time": "17:04"
+        },
+        {
+          "code": "MBQ",
+          "time": "17:08"
+        },
+        {
+          "code": "KLVA",
+          "time": "17:14"
+        },
+        {
+          "code": "TNA",
+          "time": "17:19"
+        },
+        {
+          "code": "MLND",
+          "time": "17:23"
+        },
+        {
+          "code": "NHU",
+          "time": "17:26"
+        },
+        {
+          "code": "BND",
+          "time": "17:29"
+        },
+        {
+          "code": "KJMG",
+          "time": "17:32"
+        },
+        {
+          "code": "VK",
+          "time": "17:35"
+        },
+        {
+          "code": "GC",
+          "time": "17:39"
+        },
+        {
+          "code": "VVH",
+          "time": "17:42"
+        },
+        {
+          "code": "CLA",
+          "time": "17:45"
+        },
+        {
+          "code": "SIN",
+          "time": "17:49"
+        },
+        {
+          "code": "MTN",
+          "time": "17:52"
+        },
+        {
+          "code": "DR",
+          "time": "17:55"
+        },
+        {
+          "code": "PR",
+          "time": "17:58"
+        },
+        {
+          "code": "CRD",
+          "time": "18:01"
+        },
+        {
+          "code": "CHG",
+          "time": "18:03"
+        },
+        {
+          "code": "BY",
+          "time": "18:05"
+        },
+        {
+          "code": "SNRD",
+          "time": "18:08"
+        },
+        {
+          "code": "MSD",
+          "time": "18:11"
+        },
+        {
+          "code": "CSMT",
+          "time": "18:14"
+        }
+      ],
+      "sourceId": "cr-main-ac-2022-primary",
+      "effectiveFrom": null,
+      "snapshotDate": "2022-05-19",
+      "currentCoverageVerified": false,
+      "historical": true,
+      "dateCoverage": "Documented May 2022 snapshot only; availability after that snapshot is unverified.",
+      "days": [
+        "Sun"
+      ],
+      "calendarNote": "Sunday/nominatedholiday table",
+      "scheduleKnown": true,
+      "departure": "16:55",
+      "arrival": "18:14",
+      "sourceRows": [
+        639,
+        692
+      ],
+      "directional": true
+    },
+    {
+      "id": "cr-97142-sun-2022",
+      "trainNo": "97142",
+      "lineId": "central-main",
+      "direction": "up",
+      "stops": [
+        "KYN",
+        "THK",
+        "DI",
+        "KOPR",
+        "DW",
+        "MBQ",
+        "KLVA",
+        "TNA",
+        "MLND",
+        "NHU",
+        "BND",
+        "KJMG",
+        "VK",
+        "GC",
+        "VVH",
+        "CLA",
+        "SIN",
+        "MTN",
+        "DR",
+        "PR",
+        "CRD",
+        "CHG",
+        "BY",
+        "SNRD",
+        "MSD",
+        "CSMT"
+      ],
+      "stopTimes": [
+        {
+          "code": "KYN",
+          "time": "19:56"
+        },
+        {
+          "code": "THK",
+          "time": "20:03"
+        },
+        {
+          "code": "DI",
+          "time": "20:07"
+        },
+        {
+          "code": "KOPR",
+          "time": "20:10"
+        },
+        {
+          "code": "DW",
+          "time": "20:15"
+        },
+        {
+          "code": "MBQ",
+          "time": "20:19"
+        },
+        {
+          "code": "KLVA",
+          "time": "20:25"
+        },
+        {
+          "code": "TNA",
+          "time": "20:30"
+        },
+        {
+          "code": "MLND",
+          "time": "20:35"
+        },
+        {
+          "code": "NHU",
+          "time": "20:38"
+        },
+        {
+          "code": "BND",
+          "time": "20:41"
+        },
+        {
+          "code": "KJMG",
+          "time": "20:44"
+        },
+        {
+          "code": "VK",
+          "time": "20:47"
+        },
+        {
+          "code": "GC",
+          "time": "20:51"
+        },
+        {
+          "code": "VVH",
+          "time": "20:54"
+        },
+        {
+          "code": "CLA",
+          "time": "20:57"
+        },
+        {
+          "code": "SIN",
+          "time": "21:01"
+        },
+        {
+          "code": "MTN",
+          "time": "21:04"
+        },
+        {
+          "code": "DR",
+          "time": "21:08"
+        },
+        {
+          "code": "PR",
+          "time": "21:11"
+        },
+        {
+          "code": "CRD",
+          "time": "21:14"
+        },
+        {
+          "code": "CHG",
+          "time": "21:16"
+        },
+        {
+          "code": "BY",
+          "time": "21:18"
+        },
+        {
+          "code": "SNRD",
+          "time": "21:21"
+        },
+        {
+          "code": "MSD",
+          "time": "21:24"
+        },
+        {
+          "code": "CSMT",
+          "time": "21:28"
+        }
+      ],
+      "sourceId": "cr-main-ac-2022-primary",
+      "effectiveFrom": null,
+      "snapshotDate": "2022-05-19",
+      "currentCoverageVerified": false,
+      "historical": true,
+      "dateCoverage": "Documented May 2022 snapshot only; availability after that snapshot is unverified.",
+      "days": [
+        "Sun"
+      ],
+      "calendarNote": "Sunday/nominatedholiday table",
+      "scheduleKnown": true,
+      "departure": "19:56",
+      "arrival": "21:28",
+      "sourceRows": [
+        639,
+        692
+      ],
+      "directional": true
+    }
+  ],
+  "acCoverageStatus": {
+    "harbour": "Three actual directional service columns from the primary circular effective 1 May 2026; documented snapshot, not a complete or live timetable.",
+    "central-main": "70 actual service columns from primaryMay2022snapshot (56weekday+14Sunday/holiday), eachhistorical/currentCoverageVerifiedfalse; noallcorridorinference. NoACbeyondTitwalaorBadlapur inthisdocument.",
+    "trans-harbour": "No current AC service verified",
+    "port": "No ACservice verified",
+    "memu": "No ACservice verified"
+  },
+  "excluded": [
+    {
+      "name": "Panvel–Karjat suburban corridor",
+      "reason": "No operational opening verified asof2Nov2026; Sept2026report still pendingCRS. Physicalfreighttrack doesnot establish localservice."
+    },
+    {
+      "name": "Chikhloli",
+      "reason": "Proposedstation inoldmap; passengeropening unverified"
+    },
+    {
+      "name": "Kile/Sagar Sangam",
+      "reason": "Proposed Port station; not currenttimetablehalt"
+    },
+    {
+      "name": "Thansit/Ravli",
+      "reason": "Nonpassenger cabins"
+    }
+  ],
+  "implementationNotes": [
+    "Keep DR Central Dadar distinct from DDR Western Dadar; connect only explicit walking-transfer.",
+    "Separate route-specific chainage for SNRD Main2.08 vsHarbour1.80; groupingUI station isokay, distanceedge must retainline.",
+    "Do not collapse KoparHLKOPAR into KoparLLKOPR for distance/routepath.",
+    "Port codes withcodeStatus flagged are secondary candidates, not invented primary observations. DTVL requires primarycode confirmation. RabaleRABE nowverified.",
+    "Classes andfares mustcome fromseparatelyverified faredata; ACrequires bothstations inoneservice stoplist, respectingdirection/day."
+  ],
+  "acResearchNotes": [
+    "No currentprimaryMainACfulltimetable could be retrieved afterCRwebsiteredesign; oldcr SSLhandshakefails. 2022primarypatterns intentionally markedhistorical.",
+    "June29,2026 expansion lists96612Titwala-CSMT06:46,97157CSMT-Kalyan19:18among12conversions. Endpointstatementsdo notproveeveryintermediatestop, so these arenotnewACstoplists.",
+    "HarbourMay2026 circular full98242column provesPanveltoCSMTonly. ReversefullCSMTtoPanvel column hasnotbeenverified, so noneiscreated."
+  ]
+}

@@ -3,5 +3,10 @@
   "version": "1.0.0",
   "private": true,
   "type": "module",
-  "scripts": { "start": "node server.mjs", "check": "node --check dist/app.js && node --check dist/components.js && node --check dist/journey.js && node --check dist/screens.js && node --check dist/config.js && node --check dist/timer.js && node --check dist/sw.js" }
+  "scripts": {
+    "start": "node server.mjs",
+    "check": "node --check dist/app.js && node --check dist/components.js && node --check dist/journey.js && node --check dist/screens.js && node --check dist/config.js && node --check dist/timer.js && node --check dist/sw.js && node --check dist/mumbai-network.js && node --check dist/mumbai-fares.js && node --check dist/mumbai-journey.js && node --check dist/data/mumbai-network.js && node --check dist/data/mumbai-fares.js",
+    "data:build": "node scripts/build-mumbai-data.mjs",
+    "test": "node --test tests/*.test.js"
+  }
 }

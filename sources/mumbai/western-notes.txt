@@ -1,0 +1,44 @@
+WESTERN RAILWAY MUMBAI SUBURBAN DATA — REVIEW NOTES
+Fetched: 2026-11-02. Candidate file: western.json. Not a live railway feed.
+
+1. STATIONS AND DISTANCE
+The 2026 Western Railway system map, marked as on 01-Apr-2026, provides all 37 stations from Churchgate (0.00) to Dahanu Road (123.78). Codes and exact decimal chainages are transcribed from its Mumbai inset. Main source:
+https://wr.indianrailways.gov.in/wr-view/HQ/Head%20Quarter/1778822907359-System%20map%202026%20A1.pdf
+
+These values are railway route chainages, not a verified charged-distance matrix. Their difference is a route-distance estimate and must not silently become the fare distance or imply fare rounding. Virar is 59.98 and Dahanu Road 123.78, giving a chainage difference of 63.80 km. No tariff has been inferred from it.
+
+Ram Mandir is 25.37 in the 2026 WR map. Older official CR and MRVC sources give 25.33 and 25.51 respectively. The latest WR map is selected for this candidate, with the discrepancy preserved. No claim is made that a fare engine uses 25.37.
+
+Mumbai Central code ambiguity is explicit: the WR 2025 safety list distinguishes BCL (local) and MMCT (mains); the 2023 IRCA list uses MMCT for both main and local; the 2026 map displays MMCT. This candidate uses BCL as local identity, with MMCT as an alias. Relevant old official URLs are recorded but now return 404; indexed official table text supplied those code distinctions. No personal contact data was retained.
+
+Dadar Western is DDR. Central Dadar DR is a different rail node. A pedestrian interchange between them is not a zero-distance rail segment. Mahim MM is the shared station identity for the Western/Harbour connection.
+
+2. BRANCH/SHARED TOPOLOGY
+A separate western_harbour_shared chain records Mahim through Goregaon, preserving the Churchgate-origin chainage. WR's official Harbour timetable effective 01-Oct-2022 shows service through this sequence to the CR Harbour side via King Circle/Wadala. It remains linked from the official timetable page, but is old service-topology evidence, not verified current timing.
+https://wr.indianrailways.gov.in/wr-view/HQ/Head%20Quarter/1680671789509-HARBOUR%20SERVICES%20W.E.F%20%20%2001.10.2022.pdf
+
+No operational Harbour extension to Borivali was verified. No independent suburban branch beyond this shared segment was added. Bandra Terminus and yards on the general system map were not converted into local stops. MEMU services beyond Dahanu are outside the requested suburban scope.
+
+3. AC ACTUAL STOP LISTS
+145 AC train columns (73 down, 72 up) were extracted from the two official six-page PDFs effective 01-May-2026. Each record carries direction, exact ordered station stops, printed times, source/page, effective date and fetch date. Every one of the 2,076 printed stop times matched an extracted record. Unique train numbers, station order and increasing travel times were checked. DN and UP first pages were visually inspected. Original PDF files are retained for review.
+
+Official timetable index:
+https://wr.indianrailways.gov.in/offerings/custom/Mumbai%20Suburban/preview/523
+AC down:
+https://wr.indianrailways.gov.in/wr-view/HQ/Head%20Quarter/1777701279370-DN%20AC%20%20PTT%20%20%2001.05.2026.pdf
+AC up:
+https://wr.indianrailways.gov.in/wr-view/HQ/Head%20Quarter/1777701330288-UP%20AC%20PTT%20%2001.05.2026.pdf
+
+For route availability, require a single actual service stop list containing the requested origin before destination. Do not assume every pair on the Western line has a direct AC service. The source shows no station north of Virar in the AC tables; this is a statement of source coverage, not proof of current absence.
+
+26 columns explicitly say non-AC on Saturday and Sunday. Their AC days are recorded as MON–FRI. Remaining records have days:null; daily operation is not independently asserted. Three columns have unresolved source symbols: 94117 (#), 94006 (#), 94024 (*). Their notes are preserved and should not support precise day-specific schedule promises until the original footnotes are clarified.
+
+4. CURRENTNESS GAP
+The official timetable page fetched on 02-Nov-2026 still links May 2026 SWTT 78. Secondary August/September reporting refers to SWTT 79 effective 01-Sep-2026 and links an official WR post:
+https://x.com/WesternRly/status/2094444929326223625
+That post and a complete revised primary timetable could not be directly verified. Consequently all AC records explicitly say currentValidity=unverified_after_2026-05-01. Do not describe them as today's/live/latest schedule. Reported September changes were not silently patched into the primary-source data.
+
+5. CLASSES AND FARES NOT ESTABLISHED HERE
+The AC service classification is verified by the dedicated official AC tables. This file does not supply a current fare table, fare calculation formula, concession entitlement, ticket validity rule, or a current ordinary first/second-class tariff. A current verified railway tariff or booking source is still needed for price promises. Keep railway distance, charged distance, service availability and class entitlement as separate facts.
+
+All structured datasets and sources include fetch/effective dates. App source files were not edited during this research.
