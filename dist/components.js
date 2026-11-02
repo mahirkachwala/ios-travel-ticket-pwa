@@ -44,13 +44,18 @@ export function feedback(copy) {
   return `<section class="feedback" id="feedback"><h2>${e(copy.feedbackTitle)}</h2><form id="feedback-form"><label class="rating-label" id="rating-label">Your Rating</label><div class="stars" role="radiogroup" aria-labelledby="rating-label">${[1,2,3,4,5].map(n=>`<button type="button" class="star" data-rating="${n}" role="radio" aria-checked="false" aria-label="${n} star${n===1?'':'s'}"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m12 2.5 2.9 6 6.6 1-4.8 4.6 1.2 6.6-5.9-3.1-5.9 3.1 1.2-6.6L2.5 9.5l6.6-1Z"/></svg></button>`).join('')}</div><div class="description-wrap"><textarea name="description" maxlength="200" rows="4" placeholder="Description" aria-label="Feedback description"></textarea><span id="character-count">0/200</span></div><button type="submit" class="submit-feedback" disabled>Submit</button><p class="feedback-success" hidden>Thank you for your feedback!</p></form></section>`;
 }
 
+function bookingStatus(ticket) {
+  return ['completed','cancelled'].includes(ticket.status)?ticket.status:'upcoming';
+}
+
 export function bookingCard(ticket) {
-  return `<article class="history-ticket"><div class="history-inner"><div class="history-top"><span class="unreserved">Unreserved</span><span>UTS: ${e(ticket.id)}</span></div><div class="history-row"><div><span class="tiny-label">Ticket Type</span><strong>${e(ticket.type)}</strong></div><div class="align-right"><span class="tiny-label">Booking Date</span><strong>${shortDate(ticket.date)}</strong></div></div><div class="history-route"><span>${e(ticket.source)}</span><span class="route-distance">— ${e(ticket.distance)} —</span><span>${e(ticket.destination)}</span></div></div><div class="history-actions"><button data-action="book-again" data-id="${e(ticket.id)}">Book Again</button><span></span><button data-action="view-ticket" data-id="${e(ticket.id)}">View Details</button></div></article>`;
+  return `<article class="history-ticket ${bookingStatus(ticket)}"><div class="history-inner"><div class="history-top"><span class="unreserved">Unreserved</span><span class="history-id">UTS: <strong>${e(ticket.id)}</strong></span></div><div class="history-row"><div><span class="tiny-label">Ticket Type</span><strong>${e(ticket.type)}</strong></div><div class="align-right"><span class="tiny-label">Booking Date</span><strong>${shortDate(ticket.date)}</strong></div></div><div class="history-route"><span>${e(ticket.source)}</span><span class="route-distance">— ${e(ticket.distance)} —</span><span>${e(ticket.destination)}</span></div></div><div class="history-actions"><button data-action="book-again" data-id="${e(ticket.id)}">Book Again</button><span aria-hidden="true"></span><button data-action="view-ticket" data-id="${e(ticket.id)}">View Details</button></div></article>`;
 }
 
 export function bookings(tickets,tab) {
-  const label=tab[0].toUpperCase()+tab.slice(1);
-  return `<div class="bookings-summary ${e(tab)}"><span>${label} (${tickets.length})</span><button data-action="refresh" aria-label="Refresh bookings">${icon('refresh',14)}</button></div>${tickets.length?`<div class="booking-list ${e(tab)}">${tickets.map(bookingCard).join('')}</div>`:`<div class="empty-state">${icon('ticket',58)}<p>No Tickets Found. Swipe down to refresh.</p></div>`}`;
+  const sections=tab==='all'?['upcoming','completed','cancelled'].map(status=>({status,items:tickets.filter(ticket=>bookingStatus(ticket)===status)})).filter(section=>section.items.length):[{status:tab,items:tickets}];
+  if(!sections.length)sections.push({status:'all',items:[]});
+  return sections.map(({status,items},index)=>`<section class="booking-section ${e(status)}" aria-label="${e(status[0].toUpperCase()+status.slice(1))} bookings"><div class="bookings-summary ${e(status)}"><h2>${e(status[0].toUpperCase()+status.slice(1))} (${items.length})</h2>${index===0?`<button data-action="refresh" aria-label="Refresh bookings">${icon('refresh',18)}</button>`:''}</div>${items.length?`<div class="booking-list ${e(status)}">${items.map(bookingCard).join('')}</div>`:`<div class="empty-state">${icon('ticket',58)}<p>No Tickets Found. Swipe down to refresh.</p></div>`}</section>`).join('');
 }
 
 export function tabBar(tab) {
