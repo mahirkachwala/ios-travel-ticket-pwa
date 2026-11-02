@@ -2,6 +2,7 @@ import {BRAND,COPY,INITIAL_TICKET,HISTORY,PREVIEW_SECONDS} from './config.js';
 import {escapeHTML as e,icon,header,activeTicket,bookings,tabBar,expiredTicket,money} from './components.js';
 import {updateTimer} from './timer.js';
 import {homeHeader,homeScreen,profileScreen,mainNav,menuDrawer,HOME_SERVICES} from './screens.js';
+import {routeChoices, routePickerContent} from './route-picker.js';
 import {updateJourney} from './mumbai-journey.js';
 import {findStation, sourceRecords, NETWORK_DATA} from './mumbai-network.js';
 import {FARE_DATA} from './mumbai-fares.js';
@@ -43,7 +44,9 @@ function journeyAction(action,button){
   else if(action==='journey-swap'){[d.source,d.destination]=[d.destination,d.source];[d.sourceCode,d.destinationCode]=[d.destinationCode,d.sourceCode];reprice();refreshJourney();}
   else if(action==='journey-mode'){if(button.dataset.value==='season'){toast('Season fares are not included in this local journey dataset.');return;}d[button.dataset.field]=button.dataset.value;refreshJourney();}
   else if(action==='journey-recent'){for(const field of ['source','destination']){d[field]=button.dataset[field];d[field+'Code']=button.dataset[field+'Code']||'';}reprice();refreshJourney();}
-  else if(action==='journey-proceed'){if(!d.source?.trim()||!d.destination?.trim()||d.source===d.destination){toast('Choose different source and destination stations.');return;}reprice();if(!d.route){toast('No connected local route found. Choose stations from the list.');return;}navigate('journey-options');}
+  else if(action==='journey-proceed'){if(!d.source?.trim()||!d.destination?.trim()||d.source===d.destination){toast('Choose different source and destination stations.');return;}reprice();if(!d.route){toast('No connected local route found. Choose stations from the list.');return;}if(routeChoices(d.availableRoutes).length>1)showRoutePicker(true);else navigate('journey-options');}
+  else if(action==='journey-route-picker')showRoutePicker(false);
+  else if(action==='journey-route-select'){if(!d.availableRoutes.some(route=>route.id===button.dataset.routeId))return;const next=app.querySelector('.route-picker-backdrop')?.dataset.continue==='true';d.routeId=button.dataset.routeId;reprice();closeModal();if(next)navigate('journey-options');else refreshJourney();}
   else if(action==='journey-choice'){if(button.dataset.value==='AC EMU TRAIN'&&!d.acAvailable)return;d[button.dataset.field]=button.dataset.value;if(d.service==='AC EMU TRAIN')d.class='FIRST';reprice();refreshJourney();}
   else if(action==='journey-step'){const field=button.dataset.field;d[field]=Math.min(6,Math.max(field==='adults'?1:0,Number(d[field])+Number(button.dataset.delta)));reprice();refreshJourney();}
   else if(action==='journey-concession'){d.concession=!d.concession;reprice();refreshJourney();}
@@ -55,6 +58,16 @@ function journeyAction(action,button){
   else if(action==='journey-upcoming'){reprice();showRoute(d,true);}
 }
 
+function showRoutePicker(continueToOptions){
+  closeModal();
+  showModal('Route',routePickerContent(draft().availableRoutes),{className:'route-picker'});
+  const modal=app.querySelector('.route-picker-backdrop');
+  modal.dataset.continue=String(continueToOptions);
+  modal._inertSiblings=[...app.children].filter(node=>node!==modal&&!node.inert);
+  modal._inertSiblings.forEach(node=>{node.inert=true;});
+  modal.querySelector('.route-choice-card')?.focus({preventScroll:true});
+}
+
 function sourcesList(sources){return `<ul class="network-sources">${sources.map(source=>`<li><a href="${e(source.mirrorUrl||source.url)}" target="_blank" rel="noopener noreferrer">${e(source.title)}</a></li>`).join('')}</ul>`;}
 function showFare(d){
   const quote=d.fareQuote;
@@ -64,7 +77,7 @@ function showRoute(d,services=false){
   const route=d.route;
   if(!route){showModal('Mumbai Local Network','<p>Select source and destination from the Mumbai local station list.</p>');return;}
   const acSources=sourceRecords((d.acServices||[]).map(service=>service.sourceId));
-  showModal(services?'Local Services':'Route & Data Sources',`<p><strong>${e(d.source)} → ${e(d.destination)}</strong></p><p>${e(route.distanceLabel)} · Via ${e(route.viaLabel)}</p>${route.hasWalkingTransfer?'<p>Includes an interchange between Central and Western platforms at Dadar. This is not a single through train.</p>':''}<p class="network-stops">${route.nodes.map(code=>e(findStation(code)?.name||code)).join(' → ')}</p><p>Distance is calculated from published station chainages. Railway chargeable distance can differ. Via labels describe this route; they are not certified UTS fare-route codes.</p><h3>AC local availability</h3><p>${d.acAvailable?`${d.acServices.length} documented service pattern(s) stop at both stations; known weekday restrictions have been applied. Services include ${d.acServices.slice(0,12).map(service=>e(service.id)).join(', ')}.`:'No direct AC local service verified for this route in the available timetable snapshot.'}</p><p>Timetable data is a dated snapshot. Selected travel time, holidays, cancellations and later timetable changes require confirmation with the railway.</p><p>Network researched ${e(NETWORK_DATA.researchedAsOf)}. Main, Western, Harbour, Trans-Harbour and Port local corridors only.</p>${sourcesList([...sourceRecords(route.sourceIds),...acSources])}`);
+  showModal(services?'Local Services':'Route & Data Sources',`<p><strong>${e(d.source)} → ${e(d.destination)}</strong></p><p>${e(route.distanceLabel)} · Via ${e(route.viaLabel)}</p>${route.hasWalkingTransfer?'<p>Includes an interchange between Central and Western platforms at Dadar. This is not a single through train.</p>':''}<p class="network-stops">${route.nodes.map(code=>e(findStation(code)?.name||code)).join(' → ')}</p><p>The picker rounds distances up to whole kilometres. Detailed distances use published station chainages; railway chargeable distance can differ. Via labels describe this route; they are not certified UTS fare-route codes.</p><h3>AC local availability</h3><p>${d.acAvailable?`${d.acServices.length} documented service pattern(s) stop at both stations; known weekday restrictions have been applied. Services include ${d.acServices.slice(0,12).map(service=>e(service.id)).join(', ')}.`:'No direct AC local service verified for this route in the available timetable snapshot.'}</p><p>Timetable data is a dated snapshot. Selected travel time, holidays, cancellations and later timetable changes require confirmation with the railway.</p><p>Network researched ${e(NETWORK_DATA.researchedAsOf)}. Main, Western, Harbour, Trans-Harbour and Port local corridors only.</p>${sourcesList([...sourceRecords(route.sourceIds),...acSources])}`);
 }
 
 function applyBrand(){document.documentElement.style.setProperty('--primary',state.brand.primary);document.documentElement.style.setProperty('--ticket-watermark',`url("${BRAND.watermark}")`);document.querySelector('meta[name="theme-color"]').content=state.brand.primary;}
@@ -106,8 +119,8 @@ function updateCountdown(){if(state.screen!=='active'||!state.previewVisible)ret
 setInterval(updateCountdown,1000);
 
 function restoreFeedback(){const form=document.querySelector('#feedback-form');if(!form)return;form.elements.description.value=state.description;document.querySelector('#character-count').textContent=`${state.description.length}/200`;document.querySelectorAll('.star').forEach(button=>{button.classList.toggle('chosen',Number(button.dataset.rating)<=state.rating);button.setAttribute('aria-checked',String(Number(button.dataset.rating)===state.rating));});form.querySelector('.submit-feedback').disabled=!state.rating||state.submitted;form.querySelector('.feedback-success').hidden=!state.submitted;}
-function showModal(title,body){app.insertAdjacentHTML('beforeend',`<div class="modal-backdrop" data-action="backdrop"><section class="modal-sheet" role="dialog" aria-modal="true" aria-label="${e(title)}"><button class="modal-close" data-action="close-modal" aria-label="Close">${icon('close')}</button><h2>${e(title)}</h2>${body}</section></div>`);const modal=app.querySelector('.modal-backdrop');modal._returnFocus=document.activeElement;modal.querySelector('button').focus();}
-function closeModal(){const modal=app.querySelector('.modal-backdrop');const focus=modal?._returnFocus;modal?.remove();focus?.focus?.();}
+function showModal(title,body,{className=''}={}){app.insertAdjacentHTML('beforeend',`<div class="modal-backdrop ${className?e(className)+'-backdrop':''}" data-action="backdrop"><section class="modal-sheet ${e(className)}" role="dialog" aria-modal="true" aria-label="${e(title)}"><button class="modal-close" data-action="close-modal" aria-label="Close">${icon('close')}</button><h2>${e(title)}</h2>${body}</section></div>`);const modal=app.querySelector('.modal-backdrop');modal._returnFocus=document.activeElement;modal.querySelector('button').focus();}
+function closeModal(){const modal=app.querySelector('.modal-backdrop');const focus=modal?._returnFocus;modal?._inertSiblings?.forEach(node=>{node.inert=false;});modal?.remove();focus?.focus?.();}
 function saveProfile(){store('travel-profile',state.profile);}
 function closeMenu(){const menu=app.querySelector('.menu-overlay');const focus=menu?._returnFocus;menu?.remove();focus?.focus?.();}
 function openMenu(){closeMenu();app.insertAdjacentHTML('beforeend',menuDrawer(state.profile));const menu=app.querySelector('.menu-overlay');menu._returnFocus=document.activeElement;menu.querySelector('.menu-drawer button').focus();}
@@ -170,7 +183,7 @@ app.addEventListener('click',async event=>{
 });
 
 app.addEventListener('input',event=>{if(event.target.id==='station-query'){state.stationQuery=event.target.value;document.querySelector('#station-results-label').textContent=state.stationQuery.trim()?'Search Results':'Mumbai Local Stations';document.querySelector('#station-results').innerHTML=stationResults(state.stationField||'source',state.stationQuery);return;}const field=event.target.dataset.journeyField;if(field){if(['date','time'].includes(field))draft()[field]=event.target.value;return;}if(event.target.name==='description'){state.description=event.target.value;state.submitted=false;document.querySelector('#character-count').textContent=`${state.description.length}/200`;document.querySelector('.feedback-success').hidden=true;document.querySelector('.submit-feedback').disabled=!state.rating;}});
-app.addEventListener('change',event=>{if(event.target.hasAttribute('data-journey-route')){draft().routeId=event.target.value;reprice();refreshJourney();}else if(event.target.dataset.journeyField==='date'){reprice();refreshJourney();}});
+app.addEventListener('change',event=>{if(event.target.dataset.journeyField==='date'){reprice();refreshJourney();}});
 app.addEventListener('submit',event=>{
   event.preventDefault();const form=event.target;
   if(form.id==='journey-form'){

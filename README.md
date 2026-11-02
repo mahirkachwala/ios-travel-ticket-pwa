@@ -112,3 +112,9 @@ Data and implementation:
 - `tests/`: route, AC availability, tariff and recalculation regression checks.
 
 Run `npm run data:build` after updating reviewed extracts, then `npm run check` and `npm test`. Increase the service-worker cache version before deploying updated data. The application and datasets work offline after a successful first load. Source timestamps are research dates, not a promise of an automatic live scrape or a railway booking integration.
+
+## Route picker and Home wordmark
+
+Proceed To Book opens a bottom sheet when there are distinct route choices. Cards show the via name and distance rounded up to whole kilometres, matching the supplied reference. Selecting a card recalculates the route, AC options and fare before opening journey options. Change route reopens the sheet; detailed route information retains the original decimal engineering distance. Redundant detours that add stops to an otherwise identical shorter path are omitted from the picker.
+
+The route-sheet presentation lives in `dist/route-picker.js` and `dist/journey.css`. `BRAND.homeWordmark` and `BRAND.homeWordmarkAlt` control the separate Home header image. The supplied RailOne JPEG is stored unchanged in `dist/assets/home-wordmark-railone.jpg`. The installed blue train app icon is separate and remains unchanged.

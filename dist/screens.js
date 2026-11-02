@@ -1,4 +1,5 @@
 import {icon, escapeHTML as e, money, shortDate} from './components.js';
+import {BRAND} from './config.js';
 
 // The supplementary reference screens are independent of ticket state/routing.
 // Replace their artwork through BRAND.homeAssets without editing these views.
@@ -65,7 +66,11 @@ function avatar(profile={}) {
 
 export function homeHeader(brand={}) {
   const displayName=brand.wordmark||brand.name||'YOUR TRAVELS';
-  return `<header class="home-header"><button class="home-header-tool language-tool" data-action="home-language" aria-label="Select language">${artIcon('language')}</button><div class="home-wordmark" aria-label="${e(displayName)}">${e(displayName)}</div><button class="home-header-tool notification-tool" data-action="home-notifications" aria-label="Notifications, 2 unread">${artIcon('bell')}<span class="notification-badge">2</span></button></header>`;
+  // An explicit text wordmark or a renamed company keeps the existing text
+  // behavior. A custom image path can independently replace this default art.
+  const image=brand.homeWordmark&&!brand.wordmark&&(!brand.name||brand.name===BRAND.name||brand.homeWordmark!==BRAND.homeWordmark)?brand.homeWordmark:'';
+  const wordmark=image?`<img class="home-wordmark-image" src="${e(image)}" alt="${e(brand.homeWordmarkAlt||displayName)}">`:e(displayName);
+  return `<header class="home-header"><button class="home-header-tool language-tool" data-action="home-language" aria-label="Select language">${artIcon('language')}</button><div class="home-wordmark">${wordmark}</div><button class="home-header-tool notification-tool" data-action="home-notifications" aria-label="Notifications, 2 unread">${artIcon('bell')}<span class="notification-badge">2</span></button></header>`;
 }
 
 export function homeScreen(ticket,brand={},profile={}) {

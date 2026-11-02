@@ -1,5 +1,5 @@
 /* Increment this version when deploying changed application assets. */
-const CACHE_NAME = 'travel-ticket-v14';
+const CACHE_NAME = 'travel-ticket-v16';
 const CACHE_PREFIX = 'travel-ticket-';
 const PRECACHE = [
   './',
@@ -10,6 +10,8 @@ const PRECACHE = [
   './screens.js',
   './screens.css',
   './journey.js',
+  './route-picker.js',
+  './assets/home-wordmark-railone.jpg',
   './mumbai-network.js',
   './mumbai-fares.js',
   './mumbai-journey.js',

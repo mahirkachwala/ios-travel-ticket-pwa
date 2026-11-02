@@ -123,3 +123,25 @@
 .journey-schedule-fields output{font-size:calc(11*var(--u));overflow-wrap:anywhere;color:#26385b;padding:calc(6*var(--u)) 0}
 .network-sources{padding-left:1.2em;font-size:calc(11*var(--u));line-height:1.6}.network-sources li{margin:calc(7*var(--u)) 0}.network-sources a{color:var(--primary)}
 .network-stops{font-size:calc(11*var(--u));line-height:1.7!important}.modal-sheet .receipt-list{font-size:calc(12*var(--u))}.modal-sheet{overflow-wrap:anywhere}
+
+/* Route sheet measured from the supplied 720px reference. */
+.route-picker-backdrop{background:#0003;animation:route-scrim-in .18s ease-out}
+.route-picker{font-family:TravelUI,Montserrat,Arial,sans-serif;background:#fff;color:#0c205b;border-radius:calc(32*var(--u)) calc(32*var(--u)) 0 0;padding:calc(23*var(--u)) calc(23*var(--u)) calc(65*var(--u) + env(safe-area-inset-bottom));max-height:84%;animation:route-sheet-in .23s cubic-bezier(.2,.8,.2,1)}
+.route-picker h2{font-size:calc(18*var(--u));line-height:calc(26*var(--u));font-weight:700;letter-spacing:0;margin:0 0 calc(13*var(--u))}
+.route-choice-list{display:grid;gap:calc(11*var(--u))}
+.route-choice-card{display:flex;align-items:center;justify-content:space-between;gap:calc(16*var(--u));width:100%;min-height:calc(66*var(--u));padding:calc(15*var(--u)) calc(16*var(--u));border:0;border-radius:calc(12*var(--u));background:#f0f8fa;text-align:left;color:#121212;font:inherit;cursor:pointer}
+.route-choice-card>span{min-width:0;display:block}.route-choice-card strong{display:block;font-size:calc(14*var(--u));font-weight:700;line-height:calc(18*var(--u));overflow-wrap:anywhere}.route-choice-card small{display:block;font-size:calc(13*var(--u));font-weight:400;line-height:calc(17*var(--u))}
+.route-choice-card>svg{width:calc(24*var(--u));height:calc(24*var(--u));flex:none;color:#0068ff}
+.route-choice-card:active{background:#e0f0f7}.route-choice-card:focus-visible{outline:2px solid #0068ff;outline-offset:3px}
+.route-picker .modal-close{width:1px;height:1px;padding:0;clip-path:inset(50%);overflow:hidden;white-space:nowrap}
+.route-picker .modal-close:focus-visible{width:calc(28*var(--u));height:calc(28*var(--u));clip-path:none;right:calc(20*var(--u));top:calc(22*var(--u))}
+.route-picker:after{content:'';position:absolute;bottom:calc(7*var(--u));left:50%;transform:translateX(-50%);width:calc(78*var(--u));height:calc(4*var(--u));border-radius:5px;background:#888;pointer-events:none}
+.network-route-label{font-size:calc(11*var(--u));color:#153265;font-weight:600}
+.network-route .selected-route-button{display:flex;width:100%;justify-self:stretch;align-items:center;justify-content:space-between;gap:calc(12*var(--u));padding:calc(4*var(--u)) 0;text-align:left;color:#153265}
+.selected-route-button strong{display:block;font-size:calc(12*var(--u));line-height:calc(17*var(--u));font-weight:650}.selected-route-button small{display:block;font-size:calc(11*var(--u));line-height:calc(16*var(--u));font-weight:400;color:#596579}
+.selected-route-button svg{flex:none;color:#0068ff}.network-route .route-source-button{font-size:calc(10*var(--u))}
+@keyframes route-sheet-in{from{transform:translateY(100%)}to{transform:translateY(0)}}
+@keyframes route-scrim-in{from{background:transparent}to{background:#0003}}
+@media(prefers-reduced-motion:reduce){.route-picker,.route-picker-backdrop{animation:none}}
+
+.screen-journey:has(.route-picker-backdrop) .journey-recent{visibility:hidden}

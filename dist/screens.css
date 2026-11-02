@@ -6,6 +6,7 @@
 .screen-icon{width:calc(24*var(--u));height:calc(24*var(--u));flex:none;display:block}
 .home-header-tool .screen-icon{width:calc(27*var(--u));height:calc(27*var(--u))}
 .home-wordmark{font-size:calc(25*var(--u));line-height:1.1;font-weight:500;letter-spacing:calc(-.8*var(--u));white-space:nowrap;color:#353a35;max-width:calc(255*var(--u));overflow:hidden;text-overflow:ellipsis}
+.home-wordmark-image{display:block;width:calc(190*var(--u));height:calc(35*var(--u));object-fit:contain;mix-blend-mode:multiply}
 .notification-tool{border:1px solid #edeae2;border-radius:50%;color:#85867e}
 .notification-badge{position:absolute;top:calc(-1*var(--u));right:calc(-1*var(--u));min-width:calc(15*var(--u));height:calc(15*var(--u));border-radius:50%;background:#f06a61;color:white;font-size:calc(10*var(--u));font-weight:500;line-height:calc(15*var(--u))}
 .home-screen{padding:calc(15*var(--u)) calc(12*var(--u)) calc(46*var(--u));min-height:100%}

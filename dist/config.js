@@ -6,6 +6,8 @@ export const BRAND = {
   shortName: 'TR',
   primary: '#005cf5',
   logo: 'assets/brand-logo.svg',
+  homeWordmark: 'assets/home-wordmark-railone.jpg',
+  homeWordmarkAlt: 'RailOne',
   watermark: 'assets/ticket-watermark.svg',
   qr: 'assets/qr-ticket.svg',
 };
