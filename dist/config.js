@@ -2,6 +2,7 @@
 // No transport operator, payment service, or ticket-validation API is connected.
 export const BRAND = {
   name: 'YOUR TRAVELS',
+  ticketName: 'INDIAN RAILWAYS',
   nameLocal: 'आपकी यात्रा',
   shortName: 'TR',
   primary: '#005cf5',
