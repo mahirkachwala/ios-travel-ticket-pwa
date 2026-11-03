@@ -3,7 +3,7 @@ import {escapeHTML as e,icon,header,activeTicket,bookings,tabBar,expiredTicket,m
 import {updateTimer} from './timer.js';
 import {homeHeader,homeScreen,profileScreen,mainNav,menuDrawer,HOME_SERVICES} from './screens.js';
 import {routeChoices, routePickerContent} from './route-picker.js';
-import {updateJourney} from './mumbai-journey.js';
+import {updateJourney,setJourneyField} from './mumbai-journey.js';
 import {findStation, sourceRecords, NETWORK_DATA} from './mumbai-network.js';
 import {FARE_DATA} from './mumbai-fares.js';
 import {journeyEntry,stationSearch,stationResults,journeyOptions,journeyHeader,STATIONS} from './journey.js';
@@ -25,13 +25,14 @@ function draft(){
   return state.formTicket;
 }
 function reprice(){updateJourney(draft());}
-function refreshJourney(){const scroll=app.querySelector('#app-scroll')?.scrollTop||0;render();app.querySelector('#app-scroll').scrollTop=scroll;}
+function refreshJourney(){const scroll=app.querySelector('#app-scroll')?.scrollTop||0;const details=app.querySelector('.journey-schedule');if(details)draft().scheduleOpen=details.open;render();app.querySelector('#app-scroll').scrollTop=scroll;}
 function completeJourney(){
   reprice();
   const {availableRoutes,acServices,route,...values}=draft();
   if(!route){toast('Choose a connected Mumbai local route.');navigate('journey');return;}
   if(!values.source?.trim()||!values.destination?.trim()||values.source===values.destination){toast('Choose different source and destination stations.');navigate('journey');return;}
-  const invalid=[...app.querySelectorAll('[data-journey-field]')].find(input=>!input.checkValidity());if(invalid){invalid.closest('details')?.setAttribute('open','');invalid.reportValidity();return;}
+  const invalid=[...app.querySelectorAll('[data-journey-field]')].find(input=>!input.checkValidity());if(invalid){const details=app.querySelector('.journey-schedule');if(details){details.open=true;draft().scheduleOpen=true;}const target=details?.querySelector(`[data-journey-field="${invalid.dataset.journeyField}"]`)||invalid;target.focus();target.reportValidity();return;}
+  if(values.fare===null||!Number.isFinite(Number(values.fare))){draft().scheduleOpen=true;refreshJourney();app.querySelector('.journey-schedule [data-journey-field="fare"]')?.focus();return;}
   if(!/^\d{4}-\d{2}-\d{2}$/.test(values.date)||!/^\d{2}:\d{2}$/.test(values.time)){toast('Choose a valid travel date and time.');return;}
   state.ticket={...state.ticket,...values,status:'active',bookedAt:`${values.date} ${values.time}:00`};state.formTicket=null;state.rating=0;state.description='';state.submitted=false;state.tab='upcoming';store('travel-ticket',state.ticket);navigate('active');
 }
@@ -70,6 +71,7 @@ function showRoutePicker(continueToOptions){
 
 function sourcesList(sources){return `<ul class="network-sources">${sources.map(source=>`<li><a href="${e(source.mirrorUrl||source.url)}" target="_blank" rel="noopener noreferrer">${e(source.title)}</a></li>`).join('')}</ul>`;}
 function showFare(d){
+  if(d.fareStatus==='manual'){showModal('Fare Breakup',`<dl class="receipt-list"><dt>Fare entered</dt><dd>${money(d.fare)}</dd><dt>Passenger(s)</dt><dd>${d.adults} Adult, ${d.children} Child</dd><dt>Class</dt><dd>${e(d.class)}</dd><dt>Ticket Type</dt><dd>${e(d.type)}</dd></dl><p>This amount was entered in Travel details.</p>`);return;}
   const quote=d.fareQuote;
   showModal('Fare Breakup',`<dl class="receipt-list"><dt>Passenger(s)</dt><dd>${d.adults} Adult, ${d.children} Child</dd><dt>Class</dt><dd>${e(d.service==='AC EMU TRAIN'?'AC EMU':d.class)}</dd><dt>Ticket Type</dt><dd>${e(d.type)}</dd><dt>Route distance</dt><dd>${e(d.distance)}</dd>${(quote.breakdown||[]).map(row=>`<dt>${e(row.label)}</dt><dd>${money(row.amount)}</dd>`).join('')}<dt>${quote.amount===null?'Final fare':'Estimated total'}</dt><dd>${money(quote.amount)}</dd></dl>${quote.indicativeBase!=null?`<p>Indicative amount before unverified charges: ${money(quote.indicativeBase)}</p>`:''}${quote.notes.map(note=>`<p>${e(note)}</p>`).join('')}<h3>Fare sources</h3>${sourcesList(FARE_DATA.sources.filter(source=>quote.sourceIds.includes(source.id)))}`);
 }
@@ -182,8 +184,9 @@ app.addEventListener('click',async event=>{
   else if(action==='install')await installApp();
 });
 
-app.addEventListener('input',event=>{if(event.target.id==='station-query'){state.stationQuery=event.target.value;document.querySelector('#station-results-label').textContent=state.stationQuery.trim()?'Search Results':'Mumbai Local Stations';document.querySelector('#station-results').innerHTML=stationResults(state.stationField||'source',state.stationQuery);return;}const field=event.target.dataset.journeyField;if(field){if(['date','time'].includes(field))draft()[field]=event.target.value;return;}if(event.target.name==='description'){state.description=event.target.value;state.submitted=false;document.querySelector('#character-count').textContent=`${state.description.length}/200`;document.querySelector('.feedback-success').hidden=true;document.querySelector('.submit-feedback').disabled=!state.rating;}});
+app.addEventListener('input',event=>{if(event.target.id==='station-query'){state.stationQuery=event.target.value;document.querySelector('#station-results-label').textContent=state.stationQuery.trim()?'Search Results':'Mumbai Local Stations';document.querySelector('#station-results').innerHTML=stationResults(state.stationField||'source',state.stationQuery);return;}const field=event.target.dataset.journeyField;if(field){const d=setJourneyField(draft(),field,event.target.value);app.querySelectorAll('[data-journey-field="fare"]').forEach(input=>{if(input!==event.target)input.value=d.fare===null?'':String(d.fare);});const fareValue=app.querySelector('#journey-fare-value');if(fareValue)fareValue.textContent=d.fare===null?'₹ —':`${money(d.fare)}${d.fareStatus==='estimate'?'*':''}`;const estimate=app.querySelector('.journey-fare>div>small');if(estimate)estimate.hidden=d.fareStatus!=='estimate';return;}if(event.target.name==='description'){state.description=event.target.value;state.submitted=false;document.querySelector('#character-count').textContent=`${state.description.length}/200`;document.querySelector('.feedback-success').hidden=true;document.querySelector('.submit-feedback').disabled=!state.rating;}});
 app.addEventListener('change',event=>{if(event.target.dataset.journeyField==='date'){reprice();refreshJourney();}});
+app.addEventListener('toggle',event=>{if(event.target.matches?.('.journey-schedule')&&event.target.isConnected)draft().scheduleOpen=event.target.open;},true);
 app.addEventListener('submit',event=>{
   event.preventDefault();const form=event.target;
   if(form.id==='journey-form'){

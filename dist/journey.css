@@ -98,6 +98,14 @@
 .journey-schedule-fields label{font-size:calc(10*var(--u));line-height:calc(15*var(--u));color:#7a808c;display:flex;flex-direction:column;gap:calc(4*var(--u));min-width:0}
 .journey-schedule-fields input{font:inherit;font-size:calc(12*var(--u));border:1px solid #d6e1ed;border-radius:calc(5*var(--u));background:white;color:#26385b;min-width:0;width:100%;height:calc(34*var(--u));padding:0 calc(5*var(--u))}
 .journey-schedule-fields .journey-fare-override{grid-column:1/-1}.journey-fare-override small{font-size:calc(9*var(--u));font-weight:400;color:#9197a1}
+.journey-details-wrap{padding:0 calc(20*var(--u)) calc(12*var(--u))}
+.journey-details-content{padding:0 calc(10*var(--u)) calc(11*var(--u))}
+.journey-details-content .journey-schedule-fields{padding:0}
+.journey-details-content .network-route{margin-bottom:calc(12*var(--u))}
+.journey-schedule-fields .journey-via-field{grid-column:1/-1}
+.journey-fare-entry{display:flex;align-items:center;gap:calc(4*var(--u));font-size:calc(15*var(--u));font-weight:600;color:#505663}
+.journey-fare-entry input{width:calc(95*var(--u));height:calc(30*var(--u));min-width:0;border:1px solid #cadfe9;border-radius:calc(5*var(--u));background:white;color:#26385b;font:inherit;font-size:calc(12*var(--u));padding:0 calc(7*var(--u))}
+.journey-fare-entry input:focus-visible{outline:calc(2*var(--u)) solid #89baff;outline-offset:1px}
 .journey-fare{min-height:calc(59*var(--u));display:flex;align-items:center;gap:calc(19*var(--u));padding:calc(9*var(--u)) calc(20*var(--u));background:#f0f8fa;color:var(--journey-ink)}
 .journey-fare-icon{color:var(--journey-blue)}.journey-fare-icon .journey-icon{width:calc(35*var(--u));height:calc(35*var(--u))}
 .journey-fare>strong{font-size:calc(16*var(--u));font-weight:650;line-height:calc(23*var(--u))}
