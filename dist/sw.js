@@ -1,5 +1,5 @@
 /* Increment this version when deploying changed application assets. */
-const CACHE_NAME = 'travel-ticket-v23';
+const CACHE_NAME = 'travel-ticket-v24';
 const CACHE_PREFIX = 'travel-ticket-';
 const PRECACHE = [
   './',
